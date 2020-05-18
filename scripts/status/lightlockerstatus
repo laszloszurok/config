@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# This script checks if light-locker is running, and prints an appropriate indicator
+
+if [ -n "$(pidof light-locker)" ]; then
+    printf "%s", " on"; exit 1
+fi
+
+printf "%s", " off"

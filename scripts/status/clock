@@ -1,0 +1,7 @@
+#!/bin/sh
+
+icon=""
+date="$(date '+%a %d %b %Y')"
+hour_minute="$(date '+%H:%M')"
+
+printf "%s %s", "$icon" "$hour_minute"

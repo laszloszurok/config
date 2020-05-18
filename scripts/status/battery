@@ -1,0 +1,17 @@
+#!/bin/sh
+
+icon=""
+
+capacity=$(cat /sys/class/power_supply/BAT1/capacity) || exit
+
+if [ "$capacity" -le 75 ]; then
+    icon=""
+elif [ "$capacity" -le 50 ]; then
+    icon=""
+elif [ "$capacity" -le 30 ]; then
+    icon=""
+elif [ "$capacity" -le 20 ]; then
+    icon=""
+fi
+ 
+echo "$icon $capacity" | sed -e 's/$/%/'

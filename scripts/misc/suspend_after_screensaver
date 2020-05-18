@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# This script uses the output of the xset command to determine if the screen is turned off.
+# If it is, it waits for the given time and then checks the state of the monitor again.
+# If the screen is still off after the wait time and no audio is playing, the system will
+# be suspended with systemctl.
+
+xset dpms 300 300 300 # monitor switches off after 300 seconds
+
+while true
+do
+    MON_STATE=$(xset q | tail -1 | awk '{print $NF}')
+    if [ "$MON_STATE" == "Off" ]; then
+        BAT_STATE=`< /sys/class/power_supply/BAT1/status`
+        [ "$BAT_STATE" == "Discharging" ] && TIME_TO_WAIT=5m || TIME_TO_WAIT=15m
+        sleep $TIME_TO_WAIT
+        MON_STATE=$(xset q | tail -1 | awk '{print $NF}')
+        AUDIO_STATE=`< /proc/asound/card0/pcm0p/sub0/status | head -1 | awk '{print $NF}'`
+        [ "$MON_STATE" == "Off" ] && [ "$AUDIO_STATE" != "RUNNING"  ] && systemctl suspend
+    fi
+    sleep 30
+done

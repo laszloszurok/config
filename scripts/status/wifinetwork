@@ -1,0 +1,12 @@
+#!/bin/sh
+
+icon=""
+essid=`iwgetid wlo1 --raw`
+signal=`awk 'NR==3 {printf("%.0f%%",$3*10/7)}' /proc/net/wireless`
+
+if [ -z "$essid" ]; then
+    icon=""
+    essid="no wifi"
+fi
+
+echo "$icon $essid $signal"

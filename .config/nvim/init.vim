@@ -54,7 +54,8 @@ let mapleader = ","
 nmap <leader>w :w!<cr>
 
 " :W sudo saves the file 
-command! W execute 'silent! write !sudo tee % > /dev/null' <bar> edit!
+command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
+" command! W execute 'silent! write !sudo tee % > /dev/null' <bar> edit!
 
 " Leader + g to toggle Goyo (Have to set the colors, otherwise they are overwritten)
 map <leader>g :Goyo \| colorscheme one \| set background=dark \| highlight LineNr ctermfg=grey  \| set linebreak<CR>

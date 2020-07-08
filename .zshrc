@@ -1,8 +1,25 @@
 # Enable colors and change prompt:
 autoload -U colors && colors
-#PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+
+# Show git branch in right prompt
+setopt prompt_subst
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' actionformats \
+    '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
+zstyle ':vcs_info:*' formats       \
+    '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{5}]%f '
+zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
+zstyle ':vcs_info:*' enable git cvs svn
+vcs_info_wrapper() {
+  vcs_info
+  if [ -n "$vcs_info_msg_0_" ]; then
+    echo "%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color%}$del"
+  fi
+}
+
+RPROMPT=$'$(vcs_info_wrapper)'
 PS1="%{$fg[green]%}cwd: %{$fg[yellow]%}%~"$'\n'"%{$reset_color%}%{$reset_color%} "
-RPS1="  %m    %n"
+#RPS1="  %m    %n"
 
 # Loading pywal colors
 (cat ~/.cache/wal/sequences &)
@@ -18,7 +35,6 @@ alias vim=nvim
 alias ll="ls -lhF"
 alias la="ls -lahF"
 alias ls="ls --color=auto"
-alias zathura="/home/pulzar/Zathura-Pywal/zathura" # zathura with pywal colors
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles-bare-repo/ --work-tree=$HOME' # alias for managing files in the home folder with git
 
 # Basic auto/tab complete:
@@ -150,12 +166,12 @@ autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
 # Managing the PATH variable
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk/
 export PATH="$PATH:/home/pulzar/.local/bin"
 export PATH="$PATH:/home/pulzar/scripts/misc"
-export PATH="$PATH:/home/pulzar/sdks/flutter/bin"
-
-export JAVA_HOME=/usr/lib/jvm/java-11-openjdk/
+export PATH="$PATH:/home/pulzar/flutter/bin"
 export PATH="$JAVA_HOME/bin:$PATH"
+export PATH="$PATH:/home/pulzar/.emacs.d/bin"
 
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null

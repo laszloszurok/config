@@ -2,7 +2,7 @@
 
 cd ~
 
-sudo pacman -Syyu pcmanfm-gtk3 firefox qbittorrent gvfs gvfs-ntp ntfs-3g zip unzip xarchiver zathura zathura-pdf-poppler gimp lxappearance kvantum-qt5 neovim zsh zsh-syntax-highlighting ttf-font-awesome ttf-dejavu feh python-pywal vscodium scrot numlockx xclip arc-gtk-theme arc-icon-theme powertop lxsession mpv dunst light-locker discord lightdm alsa-utils
+sudo pacman -Syyu && sudo pacman -S pcmanfm-gtk3 firefox qbittorrent gvfs gvfs-mtp ntfs-3g zip unzip xarchiver zathura zathura-pdf-poppler gimp lxappearance kvantum-qt5 neovim zsh zsh-syntax-highlighting ttf-font-awesome ttf-dejavu feh python-pywal scrot numlockx xclip arc-gtk-theme arc-icon-theme powertop lxsession mpv dunst light-locker discord lightdm alsa-utils playerctl
 
 # installing yay
 git clone https://aur.archlinux.org/yay.git
@@ -11,7 +11,7 @@ makepkg -si
 
 cd ~
 
-yay -Sy spotify spicetify-cli windscribe-cli lightdm-slick-greeter lightdm-settings hugo android-studio
+yay -Sy spotify spicetify-cli windscribe-cli lightdm-slick-greeter lightdm-settings hugo android-studio vscodium-bin
 
 # gaining read and write permissions over spotify files
 sudo chmod a+wr /opt/spotify

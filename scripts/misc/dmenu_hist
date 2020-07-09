@@ -12,7 +12,9 @@ fi
 . $HOME/.dmenurc
 
 if [ -z "$TERMINAL_CMD" ]; then
-  if [ "$(which terminal)" ]; then
+  if [ "$(which st)" ]; then
+  TERMINAL_CMD="st -e"
+  elif [ "$(which terminal)" ]; then
   TERMINAL_CMD="terminal -e"
   elif [ "$(which urxvt)" ]; then
   TERMINAL_CMD="urxvt -e"
@@ -32,6 +34,8 @@ if [ -z "$TERMINAL_CMD" ]; then
   TERMINAL_CMD="xterm -e"
   fi
 fi
+
+dmenu_height=28
 
 dmenu_cmd="dmenu $DMENU_OPTIONS"
 max_recent=199 # Number of recent commands to track
@@ -55,7 +59,7 @@ if stest -dqr -n "$rest_cache" $PATH 2>/dev/null; then
 fi
 
 IFS=" "
-cmd=$(cat "$recent_cache" "$rest_cache" | $dmenu_cmd -h 25 -p run: "$@") || exit
+cmd=$(cat "$recent_cache" "$rest_cache" | $dmenu_cmd -h "$dmenu_height" -p run: "$@") || exit
 
 if ! grep -qx "$cmd" "$recent_cache" &> /dev/null; then
     grep -vx "$cmd" "$rest_cache" > "$rest_cache.$$"
@@ -78,7 +82,7 @@ word0=${cmd%% *}
 match="^$word0$"
 
 get_type () {
-    while type=$(echo $known_types | xargs -n1 | $dmenu_cmd -h 25 -p Type:); do
+    while type=$(echo $known_types | xargs -n1 | $dmenu_cmd -h "$dmenu_height" -p Type:); do
         [[ $known_types =~ " $type " ]] || continue
         echo "$word0" >> "$config_dir/$type"
         break

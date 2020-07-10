@@ -93,9 +93,9 @@ static const Layout layouts[] = {
         /* modifier                     key        function        argument */
         { MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} }, // restarting dwm in place
         { MODKEY|ShiftMask,             XK_Escape, quit,           {0} }, // logging out from the session
-	    { MODKEY|ShiftMask,             XK_h,      setcfact,       {.f = +0.25} },
-	    { MODKEY|ShiftMask,             XK_l,      setcfact,       {.f = -0.25} },
-	    { MODKEY|ShiftMask,             XK_o,      setcfact,       {.f =  0.00} },
+	{ MODKEY|ShiftMask,             XK_h,      setcfact,       {.f = +0.25} },
+	{ MODKEY|ShiftMask,             XK_l,      setcfact,       {.f = -0.25} },
+	{ MODKEY|ShiftMask,             XK_o,      setcfact,       {.f =  0.00} },
     	{ MODKEY,                       XK_s,      togglescratch,  {.v = scratchpadcmd } },
         { MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
         { MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
@@ -144,7 +144,7 @@ static const Layout layouts[] = {
         { 0,                       XK_Print,                   spawn,          SHCMD("/home/pulzar/scripts/misc/screenshot") },
         { MODKEY,                  XK_Print,                   spawn,          SHCMD("/home/pulzar/scripts/misc/screenshot -w") },
         { MODKEY|ShiftMask,        XK_Print,                   spawn,          SHCMD("st -e /home/pulzar/scripts/misc/screenshot -s") },
-        { MODKEY|ShiftMask,        XK_l,                       spawn,          SHCMD("/home/pulzar/scripts/status/togglelocker; pkill -RTMIN+14 dwmblocks") },
+        { MODKEY|ControlMask,      XK_l,                       spawn,          SHCMD("/home/pulzar/scripts/status/togglelocker; pkill -RTMIN+14 dwmblocks") },
     };
 
     /* button definitions */

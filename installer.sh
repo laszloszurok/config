@@ -1,9 +1,12 @@
 #!/bin/bash
 
+# Run this script with sudo
+# -------------------------
+
 # sync mirrors, update the system
 sudo pacman -Syyu
 
-# xorg related
+# x related
 sudo pacman -S xf86-video-intel xf86-video-amdgpu xorg xorg-xinit
 echo "#!/bin/sh
 
@@ -55,17 +58,25 @@ yay -Sy spotify spicetify-cli windscribe-cli lightdm-slick-greeter lightdm-setti
 # enabling services
 sudo sh -c "echo -e '[Unit]\nDescription=PowerTop\n\n[Service]\nType=oneshot\nRemainAfterExit=true\nExecStart=/usr/bin/powertop --auto-tune\n\n[Install]\nWantedBy=multi-user.target\n' > /etc/systemd/system/powertop.service"
 sudo systemctl enable --now powertop
-sudo systemctl enable --now lxsession
 sudo systemctl enable lightdm
 
 # cloning my configs from my github and setting up a bare repository for config file management
 git clone --separate-git-dir=$HOME/.myconf https://github.com/laszloszurok/suckless-arch.git $HOME/myconf-tmp
-rm -r ~/myconf-tmp/
-alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
-config config status.showUntrackedFiles no
+mv ~/myconf-tmp/* ~/myconf-tmp/.[!.]* ~/
+rm -rf ~/myconf-tmp/ ~/.git
+/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME config status.showUntrackedFiles no
 
 # installing my suckless builds
-`cd suckless-builds` && `cd dwm` && `sudo make install` && `cd ../dmenu` && `sudo make install` && `cd ../dwmblocks` && `sudo make install` && `cd ../st` && `sudo make install` && `cd ../wmname` && `sudo make install`
+cd suckless-builds/dwm
+sudo make install
+cd ../dmenu
+sudo make install
+cd ../dwmblocks
+sudo make install
+cd ../st
+sudo make install
+cd ../wmname
+sudo make install
 
 cd
 
@@ -243,12 +254,14 @@ Exec=/usr/local/bin/dwm
 Type=Application" > /usr/share/xsessions/dwm.desktop
 
 # touchpad settings
-sudo echo "Section "InputClass"
-    Identifier "touchpad"
-    Driver "libinput"
-    MatchIsTouchpad "on"
-    Option "Tapping" "on"
-    Option "NaturalScrolling" "true"
+sudo echo "Section \"InputClass\"
+    Identifier \"touchpad\"
+    Driver \"libinput\"
+    MatchIsTouchpad \"on\"
+    Option \"Tapping\" \"on\"
+    Option \"NaturalScrolling\" \"true\"
 EndSection" > /etc/X11/xorg.conf.d/30-touchpad.conf
 
-echo "\nFinished\nPlease reboot your computer"
+echo "
+Finished
+Please reboot your computer"

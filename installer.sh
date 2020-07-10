@@ -66,6 +66,9 @@ mv ~/myconf-tmp/* ~/myconf-tmp/.[!.]* ~/
 rm -rf ~/myconf-tmp/ ~/.git
 /usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME config status.showUntrackedFiles no
 
+# cloning my wallpaper repo
+git clone https://github.com/laszloszurok/Wallpapers
+
 # installing my suckless builds
 cd suckless-builds/dwm
 sudo make install

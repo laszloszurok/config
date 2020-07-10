@@ -1,6 +1,11 @@
+#!/bin/bash
+
+# running wal
+wal -i ~/Wallpapers/ocean-minimal.png
+
 # launching spotify to create the files that we need to modify
 echo "Close Spotify to continue..."
-spotify &
+spotify &> /dev/null &
 
 # gaining read and write permissions over spotify files
 sudo chmod a+wr /opt/spotify

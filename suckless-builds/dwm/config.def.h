@@ -48,6 +48,7 @@ static const Rule rules[] = {
     { "com.oracle.javafx.scenebuilder.app.SceneBuilderApp", 
                             NULL,       NULL,       1 << 4,       0,         0,              0,               -1 },
     { "code-oss",           NULL,       NULL,       1 << 4,       0,         0,              0,               -1 },
+    { "VSCodium",           NULL,       NULL,       1 << 4,       0,         0,              0,               -1 },
     { "Gimp",               NULL,       NULL,       1 << 5,       0,         0,              0,               -1 },
     { "Inkscape",           NULL,       NULL,       1 << 5,       0,         0,              0,               -1 },
     { "Pcmanfm",            NULL,       NULL,       1 << 6,       0,         0,              0,               -1 },

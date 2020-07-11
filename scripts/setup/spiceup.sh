@@ -3,13 +3,14 @@
 # running wal
 wal -i ~/Wallpapers/ocean-minimal.png
 
-# launching spotify to create the files that we need to modify
-echo "Close Spotify to continue..."
-spotify &> /dev/null &
-
-# gaining read and write permissions over spotify files
-sudo chmod a+wr /opt/spotify
-sudo chmod a+wr /opt/spotify/Apps -R
+if [ -d "/opt/spotify" ]; then
+    # gaining read and write permissions over spotify files
+    sudo chmod a+wr /opt/spotify
+    sudo chmod a+wr /opt/spotify/Apps -R
+else
+    echo "Please run Spotify to generate it's directory structure, then run this script again"
+    exit 1
+fi
 
 # enabling spotify dev-tools
 spicetify backup apply enable-devtool

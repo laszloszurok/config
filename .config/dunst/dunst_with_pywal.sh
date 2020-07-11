@@ -13,7 +13,7 @@
 
 pidof dunst && killall dunst
 
-dunst -conf "/home/pulzar/.config/dunst/dunstrc" \
+dunst -conf "dunstrc" \
       -lf  "${color15:-}" \
       -lb  "${color0:-}" \
       -lfr "${color7:-}" \

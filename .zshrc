@@ -31,6 +31,7 @@ HISTFILE=~/.cache/zsh/history
 setopt HIST_IGNORE_ALL_DUPS
 
 # aliases
+alias vf=vifmrun # vifmrun is a custom script for vifm with image preview (~/scripts/misc/vifmrun)
 alias vim=nvim
 alias ll="ls -lhF"
 alias la="ls -lahF"

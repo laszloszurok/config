@@ -83,6 +83,21 @@ sudo make install
 
 cd
 
+# setting up z
+git clone https://github.com/rupa/z ~/z
+mkdir ~/.cache/zj
+
+# spotify wm
+git clone https://github.com/dasJ/spotifywm.git
+cd spotifywm
+make
+sudo echo "LD_PRELOAD=/usr/lib/libcurl.so.4:/home/pulzar/spotifywm/spotifywm.so /usr/bin/spotify" > /usr/local/bin/spotify
+
+cd
+
+# changing the default shell to zsh
+chsh -s /usr/bin/zsh
+
 # lightdm settings
 sudo echo "#
 # General configuration
@@ -264,6 +279,10 @@ sudo echo "Section \"InputClass\"
     Option \"Tapping\" \"on\"
     Option \"NaturalScrolling\" \"true\"
 EndSection" > /etc/X11/xorg.conf.d/30-touchpad.conf
+
+# qt theme engine settings
+sudo echo "GTK_THEME=Arc-Dark
+QT_QPA_PLATFORMTHEME=qt5ct" >> /etc/environment
 
 echo "
 Finished

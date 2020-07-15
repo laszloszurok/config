@@ -856,8 +856,8 @@ drawbar(Monitor *m)
 		drw_setscheme(drw, scheme[m->tagset[m->seltags] & 1 << i ? SchemeSel : SchemeNorm]);
 		drw_text(drw, x, 0, w, bh, lrpad / 2, tags[i], urg & 1 << i);
 		if (occ & 1 << i)
-			drw_rect(drw, x + boxw, 0, w - ( 2 * boxw + 1), boxw,
-			    m == selmon && selmon->sel && selmon->sel->tags & 1 << i,
+			drw_rect(drw, x + boxw, 0, w - ( 2 * boxw + 1), boxw/2+1 // box/2+1 is the height,
+			    1, // 1 means draw a filled rect, 0 means draw only the border
 			    urg & 1 << i);
 
 		x += w;

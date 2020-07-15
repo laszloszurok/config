@@ -280,7 +280,7 @@ sudo echo "Section \"InputClass\"
     Option \"NaturalScrolling\" \"true\"
 EndSection" > /etc/X11/xorg.conf.d/30-touchpad.conf
 
-# qt theme engine settings
+# theme settings
 sudo echo "GTK_THEME=Arc-Dark
 QT_QPA_PLATFORMTHEME=qt5ct" >> /etc/environment
 

@@ -10,15 +10,13 @@ SAVEHIST=10000
 HISTFILE=~/.cache/zsh/history
 setopt HIST_IGNORE_ALL_DUPS
 
+export _Z_DATA="$HOME/.cache/z/zdata"        # Use the z command to cd into
+source $HOME/.config/zsh/customizations/z.sh # frequently visited directories faster
 source $HOME/.config/zsh/customizations/prompt.zsh
 source $HOME/.config/zsh/customizations/aliases.zsh
 source $HOME/.config/zsh/customizations/extract.zsh # function to extract archives
 source $HOME/.config/zsh/customizations/vimode.zsh # use modes like in vim
 source $HOME/.config/zsh/customizations/autocomplete.zsh
-
-# Use the z command to cd into frequently visited directories faster
-export _Z_DATA="$HOME/.cache/z/zdata"
-. /$HOME/z/z.sh
 
 # Set the default texteditor to neovim
 export EDITOR=nvim

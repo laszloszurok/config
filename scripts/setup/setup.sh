@@ -83,10 +83,6 @@ sudo make install
 
 cd
 
-# setting up z
-git clone https://github.com/rupa/z ~/z
-mkdir ~/.cache/zj
-
 # spotify wm
 git clone https://github.com/dasJ/spotifywm.git
 cd spotifywm

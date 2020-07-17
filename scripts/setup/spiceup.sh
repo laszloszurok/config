@@ -3,6 +3,8 @@
 # running wal
 wal -i ~/Wallpapers/ocean-minimal.png
 
+~/scripts/misc/genzathurarc
+
 if [ -d "/opt/spotify" ]; then
     # gaining read and write permissions over spotify files
     sudo chmod a+wr /opt/spotify

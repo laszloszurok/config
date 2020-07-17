@@ -43,7 +43,7 @@ fi
 exec dwm" > ~/.xinitrc
 
 # installing my most used software
-sudo pacman -S pcmanfm-gtk3 firefox qbittorrent gvfs gvfs-mtp ntfs-3g zip unzip xarchiver zathura zathura-pdf-poppler gimp lxappearance kvantum-qt5 neovim zsh zsh-syntax-highlighting ttf-font-awesome ttf-dejavu feh python-pywal scrot numlockx xclip arc-gtk-theme arc-icon-theme powertop lxsession mpv dunst light-locker discord lightdm alsa-utils playerctl sxiv libreoffice-still
+sudo pacman -S pcmanfm-gtk3 firefox qbittorrent gvfs gvfs-mtp ntfs-3g zip unzip xarchiver zathura zathura-pdf-poppler gimp lxappearance kvantum-qt5 neovim zsh zsh-syntax-highlighting ttf-font-awesome ttf-dejavu feh python-pywal scrot numlockx xclip arc-gtk-theme arc-icon-theme powertop lxsession mpv dunst light-locker discord lightdm alsa-utils playerctl sxiv libreoffice-still texlive-most
 
 # installing yay
 git clone https://aur.archlinux.org/yay.git
@@ -97,6 +97,7 @@ cd
 
 # changing the default shell to zsh
 chsh -s /usr/bin/zsh
+mkdir ~/.cache/zsh
 
 # lightdm settings
 sudo echo "#

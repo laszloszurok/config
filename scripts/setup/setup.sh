@@ -92,8 +92,9 @@ sudo echo "LD_PRELOAD=/usr/lib/libcurl.so.4:/home/pulzar/spotifywm/spotifywm.so 
 cd
 
 # changing the default shell to zsh
-chsh -s /usr/bin/zsh
 mkdir ~/.cache/zsh
+sudo echo "ZDOTDIR=$HOME/.config/zsh" > /etc/zsh/zshenv
+chsh -s /usr/bin/zsh
 
 # lightdm settings
 sudo echo "#

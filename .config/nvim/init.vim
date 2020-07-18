@@ -11,23 +11,16 @@ if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/plugged')
-" Centers text for reading(:Goyo, mapped to leader+g)
 Plug 'junegunn/goyo.vim'
-" Autocompletition plugin
-" Plug 'Valloric/YouCompleteMe'
-" UI theme
-Plug 'rakr/vim-one'
-" Shows the colors for colorcodes
-" Plug 'ap/vim-css-color'
-" Close brackets, parentheses, etc. automatically
+Plug 'Valloric/YouCompleteMe'
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'rakr/vim-one'
+Plug 'wadackel/vim-dogrun'
+Plug 'ap/vim-css-color'
 Plug 'jiangmiao/auto-pairs'
-" Comment out blocks of text(Visual mode, gc)
 Plug 'tpope/vim-commentary'
-" Status line plugin
 Plug 'itchyny/lightline.vim'
-" Filesystem explorer on the left side
 Plug 'preservim/nerdtree'
-" Plugin for moving around faster
 Plug 'justinmk/vim-sneak'
 call plug#end()
 
@@ -48,14 +41,10 @@ au FocusGained,BufEnter * checktime
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
-let mapleader = ","
+let mapleader = " "
 
 " Fast saving
 nmap <leader>w :w!<cr>
-
-" :W sudo saves the file 
-command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
-" command! W execute 'silent! write !sudo tee % > /dev/null' <bar> edit!
 
 " Leader + g to toggle Goyo (Have to set the colors, otherwise they are overwritten)
 map <leader>g :Goyo \| colorscheme one \| set background=dark \| highlight LineNr ctermfg=grey  \| set linebreak<CR>
@@ -66,7 +55,7 @@ map <leader>g :Goyo \| colorscheme one \| set background=dark \| highlight LineN
 """"""""""""""""""""""""""""""""""""""""
 
 "Lightline colorscheme
-let g:lightline = {'colorscheme': 'one',}
+let g:lightline = {'colorscheme': 'dogrun',}
 
 " Enable true colors
 if (has("termguicolors"))
@@ -82,7 +71,7 @@ if $COLORTERM == 'gnome-terminal'
 endif
 
 try
-    colorscheme one
+    colorscheme dogrun
 catch
 endtry
 
@@ -106,32 +95,15 @@ set cursorline
 set so=7
 
 " Automatically open NerdTree on startup
-" autocmd vimenter * NERDTree
-" augroup dirBrowser
-"     autocmd!
-"     autocmd vimenter * NERDTree
-"     autocmd vimenter * winc p  
-" augroup END
+autocmd vimenter * NERDTree
+augroup dirBrowser
+    autocmd!
+    autocmd vimenter * NERDTree
+    autocmd vimenter * winc p  
+augroup END
 
 " Automatically close NerdTree if it is the last window
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" Netrw settings (directory browser)
-" let g:netrw_banner = 0
-" let g:netrw_liststyle = 3
-" let g:netrw_browse_split = 4
-" let g:netrw_altv = 1
-" let g:netrw_winsize = 25
-" augroup ProjectDrawer
-"   autocmd!
-"   autocmd VimEnter * :Vexplore
-"   autocmd VimEnter * wincmd p
-" augroup END
-" " close if final buffer is netrw or the quickfix
-" augroup finalcountdown
-"  au!
-"  autocmd WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&filetype") == "netrw" || &buftype == 'quickfix' |q|endif
-"  nmap - :Lexplore<cr>
-" augroup END
 
 " Line numbers
 set number relativenumber
@@ -249,10 +221,6 @@ set clipboard+=unnamedplus
 " Setting for the sneak plugin. Pressing s or S after a snek search moves you to the next or previous match
 let g:sneak#s_next = 1 
 
-" Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
-map <space> /
-map <C-space> ?
-
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
 
@@ -272,11 +240,12 @@ map <leader>l :bnext<cr>
 map <leader>h :bprevious<cr>
 
 " Useful mappings for managing tabs
-map <leader>tn :tabnew<cr>
+map <leader>nt :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove 
-map <leader>t<leader> :tabnext 
+map <leader>tn :tabnext<cr>
+map <leader>tp :tabnext -<cr>
 
 " Let 'tl' toggle between this and the last accessed tab
 let g:lasttab = 1

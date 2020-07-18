@@ -1,5 +1,5 @@
 #!/bin/bash
-wal -R -o '$HOME/.config/dunst/dunst_with_pywal.sh'
+wal -R -o "$HOME/.config/dunst/dunst_with_pywal.sh"
 setxkbmap -layout hu,us -option 'grp:alt_space_toggle'
 numlockx &
 wmname LG3D

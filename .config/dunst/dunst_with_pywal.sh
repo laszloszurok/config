@@ -13,7 +13,7 @@
 
 pidof dunst && killall dunst
 
-dunst -conf "dunstrc" \
+dunst -conf "$HOME/.config/dunst/dunstrc" \
       -lf  "${color15:-}" \
       -lb  "${color0:-}" \
       -lfr "${color7:-}" \

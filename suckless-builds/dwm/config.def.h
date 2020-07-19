@@ -6,8 +6,8 @@
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int gappx     = 21;       /* gap pixel between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
-static const int horizpadbar        = 4;        /* horizontal padding for statusbar */
-static const int vertpadbar         = 9;        /* vertical padding for statusbar */
+static const int horizpadbar        = 0;        /* horizontal padding for statusbar */
+static const int vertpadbar         = 7;        /* vertical padding for statusbar */
 
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */

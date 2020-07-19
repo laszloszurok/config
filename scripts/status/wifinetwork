@@ -7,6 +7,12 @@ signal=`awk 'NR==3 {printf("%.0f%%",$3*10/7)}' /proc/net/wireless`
 if [ -z "$essid" ]; then
     icon=""
     essid="no wifi"
+    signal=""
 fi
 
-echo "$icon $essid $signal"
+echo "$icon $signal"
+
+case $BUTTON in
+    1) dunstify --replace=1 "$essid $signal" "Right click to open nmtui";;
+	3) st -e nmtui;;
+esac

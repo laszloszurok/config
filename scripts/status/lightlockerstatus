@@ -1,5 +1,9 @@
 #!/bin/sh
 
+case $BUTTON in
+    1) dunstify --replace=1 "Light-locker status" "Mod+ctrl+l to toggle"
+esac
+
 # This script checks if light-locker is running, and prints an appropriate indicator
 
 if [ -n "$(pidof light-locker)" ]; then
@@ -7,3 +11,4 @@ if [ -n "$(pidof light-locker)" ]; then
 fi
 
 printf "%s", " off"
+

@@ -5,3 +5,8 @@ date="$(date '+%a %d %b %Y')"
 hour_minute="$(date '+%H:%M')"
 
 printf "%s %s ", "$icon" "$hour_minute"
+
+case $BUTTON in
+    1) dunstify --replace=1 "$date" "Right click to open cal";;
+	3) st -e $HOME/scripts/status/calendar.sh;;
+esac

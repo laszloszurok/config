@@ -4,7 +4,7 @@
 # in the background, so the screen will be locked after inactivity
 
 if [ -n "$(pidof light-locker)" ]; then
-    killall light-locker; dunstify --replace=5 "Light-locker disabled"; exit 1
+    killall light-locker; dunstify --replace=1 "Light-locker disabled"; exit 1
 fi
 
-dunstify --replace=5 "Light-locker enabled"; light-locker --lock-after-screensaver=120 &
+dunstify --replace=1 "Light-locker enabled"; light-locker --lock-after-screensaver=120 &

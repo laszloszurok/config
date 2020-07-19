@@ -3,6 +3,7 @@
 icon=""
 
 capacity=$(cat /sys/class/power_supply/BAT1/capacity) || exit
+status=$(cat /sys/class/power_supply/BAT1/status)
 
 if [ "$capacity" -le 75 ]; then
     icon=""
@@ -14,4 +15,8 @@ elif [ "$capacity" -le 20 ]; then
     icon=""
 fi
  
-echo "$icon $capacity" | sed -e 's/$/%/'
+echo "$icon"
+
+case $BUTTON in
+    1) dunstify --replace=1 "Battery: $capacity%" "$status";;
+esac

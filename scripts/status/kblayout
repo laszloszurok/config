@@ -6,8 +6,10 @@ case "$(xset -q|grep LED| awk '{ print $10 }')" in
   *) KBD="unknown" ;;
 esac
 
-echo " $KBD"
+echo ""
+
+dunstify --replace=1 $(echo $KBD | awk '{print toupper($0)}')
 
 case $BUTTON in
-    1) dunstify --replace=1 "Keyboard layout" "Alt+sapce to toggle";;
+    1) dunstify --replace=1 "Keyboard layout: $(echo $KBD | awk '{print toupper($0)}')" "Alt+sapce to toggle";;
 esac

@@ -8,7 +8,7 @@ static const Block blocks[] = {
     { "  ",     "~/scripts/status/kblayout",            0,    12 },
     { "  ",     "~/scripts/status/volume",              0,    10 },
     { "  ",     "~/scripts/status/brightness",          0,    11 },
-    { "  ",     "~/scripts/status/battery",             5,    16 },
+    { "  ",     "~/scripts/status/battery",             5,    17 },
     { "  ",     "~/scripts/status/clock",               5,    13 },
 };
 

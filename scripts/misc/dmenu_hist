@@ -35,7 +35,7 @@ if [ -z "$TERMINAL_CMD" ]; then
   fi
 fi
 
-dmenu_height=28
+dmenu_height=26
 
 dmenu_cmd="dmenu $DMENU_OPTIONS"
 max_recent=199 # Number of recent commands to track

@@ -43,7 +43,7 @@ fi
 exec dwm" > ~/.xinitrc
 
 # installing my most used software
-sudo pacman -S pcmanfm-gtk3 firefox qbittorrent gvfs gvfs-mtp ntfs-3g zip unzip xarchiver zathura zathura-pdf-poppler gimp lxappearance kvantum-qt5 neovim zsh zsh-syntax-highlighting ttf-font-awesome ttf-dejavu feh python-pywal scrot numlockx xclip arc-gtk-theme arc-icon-theme powertop lxsession mpv dunst light-locker discord lightdm alsa-utils playerctl sxiv libreoffice-still texlive-most ffmpeg ffmpegthumbnailer
+sudo pacman -S pcmanfm-gtk3 firefox qbittorrent gvfs gvfs-mtp ntfs-3g zip unzip xarchiver zathura zathura-pdf-poppler gimp lxappearance kvantum-qt5 neovim zsh zsh-syntax-highlighting ttf-font-awesome ttf-dejavu feh python-pywal scrot numlockx xclip arc-gtk-theme arc-icon-theme powertop lxsession mpv dunst light-locker discord lightdm alsa-utils playerctl sxiv libreoffice-still texlive-most ffmpeg ffmpegthumbnailer cups usbutils
 
 # installing yay
 git clone https://aur.archlinux.org/yay.git
@@ -59,6 +59,7 @@ yay -Sy spotify spicetify-cli windscribe-cli lightdm-slick-greeter lightdm-setti
 sudo sh -c "echo -e '[Unit]\nDescription=PowerTop\n\n[Service]\nType=oneshot\nRemainAfterExit=true\nExecStart=/usr/bin/powertop --auto-tune\n\n[Install]\nWantedBy=multi-user.target\n' > /etc/systemd/system/powertop.service"
 sudo systemctl enable --now powertop
 sudo systemctl enable lightdm
+sudo systemctl enable org.cups.cupsd.socket
 
 # cloning my configs from my github and setting up a bare repository for config file management
 git clone --separate-git-dir=$HOME/.myconf https://github.com/laszloszurok/suckless-arch.git $HOME/myconf-tmp

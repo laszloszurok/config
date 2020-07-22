@@ -13,8 +13,6 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 Plug 'junegunn/goyo.vim'
 Plug 'Valloric/YouCompleteMe'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'rakr/vim-one'
 Plug 'wadackel/vim-dogrun'
 Plug 'ap/vim-css-color'
 Plug 'jiangmiao/auto-pairs'

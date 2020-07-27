@@ -26,8 +26,8 @@ autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
 # Managing environmental variables
-export JAVA_HOME=/usr/lib/jvm/java-11-openjdk/
-PATH="$JAVA_HOME/bin:$PATH"
+# export JAVA_HOME=/usr/lib/jvm/java-14-openjdk
+# PATH="$JAVA_HOME/bin:$PATH"
 PATH="$PATH:/home/pulzar/scripts/misc"
 PATH="$PATH:/home/pulzar/flutter/bin"
 export PATH="$PATH:/home/pulzar/.emacs.d/bin"

@@ -139,13 +139,13 @@ static const Layout layouts[] = {
         { 0,                       XF86XK_AudioRaiseVolume,    spawn,          SHCMD("amixer sset Master 5%+ ;  pkill -RTMIN+10 dwmblocks") },
         { 0,                       XF86XK_AudioLowerVolume,    spawn,          SHCMD("amixer sset Master 5%- ; pkill -RTMIN+10 dwmblocks") },
         { 0,                       XF86XK_AudioMute,           spawn,          SHCMD("amixer sset Master toggle ; pkill -RTMIN+10 dwmblocks") },
-        { 0,                       XF86XK_MonBrightnessUp,     spawn,          SHCMD("xbacklight -inc 3 ; pkill -RTMIN+11 dwmblocks") },
-        { 0,                       XF86XK_MonBrightnessDown,   spawn,          SHCMD("xbacklight -dec 3 ; pkill -RTMIN+11 dwmblocks") },
+        { 0,                       XF86XK_MonBrightnessUp,     spawn,          SHCMD("xbacklight -inc 3") },
+        { 0,                       XF86XK_MonBrightnessDown,   spawn,          SHCMD("xbacklight -dec 3") },
         { Mod1Mask,                XK_space,                   spawn,          SHCMD("pkill -RTMIN+12 dwmblocks") },
         { 0,                       XK_Print,                   spawn,          SHCMD("/home/pulzar/scripts/misc/screenshot") },
         { MODKEY,                  XK_Print,                   spawn,          SHCMD("/home/pulzar/scripts/misc/screenshot -w") },
         { MODKEY|ShiftMask,        XK_Print,                   spawn,          SHCMD("st -e /home/pulzar/scripts/misc/screenshot -s") },
-        { MODKEY|ControlMask,      XK_l,                       spawn,          SHCMD("/home/pulzar/scripts/status/togglelocker; pkill -RTMIN+14 dwmblocks") },
+        { MODKEY|ControlMask,      XK_l,                       spawn,          SHCMD("/home/pulzar/scripts/status/helper_scripts/togglelocker; pkill -RTMIN+14 dwmblocks") },
     };
 
     /* button definitions */

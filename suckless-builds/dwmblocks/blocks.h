@@ -3,8 +3,8 @@
 static const Block blocks[] = {
 	/*Icon*/	/*Command*/		        /*Update Interval*/	   /*Update Signal*/
     { "  ",      "~/scripts/status/weather",             0,    20 },
-    { "  ",      "~/scripts/status/wifinetwork",         0,    15 },
-    { "  ",      "~/scripts/status/newsboat_status",     7200, 21 },
+    { "   ",      "~/scripts/status/wifinetwork",         0,    15 },
+    { "   ",      "~/scripts/status/newsboat_status",     7200, 21 },
     { "   ",     "~/scripts/status/sys_resources",       0,    18 },
     { "   ",     "~/scripts/status/disk",                0,    16 },
     { "   ",     "~/scripts/status/lightlockerstatus",   0,    14 },

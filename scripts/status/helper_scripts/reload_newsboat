@@ -1,0 +1,7 @@
+#!/bin/bash
+
+while true;
+do
+    newsboat -x reload
+    sleep 7000
+done

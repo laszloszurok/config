@@ -4,12 +4,6 @@
 
 # Originally based on code by Dieter Plaetinck.
 # Pretty much re-written by Mina Nagy (mnzaki)
-# Edited by Chrysostomus to create/source .dmenurc
-
-if ! [ -f "$HOME/.dmenurc" ]; then
-	cp /usr/share/dmenu/dmenurc $HOME/.dmenurc
-fi
-. $HOME/.dmenurc
 
 if [ -z "$TERMINAL_CMD" ]; then
   if [ "$(which st)" ]; then
@@ -40,12 +34,12 @@ dmenu_height=26
 dmenu_cmd="dmenu $DMENU_OPTIONS"
 max_recent=199 # Number of recent commands to track
 
-cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/dmenu-recent"
+cache_dir="${XDG_CONFIG_HOME:-$HOME/.config}/dmenu-hist/hist-cache"
 recent_cache="$cache_dir/recent"
 rest_cache="$cache_dir/all"
 known_types=" background terminal terminal_hold "
 
-config_dir="${XDG_CONFIG_HOME:-$HOME/.config}/dmenu-recent"
+config_dir="${XDG_CONFIG_HOME:-$HOME/.config}/dmenu-hist"
 mkdir -p "$cache_dir"
 mkdir -p "$config_dir"
 touch "$recent_cache"

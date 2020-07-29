@@ -79,7 +79,7 @@ ufw enable
 
 # cloning my configs from my github and setting up a bare repository for config file management
 sudo -u $current_user git clone --separate-git-dir=/home/$current_user/.myconf https://github.com/laszloszurok/suckless-arch.git /home/$current_user/myconf-tmp
-sudo -u $current_user mv ~/myconf-tmp/* ~/myconf-tmp/.[!.]* ~/
+sudo -u $current_user mv /home/$current_user/myconf-tmp/* /home/$current_user/myconf-tmp/.[!.]* /home/$current_user
 sudo -u $current_user rm -rf /home/$current_user/myconf-tmp/ /home/$current_user/.git
 sudo -u $current_user /usr/bin/git --git-dir=/home/$current_user/.myconf/ --work-tree=/home/$current_user config status.showUntrackedFiles no
 

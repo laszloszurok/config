@@ -110,7 +110,7 @@ cd /home/$current_user
 
 # changing the default shell to zsh
 sudo -u $current_user mkdir ~/.cache/zsh
-echo "ZDOTDIR=/home/$current_user/.config/zsh" > /etc/zsh/zshenv
+echo "ZDOTDIR=\$HOME/.config/zsh" > /etc/zsh/zshenv
 sudo -u $current_user chsh -s /usr/bin/zsh
 
 # lightdm settings

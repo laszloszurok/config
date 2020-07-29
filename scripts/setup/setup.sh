@@ -109,7 +109,7 @@ echo "LD_PRELOAD=/usr/lib/libcurl.so.4:/home/pulzar/spotifywm/spotifywm.so /usr/
 cd /home/$current_user
 
 # changing the default shell to zsh
-sudo -u $current_user mkdir ~/.cache/zsh
+sudo -u $current_user mkdir /home/$current_user/.cache/zsh
 echo "ZDOTDIR=\$HOME/.config/zsh" > /etc/zsh/zshenv
 sudo -u $current_user chsh -s /usr/bin/zsh
 

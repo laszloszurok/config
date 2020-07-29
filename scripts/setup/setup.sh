@@ -23,37 +23,37 @@ pacman -Syyu
 pacman -S xf86-video-intel xf86-video-amdgpu xorg xorg-xinit
 sudo -u $current_user echo "#!/bin/sh
 
-userresources=$HOME/.Xresources
-usermodmap=$HOME/.Xmodmap
+userresources=\$HOME/.Xresources
+usermodmap=\$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
 # merge in defaults and keymaps
-if [ -f $sysresources ]; then
-    xrdb -merge $sysresources
+if [ -f \$sysresources ]; then
+    xrdb -merge \$sysresources
 fi
 
-if [ -f $sysmodmap ]; then
-    xmodmap $sysmodmap
+if [ -f \$sysmodmap ]; then
+    xmodmap \$sysmodmap
 fi
 
-if [ -f "$userresources" ]; then
-    xrdb -merge "$userresources"
+if [ -f "\$userresources" ]; then
+    xrdb -merge "\$userresources"
 fi
 
-if [ -f "$usermodmap" ]; then
-    xmodmap "$usermodmap"
+if [ -f "\$usermodmap" ]; then
+    xmodmap "\$usermodmap"
 fi
 
 # start some nice programs
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
-  [ -x "$f" ] && . "$f"
+  [ -x "\$f" ] && . "\$f"
  done
  unset f
 fi
 
-exec dwm" > ~/.xinitrc
+exec dwm" > /home/$current_user/.xinitrc
 
 # installing my most used software
 pacman -S pcmanfm-gtk3 firefox qbittorrent gvfs gvfs-mtp ntfs-3g zip unzip xarchiver zathura zathura-pdf-poppler gimp lxappearance kvantum-qt5 neovim zsh zsh-syntax-highlighting ttf-font-awesome ttf-dejavu feh python-pywal scrot numlockx xclip arc-gtk-theme arc-icon-theme powertop lxsession mpv dunst light-locker discord lightdm alsa-utils playerctl sxiv libreoffice-still texlive-most ffmpeg ffmpegthumbnailer cups usbutils ufw
@@ -78,10 +78,10 @@ ufw default allow outgoing
 ufw enable
 
 # cloning my configs from my github and setting up a bare repository for config file management
-sudo -u $current_user git clone --separate-git-dir=$HOME/.myconf https://github.com/laszloszurok/suckless-arch.git $HOME/myconf-tmp
+sudo -u $current_user git clone --separate-git-dir=$HOME/.myconf https://github.com/laszloszurok/suckless-arch.git /home/$current_user/myconf-tmp
 sudo -u $current_user mv ~/myconf-tmp/* ~/myconf-tmp/.[!.]* ~/
-sudo -u $current_user rm -rf ~/myconf-tmp/ ~/.git
-sudo -u $current_user /usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME config status.showUntrackedFiles no
+sudo -u $current_user rm -rf /home/$current_user/myconf-tmp/ /home/$current_user/.git
+sudo -u $current_user /usr/bin/git --git-dir=/home/$current_user/.myconf/ --work-tree=/home/$current_user config status.showUntrackedFiles no
 
 # cloning my wallpaper repo
 sudo -u $current_user git clone https://github.com/laszloszurok/Wallpapers
@@ -110,7 +110,7 @@ cd /home/$current_user
 
 # changing the default shell to zsh
 sudo -u $current_user mkdir ~/.cache/zsh
-echo "ZDOTDIR=$HOME/.config/zsh" > /etc/zsh/zshenv
+echo "ZDOTDIR=/home/$current_user/.config/zsh" > /etc/zsh/zshenv
 sudo -u $current_user chsh -s /usr/bin/zsh
 
 # lightdm settings
@@ -148,7 +148,7 @@ run-directory=/run/lightdm
 #cache-directory=/var/cache/lightdm
 sessions-directory=/usr/share/lightdm/sessions:/usr/share/xsessions:/usr/share/wayland-sessions
 #remote-sessions-directory=/usr/share/lightdm/remote-sessions
-#greeters-directory=$XDG_DATA_DIRS/lightdm/greeters:$XDG_DATA_DIRS/xgreeters
+#greeters-directory=\$XDG_DATA_DIRS/lightdm/greeters:\$XDG_DATA_DIRS/xgreeters
 #backup-logs=true
 #dbus-service=true
 

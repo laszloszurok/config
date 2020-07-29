@@ -66,7 +66,13 @@ sudo -u $current_user makepkg -si
 cd /home/$current_user
 
 # installing softwer from the AUR
-sudo -u $current_user yay -S spotify spicetify-cli windscribe-cli lightdm-slick-greeter lightdm-settings hugo vscodium-bin
+sudo -u $current_user yay -S spotify
+sudo -u $current_user yay -S spicetify-cli
+sudo -u $current_user yay -S windscribe-cli
+sudo -u $current_user yay -S lightdm-slick-greeter
+sudo -u $current_user yay -S lightdm-settings
+sudo -u $current_user yay -S hugo
+sudo -u $current_user yay -S vscodium-bin
 
 # enabling services
 sh -c "echo -e '[Unit]\nDescription=PowerTop\n\n[Service]\nType=oneshot\nRemainAfterExit=true\nExecStart=/usr/bin/powertop --auto-tune\n\n[Install]\nWantedBy=multi-user.target\n' > /etc/systemd/system/powertop.service"

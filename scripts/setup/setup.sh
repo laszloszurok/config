@@ -60,10 +60,10 @@ pacman -S pcmanfm-gtk3 firefox qbittorrent gvfs gvfs-mtp ntfs-3g zip unzip xarch
 
 # installing yay
 sudo -u $current_user git clone https://aur.archlinux.org/yay.git
-sudo -u $current_user cd yay
+cd /home/$current_user/yay
 sudo -u $current_user makepkg -si
 
-sudo -u $current_user cd
+cd /home/$current_user
 
 # installing softwer from the AUR
 sudo -u $current_user yay -Sy spotify spicetify-cli windscribe-cli lightdm-slick-greeter lightdm-settings hugo vscodium-bin
@@ -87,26 +87,26 @@ sudo -u $current_user /usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME co
 sudo -u $current_user git clone https://github.com/laszloszurok/Wallpapers
 
 # installing my suckless builds
-sudo -u $current_user cd suckless-builds/dwm
+cd /home/$current_user/suckless-builds/dwm
 make install
-sudo -u $current_user cd ../dmenu
+cd ../dmenu
 make install
-sudo -u $current_user cd ../dwmblocks
+cd ../dwmblocks
 make install
-sudo -u $current_user cd ../st
+cd ../st
 make install
-sudo -u $current_user cd ../wmname
+cd ../wmname
 make install
 
-sudo -u $current_user cd
+cd /home/$current_user
 
 # spotify wm
 sudo -u $current_user git clone https://github.com/dasJ/spotifywm.git
-sudo -u $current_user cd spotifywm
+cd /home/$current_user/spotifywm
 sudo -u $current_user make
 echo "LD_PRELOAD=/usr/lib/libcurl.so.4:/home/pulzar/spotifywm/spotifywm.so /usr/bin/spotify" > /usr/local/bin/spotify
 
-sudo -u $current_user cd
+cd /home/$current_user
 
 # changing the default shell to zsh
 sudo -u $current_user mkdir ~/.cache/zsh

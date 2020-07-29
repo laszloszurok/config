@@ -3,12 +3,25 @@
 # Run this script with sudo
 # -------------------------
 
+# exit if not using sudo
+if ! [ $(id -u) = 0 ]; then
+   echo "The script need to be run as root." >&2
+   exit 1
+fi
+
+# checking who is the current user
+if [ $SUDO_USER ]; then
+    current_user=$SUDO_USER
+else
+    current_user=$(whoami)
+fi
+
 # sync mirrors, update the system
-sudo pacman -Syyu
+pacman -Syyu
 
 # x related
-sudo pacman -S xf86-video-intel xf86-video-amdgpu xorg xorg-xinit
-echo "#!/bin/sh
+pacman -S xf86-video-intel xf86-video-amdgpu xorg xorg-xinit
+sudo -u $current_user echo "#!/bin/sh
 
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
@@ -43,65 +56,65 @@ fi
 exec dwm" > ~/.xinitrc
 
 # installing my most used software
-sudo pacman -S pcmanfm-gtk3 firefox qbittorrent gvfs gvfs-mtp ntfs-3g zip unzip xarchiver zathura zathura-pdf-poppler gimp lxappearance kvantum-qt5 neovim zsh zsh-syntax-highlighting ttf-font-awesome ttf-dejavu feh python-pywal scrot numlockx xclip arc-gtk-theme arc-icon-theme powertop lxsession mpv dunst light-locker discord lightdm alsa-utils playerctl sxiv libreoffice-still texlive-most ffmpeg ffmpegthumbnailer cups usbutils ufw
+pacman -S pcmanfm-gtk3 firefox qbittorrent gvfs gvfs-mtp ntfs-3g zip unzip xarchiver zathura zathura-pdf-poppler gimp lxappearance kvantum-qt5 neovim zsh zsh-syntax-highlighting ttf-font-awesome ttf-dejavu feh python-pywal scrot numlockx xclip arc-gtk-theme arc-icon-theme powertop lxsession mpv dunst light-locker discord lightdm alsa-utils playerctl sxiv libreoffice-still texlive-most ffmpeg ffmpegthumbnailer cups usbutils ufw
 
 # installing yay
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
+sudo -u $current_user git clone https://aur.archlinux.org/yay.git
+sudo -u $current_user cd yay
+sudo -u $current_user makepkg -si
 
-cd
+sudo -u $current_user cd
 
 # installing softwer from the AUR
-yay -Sy spotify spicetify-cli windscribe-cli lightdm-slick-greeter lightdm-settings hugo vscodium-bin
+sudo -u $current_user yay -Sy spotify spicetify-cli windscribe-cli lightdm-slick-greeter lightdm-settings hugo vscodium-bin
 
 # enabling services
-sudo sh -c "echo -e '[Unit]\nDescription=PowerTop\n\n[Service]\nType=oneshot\nRemainAfterExit=true\nExecStart=/usr/bin/powertop --auto-tune\n\n[Install]\nWantedBy=multi-user.target\n' > /etc/systemd/system/powertop.service"
-sudo systemctl enable --now powertop
-sudo systemctl enable lightdm
-sudo systemctl enable org.cups.cupsd.socket
-sudo ufw default deny incoming
-sudo ufw default allow outgoing
-sudo ufw enable
+sh -c "echo -e '[Unit]\nDescription=PowerTop\n\n[Service]\nType=oneshot\nRemainAfterExit=true\nExecStart=/usr/bin/powertop --auto-tune\n\n[Install]\nWantedBy=multi-user.target\n' > /etc/systemd/system/powertop.service"
+systemctl enable --now powertop
+systemctl enable lightdm
+systemctl enable org.cups.cupsd.socket
+ufw default deny incoming
+ufw default allow outgoing
+ufw enable
 
 # cloning my configs from my github and setting up a bare repository for config file management
-git clone --separate-git-dir=$HOME/.myconf https://github.com/laszloszurok/suckless-arch.git $HOME/myconf-tmp
-mv ~/myconf-tmp/* ~/myconf-tmp/.[!.]* ~/
-rm -rf ~/myconf-tmp/ ~/.git
-/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME config status.showUntrackedFiles no
+sudo -u $current_user git clone --separate-git-dir=$HOME/.myconf https://github.com/laszloszurok/suckless-arch.git $HOME/myconf-tmp
+sudo -u $current_user mv ~/myconf-tmp/* ~/myconf-tmp/.[!.]* ~/
+sudo -u $current_user rm -rf ~/myconf-tmp/ ~/.git
+sudo -u $current_user /usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME config status.showUntrackedFiles no
 
 # cloning my wallpaper repo
-git clone https://github.com/laszloszurok/Wallpapers
+sudo -u $current_user git clone https://github.com/laszloszurok/Wallpapers
 
 # installing my suckless builds
-cd suckless-builds/dwm
-sudo make install
-cd ../dmenu
-sudo make install
-cd ../dwmblocks
-sudo make install
-cd ../st
-sudo make install
-cd ../wmname
-sudo make install
+sudo -u $current_user cd suckless-builds/dwm
+make install
+sudo -u $current_user cd ../dmenu
+make install
+sudo -u $current_user cd ../dwmblocks
+make install
+sudo -u $current_user cd ../st
+make install
+sudo -u $current_user cd ../wmname
+make install
 
-cd
+sudo -u $current_user cd
 
 # spotify wm
-git clone https://github.com/dasJ/spotifywm.git
-cd spotifywm
-make
-sudo echo "LD_PRELOAD=/usr/lib/libcurl.so.4:/home/pulzar/spotifywm/spotifywm.so /usr/bin/spotify" > /usr/local/bin/spotify
+sudo -u $current_user git clone https://github.com/dasJ/spotifywm.git
+sudo -u $current_user cd spotifywm
+sudo -u $current_user make
+echo "LD_PRELOAD=/usr/lib/libcurl.so.4:/home/pulzar/spotifywm/spotifywm.so /usr/bin/spotify" > /usr/local/bin/spotify
 
-cd
+sudo -u $current_user cd
 
 # changing the default shell to zsh
-mkdir ~/.cache/zsh
-sudo echo "ZDOTDIR=$HOME/.config/zsh" > /etc/zsh/zshenv
-chsh -s /usr/bin/zsh
+sudo -u $current_user mkdir ~/.cache/zsh
+echo "ZDOTDIR=$HOME/.config/zsh" > /etc/zsh/zshenv
+sudo -u $current_user chsh -s /usr/bin/zsh
 
 # lightdm settings
-sudo echo "#
+echo "#
 # General configuration
 #
 # start-default-seat = True to always start one seat if none are defined in the configuration
@@ -265,8 +278,8 @@ session-wrapper=/etc/lightdm/Xsession
 #height=768
 #depth=8" > /etc/lightdm/lightdm.conf
 
-sudo mkdir /usr/share/xsessions
-sudo echo "[Desktop Entry]
+mkdir /usr/share/xsessions
+echo "[Desktop Entry]
 Encoding=UTF-8
 Name=dwm
 Comment=Dynamic Window Manager
@@ -274,7 +287,7 @@ Exec=/usr/local/bin/dwm
 Type=Application" > /usr/share/xsessions/dwm.desktop
 
 # touchpad settings
-sudo echo "Section \"InputClass\"
+echo "Section \"InputClass\"
     Identifier \"touchpad\"
     Driver \"libinput\"
     MatchIsTouchpad \"on\"
@@ -283,9 +296,9 @@ sudo echo "Section \"InputClass\"
 EndSection" > /etc/X11/xorg.conf.d/30-touchpad.conf
 
 # theme settings
-sudo echo "GTK_THEME=Arc-Dark
+echo "GTK_THEME=Arc-Dark
 QT_QPA_PLATFORMTHEME=qt5ct" >> /etc/environment
 
-echo "
+sudo -u $current_user echo "
 Finished
 Please reboot your computer"

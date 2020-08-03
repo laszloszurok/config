@@ -11,6 +11,9 @@ static const char *colorname[NUMCOLS] = {
 /* treat a cleared input like a wrong password (color) */
 static const int failonclear = 1;
 
+/* allow control key to trigger fail on clear */
+static const int controlkeyclear = 1;
+
 /* default message */
 static const char * message = "                    -@                \n                   .##@               \n                  .####@              \n                  @#####@             \n                . *######@            \n               .##@o@#####@           \n              /############@          \n             /##############@         \n            @######@**%######@        \n           @######`     %#####o       \n          @######@       ######%      \n        -@#######h       ######@.`    \n       /#####h**``       `**%@####@   \n      @H@*`                    `*%#@  \n     *`                            `*\n              Session locked";
 

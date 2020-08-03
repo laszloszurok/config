@@ -93,12 +93,12 @@ set cursorline
 set so=7
 
 " Automatically open NerdTree on startup
-autocmd vimenter * NERDTree
-augroup dirBrowser
-    autocmd!
-    autocmd vimenter * NERDTree
-    autocmd vimenter * winc p  
-augroup END
+" autocmd vimenter * NERDTree
+" augroup dirBrowser
+"     autocmd!
+"     autocmd vimenter * NERDTree
+"     autocmd vimenter * winc p  
+" augroup END
 
 " Automatically close NerdTree if it is the last window
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif

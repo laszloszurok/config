@@ -19,6 +19,7 @@
 #include <X11/keysym.h>
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
+#include <X11/XF86keysym.h>
 
 #include "arg.h"
 #include "util.h"
@@ -226,7 +227,7 @@ readpw(Display *dpy, struct xrandr *rr, struct lock **locks, int nscreens,
 {
 	XRRScreenChangeNotifyEvent *rre;
 	char buf[32], passwd[256], *inputhash;
-	int num, screen, running, failure, oldc;
+	int num, screen, running, failure, oldc, mediaKeyPressed;
 	unsigned int len, color;
 	KeySym ksym;
 	XEvent ev;
@@ -235,6 +236,7 @@ readpw(Display *dpy, struct xrandr *rr, struct lock **locks, int nscreens,
 	running = 1;
 	failure = 0;
 	oldc = INIT;
+    mediaKeyPressed = 0;
 
 	while (running && !XNextEvent(dpy, &ev)) {
 		if (ev.type == KeyPress) {
@@ -253,6 +255,18 @@ readpw(Display *dpy, struct xrandr *rr, struct lock **locks, int nscreens,
 			    IsPrivateKeypadKey(ksym))
 				continue;
 			switch (ksym) {
+            case XF86XK_AudioPlay:
+            case XF86XK_AudioPrev:
+            case XF86XK_AudioNext:
+            case XF86XK_AudioRaiseVolume:
+            case XF86XK_AudioLowerVolume:
+            case XF86XK_AudioMute:
+            case XF86XK_AudioMicMute:
+            case XF86XK_MonBrightnessDown:
+            case XF86XK_MonBrightnessUp:
+                mediaKeyPressed = 1; // we don't want to change the color of the screen if a media key was pressed
+                XSendEvent(dpy, DefaultRootWindow(dpy), True, KeyPressMask, &ev);
+                break;
 			case XK_Return:
 				passwd[len] = '\0';
 				errno = 0;
@@ -276,14 +290,19 @@ readpw(Display *dpy, struct xrandr *rr, struct lock **locks, int nscreens,
 					passwd[--len] = '\0';
 				break;
 			default:
-				if (num && !iscntrl((int)buf[0]) &&
-				    (len + num < sizeof(passwd))) {
+				if (controlkeyclear && iscntrl((int)buf[0]))
+					continue;
+				if (num && (len + num < sizeof(passwd))) {
 					memcpy(passwd + len, buf, num);
 					len += num;
 				}
 				break;
 			}
 			color = len ? INPUT : ((failure || failonclear) ? FAILED : INIT);
+            if (mediaKeyPressed == 1) { // if a media key was pressed don't change the color of the screen
+                color = oldc;
+                mediaKeyPressed = 0;
+            }
 			if (running && oldc != color) {
 				for (screen = 0; screen < nscreens; screen++) {
 					XSetWindowBackground(dpy,

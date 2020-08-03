@@ -34,7 +34,7 @@ dmenu_height=26
 dmenu_cmd="dmenu $DMENU_OPTIONS"
 max_recent=199 # Number of recent commands to track
 
-cache_dir="${XDG_CONFIG_HOME:-$HOME/.config}/dmenu-hist/hist-cache"
+cache_dir="${XDG_CONFIG_HOME:-$HOME/.cache}/dmenu-hist"
 recent_cache="$cache_dir/recent"
 rest_cache="$cache_dir/all"
 known_types=" background terminal terminal_hold "

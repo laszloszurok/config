@@ -145,7 +145,6 @@ static const Layout layouts[] = {
         { 0,                       XK_Print,                   spawn,          SHCMD("/home/pulzar/scripts/misc/screenshot") },
         { MODKEY,                  XK_Print,                   spawn,          SHCMD("/home/pulzar/scripts/misc/screenshot -w") },
         { MODKEY|ShiftMask,        XK_Print,                   spawn,          SHCMD("st -e /home/pulzar/scripts/misc/screenshot -s") },
-        { MODKEY|ControlMask,      XK_l,                       spawn,          SHCMD("/home/pulzar/scripts/status/helper_scripts/togglelocker; pkill -RTMIN+14 dwmblocks") },
     };
 
     /* button definitions */

@@ -4,7 +4,6 @@ setxkbmap -layout us,hu -option 'grp:alt_space_toggle'
 numlockx &
 wmname LG3D
 lxpolkit &
-light-locker --lock-after-screensaver=120 &
 $HOME/scripts/misc/suspend_after_screensaver &
 $HOME/scripts/status/helper_scripts/reload_newsboat &
 dwmblocks

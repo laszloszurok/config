@@ -111,7 +111,7 @@ cd /home/$current_user
 sudo -u $current_user git clone https://github.com/dasJ/spotifywm.git
 cd /home/$current_user/spotifywm
 sudo -u $current_user make
-echo "LD_PRELOAD=/usr/lib/libcurl.so.4:/home/pulzar/spotifywm/spotifywm.so /usr/bin/spotify" > /usr/local/bin/spotify
+sudo -u $current_user echo "LD_PRELOAD=/usr/lib/libcurl.so.4:/home/pulzar/spotifywm/spotifywm.so /usr/bin/spotify" > /usr/local/bin/spotify
 
 cd /home/$current_user
 

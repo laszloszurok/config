@@ -85,7 +85,7 @@ static const Layout layouts[] = {
 
     /* commands */
     static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-    static const char *dmenucmd[] = { "/home/pulzar/scripts/misc/dmenu_hist", "-fn", dmenufont, NULL };
+    static const char *dmenucmd[] = { "dmenu_hist", "-fn", dmenufont, NULL }; // make sure it's in $PATH
     static const char *termcmd[]  = { "st", NULL };
     static const char scratchpadname[] = "scratchpad";
     static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
@@ -142,9 +142,9 @@ static const Layout layouts[] = {
         { 0,                       XF86XK_MonBrightnessUp,     spawn,          SHCMD("xbacklight -inc 3; $HOME/scripts/status/helper_scripts/brightness-notify") },
         { 0,                       XF86XK_MonBrightnessDown,   spawn,          SHCMD("xbacklight -dec 3; $HOME/scripts/status/helper_scripts/brightness-notify") },
         { Mod1Mask,                XK_space,                   spawn,          SHCMD("pkill -RTMIN+12 dwmblocks") },
-        { 0,                       XK_Print,                   spawn,          SHCMD("/home/pulzar/scripts/misc/screenshot") },
-        { MODKEY,                  XK_Print,                   spawn,          SHCMD("/home/pulzar/scripts/misc/screenshot -w") },
-        { MODKEY|ShiftMask,        XK_Print,                   spawn,          SHCMD("st -e /home/pulzar/scripts/misc/screenshot -s") },
+        { 0,                       XK_Print,                   spawn,          SHCMD("$HOME/scripts/misc/screenshot") },
+        { MODKEY,                  XK_Print,                   spawn,          SHCMD("$HOME/scripts/misc/screenshot -w") },
+        { MODKEY|ShiftMask,        XK_Print,                   spawn,          SHCMD("st -e $HOME/scripts/misc/screenshot -s") },
     };
 
     /* button definitions */

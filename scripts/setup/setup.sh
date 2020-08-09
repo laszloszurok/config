@@ -71,6 +71,7 @@ sudo -u $current_user yay -S spicetify-cli
 sudo -u $current_user yay -S windscribe-cli
 sudo -u $current_user yay -S hugo
 sudo -u $current_user yay -S vscodium-bin
+sudo -u $current_user yay -S jmptfs
 
 # enabling services
 sh -c "echo -e '[Unit]\nDescription=PowerTop\n\n[Service]\nType=oneshot\nRemainAfterExit=true\nExecStart=/usr/bin/powertop --auto-tune\n\n[Install]\nWantedBy=multi-user.target\n' > /etc/systemd/system/powertop.service"

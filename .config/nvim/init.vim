@@ -13,7 +13,7 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 Plug 'junegunn/goyo.vim'
 Plug 'Valloric/YouCompleteMe'
-Plug 'wadackel/vim-dogrun'
+Plug 'drewtempelmeyer/palenight.vim'
 Plug 'ap/vim-css-color'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
@@ -45,7 +45,7 @@ let mapleader = " "
 nmap <leader>w :w!<cr>
 
 " Leader + g to toggle Goyo (Have to set the colors, otherwise they are overwritten)
-map <leader>g :Goyo \| colorscheme one \| set background=dark \| highlight LineNr ctermfg=grey  \| set linebreak<CR>
+map <leader>g :Goyo \| colorscheme palenight\| set background=dark \| highlight LineNr ctermfg=grey  \| set linebreak<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""
@@ -53,7 +53,7 @@ map <leader>g :Goyo \| colorscheme one \| set background=dark \| highlight LineN
 """"""""""""""""""""""""""""""""""""""""
 
 "Lightline colorscheme
-let g:lightline = {'colorscheme': 'dogrun',}
+let g:lightline = {'colorscheme': 'palenight',}
 
 " Enable true colors
 if (has("termguicolors"))
@@ -63,13 +63,8 @@ endif
 " Enable syntax highlighting
 syntax enable 
 
-" Enable 256 colors palette in Gnome Terminal
-if $COLORTERM == 'gnome-terminal'
-    set t_Co=256
-endif
-
 try
-    colorscheme dogrun
+    colorscheme palenight
 catch
 endtry
 
@@ -91,14 +86,6 @@ set cursorline
 
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=7
-
-" Automatically open NerdTree on startup
-" autocmd vimenter * NERDTree
-" augroup dirBrowser
-"     autocmd!
-"     autocmd vimenter * NERDTree
-"     autocmd vimenter * winc p  
-" augroup END
 
 " Automatically close NerdTree if it is the last window
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -154,6 +141,7 @@ set magic
 
 " Show matching brackets when text indicator is over them
 set showmatch 
+
 " How many tenths of a second to blink when matching brackets
 set mat=2
 

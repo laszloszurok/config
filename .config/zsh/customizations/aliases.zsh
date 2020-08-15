@@ -1,5 +1,5 @@
 alias vf=vifmrun # vifmrun is a custom script for vifm with image preview (~/scripts/misc/vifmrun)
-alias vim=nvim
+alias nv=nvim
 alias ll="ls -lhF"
 alias la="ls -lahF"
 alias ls="ls --color=auto"

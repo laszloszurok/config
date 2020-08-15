@@ -14,7 +14,7 @@ do
         killall xautolock
     fi
     if [ "$MON_STATE" == "Off" ]; then
-        xautolock -corners 0-00 -time 2 -locker slock &
+        xautolock -time 2 -locker slock &
         BAT_STATE=`< /sys/class/power_supply/BAT1/status`
         [ "$BAT_STATE" == "Discharging" ] && TIME_TO_WAIT=600 || TIME_TO_WAIT=900
         NUM="0"

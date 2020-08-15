@@ -90,6 +90,9 @@ set so=7
 " Automatically close NerdTree if it is the last window
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+" Shortcut for NerdTree
+map <leader>n :NERDTree<cr>
+
 " Line numbers
 set number relativenumber
 highlight LineNr ctermfg=grey
@@ -230,12 +233,12 @@ map <leader>l :bnext<cr>
 map <leader>h :bprevious<cr>
 
 " Useful mappings for managing tabs
-map <leader>nt :tabnew<cr>
-map <leader>to :tabonly<cr>
-map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove 
-map <leader>tn :tabnext<cr>
-map <leader>tp :tabnext -<cr>
+map <leader><leader>t :tabnew<cr>
+map <leader><leader>o :tabonly<cr>
+map <leader><leader>c :tabclose<cr>
+map <leader><leader>m :tabmove 
+map <leader><leader>n :tabnext<cr>
+map <leader><leader>p :tabnext -<cr>
 
 " Let 'tl' toggle between this and the last accessed tab
 let g:lasttab = 1

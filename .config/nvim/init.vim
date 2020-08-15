@@ -204,6 +204,10 @@ set wrap "Wrap lines
 "           VISUAL MODE RELATED           "
 """""""""""""""""""""""""""""""""""""""""""
 
+" Don't lose visual selection after change of indent level
+vmap < <gv
+vmap > >gv
+
 " Visual mode pressing * or # searches for the current selection
 " Super useful! From an idea by Michael Naumann
 vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>

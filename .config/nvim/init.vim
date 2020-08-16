@@ -2,10 +2,10 @@
 "           INCLUDES           "
 """"""""""""""""""""""""""""""""
 
-source plugins.vim
-source mappings.vim
-source statusline.vim
-source helpers.vim
+source ~/.config/nvim/plugins.vim
+source ~/.config/nvim/mappings.vim
+source ~/.config/nvim/statusline.vim
+source ~/.config/nvim/helpers.vim
 
 
 """""""""""""""""""""""""""""""

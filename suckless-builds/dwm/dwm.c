@@ -2613,7 +2613,7 @@ main(int argc, char *argv[])
 void
 centeredmaster(Monitor *m)
 {
-	unsigned int i, n, h, mw, mx, my, oty, ety, tw;
+	unsigned int i, n, h, mw, mx, my, oty, ety, tw, ns;
 	Client *c;
 
 	/* count number of clients in the selected monitor */
@@ -2624,10 +2624,11 @@ centeredmaster(Monitor *m)
 	/* initialize areas */
 	mw = m->ww;
 	mx = 0;
-	my = 0;
+	my = gappx;
 	tw = mw;
 
 	if (n > m->nmaster) {
+		ns = m->nmaster > 0 ? 2 : 1;
 		/* go mfact box in the center if more than nmaster clients */
 		mw = m->nmaster ? m->ww * m->mfact : 0;
 		tw = m->ww - mw;
@@ -2637,30 +2638,32 @@ centeredmaster(Monitor *m)
 			mx = (m->ww - mw) / 2;
 			tw = (m->ww - mw) / 2;
 		}
-	}
+    } else {
+        ns = 1;
+    }
 
-	oty = 0;
-	ety = 0;
+	oty = gappx;
+	ety = gappx;
 	for (i = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next), i++)
 	if (i < m->nmaster) {
 		/* nmaster clients are stacked vertically, in the center
 		 * of the screen */
-		h = (m->wh - my) / (MIN(n, m->nmaster) - i);
-		resize(c, m->wx + mx, m->wy + my, mw - (2*c->bw),
+		h = (m->wh - my) / (MIN(n, m->nmaster) - i) - gappx;
+		resize(c, m->wx + mx + gappx, m->wy + my, mw - (2*c->bw) - gappx*(5-ns)/2,
 		       h - (2*c->bw), 0);
-		my += HEIGHT(c);
+		my += HEIGHT(c) + gappx;
 	} else {
 		/* stack clients are stacked vertically */
 		if ((i - m->nmaster) % 2 ) {
-			h = (m->wh - ety) / ( (1 + n - i) / 2);
-			resize(c, m->wx, m->wy + ety, tw - (2*c->bw),
+			h = (m->wh - ety) / ( (1 + n - i) / 2) - gappx;
+			resize(c, m->wx + gappx + 3, m->wy + ety, tw - (2*c->bw) - gappx*(5-ns)/2,
 			       h - (2*c->bw), 0);
-			ety += HEIGHT(c);
+			ety += HEIGHT(c) + gappx;
 		} else {
-			h = (m->wh - oty) / ((1 + n - i) / 2);
-			resize(c, m->wx + mx + mw, m->wy + oty,
-			       tw - (2*c->bw), h - (2*c->bw), 0);
-			oty += HEIGHT(c);
+			h = (m->wh - oty) / ((1 + n - i) / 2) - gappx;
+			resize(c, m->wx + mx + mw + gappx/ns, m->wy + oty,
+			       tw - (2*c->bw) - gappx*(5-ns)/2, h - (2*c->bw), 0);
+			oty += HEIGHT(c) + gappx;
 		}
 	}
 }

@@ -2,6 +2,8 @@
 " like <leader>w saves the current file
 let mapleader = " "
 
+map <leader>f :YcmCompleter FixIt<cr>
+
 " Fast saving
 nmap <leader>w :w!<cr>
 

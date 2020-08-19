@@ -1001,3 +1001,11 @@ a.spoticon-helpcircle-16.ConnectPopup__header-help{
     box-shadow: none !important;
     background: var(--modspotify_rgb_cover_overlay_and_shadow) !important;
 }
+
+#lyrics-versions-container {
+    padding-top: 15rem!important;
+}
+
+#lyrics-version-container div {
+    display: none!important;
+}

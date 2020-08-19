@@ -21,6 +21,12 @@ source $HOME/.config/zsh/autocomplete.zsh
 # Set the default texteditor to neovim
 export EDITOR=nvim
 
+export CARGO_HOME=~/.config/cargo
+export GRADLE_USER_HOME=~/.config/gradle
+export GNUPGHOME=~/.config/gnupg
+export _JAVA_OPTIONS=-Djava.util.prefs.userRoot=~/.config/java
+export LESSHISTFILE=-
+
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line

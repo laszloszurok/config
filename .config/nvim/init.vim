@@ -12,6 +12,9 @@ source ~/.config/nvim/helpers.vim
 "           GENERAL           "
 """""""""""""""""""""""""""""""
 
+" Set working directory to the current files directory
+autocmd BufEnter * lcd %:p:h
+
 " Sets how many lines of history VIM has to remember
 set history=500
 

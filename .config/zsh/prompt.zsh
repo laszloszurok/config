@@ -17,5 +17,5 @@ vcs_info_wrapper() {
 }
 
 RPROMPT=$'$(vcs_info_wrapper)'
-PS1="%{$fg[green]%}cwd: %~"$'\n'"%{$reset_color%} "
+PS1="%{$fg[green]%}cwd: %{$fg[magenta]%}%~"$'\n'"%{$reset_color%} "
 # RPS1="  %m    %n"

@@ -2,7 +2,7 @@
 autoload -U colors && colors
 
 # Loading pywal colors
-(cat ~/.cache/wal/sequences &)
+# (cat ~/.cache/wal/sequences &)
 
 # History in cache directory:
 HISTSIZE=10000
@@ -11,12 +11,12 @@ HISTFILE=~/.cache/zsh/history
 setopt HIST_IGNORE_ALL_DUPS
 
 export _Z_DATA="$HOME/.cache/z/zdata"        # Use the z command to cd into
-source $HOME/.config/zsh/customizations/z.sh # frequently visited directories faster
-source $HOME/.config/zsh/customizations/prompt.zsh
-source $HOME/.config/zsh/customizations/aliases.zsh
-source $HOME/.config/zsh/customizations/extract.zsh # function to extract archives
-source $HOME/.config/zsh/customizations/vimode.zsh # use modes like in vim
-source $HOME/.config/zsh/customizations/autocomplete.zsh
+source $HOME/.config/zsh/z.sh # frequently visited directories faster
+source $HOME/.config/zsh/prompt.zsh
+source $HOME/.config/zsh/aliases.zsh
+source $HOME/.config/zsh/extract.zsh # function to extract archives
+source $HOME/.config/zsh/vimode.zsh # use modes like in vim
+source $HOME/.config/zsh/autocomplete.zsh
 
 # Set the default texteditor to neovim
 export EDITOR=nvim

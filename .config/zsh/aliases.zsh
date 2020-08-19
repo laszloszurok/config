@@ -10,5 +10,5 @@ alias grep='grep --color=auto'
 alias cp="cp -i"
 alias mv='mv -i'
 alias rm='rm -i'
-alias zcfg="cwd=$(pwd) && cd ~/.config/zsh/ && nvim . && source ~/.config/zsh/.zshrc && cd $cwd"
-alias ncfg="cwd=$(pwd) && cd ~/.config/nvim/ && nvim . && cd $cwd"
+alias sc="nvim ~/.config/zsh/ && source ~/.config/zsh/.zshrc"
+alias ec="nvim ~/.config/nvim"

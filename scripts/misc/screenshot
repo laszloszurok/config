@@ -4,7 +4,7 @@
 _conf=$HOME/.config/screenshot.conf
 
 if ! [ -f $_conf ]; then
-	echo "scrot_dir=/$HOME/Screenshots" > $_conf
+	echo "scrot_dir=/$HOME/pictures/screenshots" > $_conf
 fi
 
 source $_conf
@@ -36,7 +36,7 @@ case "$1" in
 		cd $scrot_dir
 		notify-send 'select an area for the screenshot' &&
         echo 'select an area to capture' &&
-		sleep 0.2; $cmd -s &&
+		sleep 0.2; $cmd -fs &&
 		sleep 1 && notify-send "screenshot has been saved in $scrot_dir"
 		;;
 	--help|-h)

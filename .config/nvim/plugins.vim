@@ -11,6 +11,7 @@ if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/plugged')
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'junegunn/goyo.vim'
 Plug 'Valloric/YouCompleteMe'
 Plug 'drewtempelmeyer/palenight.vim'

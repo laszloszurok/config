@@ -56,7 +56,7 @@ fi
 exec dwm" > /home/$current_user/.xinitrc
 
 # installing my most used software
-pacman -S pcmanfm-gtk3 firefox qbittorrent gvfs gvfs-mtp ntfs-3g zip unzip xarchiver zathura zathura-pdf-poppler gimp lxappearance kvantum-qt5 neovim zsh zsh-syntax-highlighting ttf-font-awesome ttf-dejavu feh python-pywal scrot numlockx xclip arc-gtk-theme arc-icon-theme powertop lxsession mpv dunst discord alsa-utils playerctl sxiv libreoffice-still texlive-most ffmpeg ffmpegthumbnailer cups usbutils ufw vifm ueberzug newsboat picom xautolock
+pacman -S pcmanfm-gtk3 firefox qbittorrent gvfs gvfs-mtp ntfs-3g zip unzip xarchiver zathura zathura-pdf-poppler gimp lxappearance qt5ct neovim zsh zsh-syntax-highlighting ttf-font-awesome ttf-dejavu feh python-pywal scrot numlockx xclip arc-gtk-theme arc-icon-theme powertop lxsession mpv dunst discord alsa-utils playerctl sxiv libreoffice-still texlive-most ffmpeg ffmpegthumbnailer cups usbutils ufw vifm ueberzug newsboat picom xautolock
 
 # installing yay
 sudo -u $current_user git clone https://aur.archlinux.org/yay.git

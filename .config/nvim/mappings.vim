@@ -7,8 +7,9 @@ map <leader>f :YcmCompleter FixIt<cr>
 " Fast saving
 nmap <leader>w :w!<cr>
 
-" Shortcut for NerdTree
+" Shortcuts for NerdTree
 map <leader>n :NERDTreeToggle<cr>
+map <leader>r :NERDTreeRefreshRoot<cr>
 
 " Leader + g to toggle Goyo (Have to set the colors, otherwise they are overwritten)
 map <leader>g :Goyo \| colorscheme palenight\| set background=dark \| highlight LineNr ctermfg=grey  \| set linebreak<CR>

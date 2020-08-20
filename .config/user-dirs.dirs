@@ -1,0 +1,6 @@
+XDG_DESKTOP_DIR="$HOME/.config/xdg-redirect/"
+XDG_DOCUMENTS_DIR="$HOME/.config/xdg-redirect/"
+XDG_DOWNLOAD_DIR="$HOME/downloads/"
+XDG_MUSIC_DIR="$HOME/.config/xdg-redirect/"
+XDG_PICTURES_DIR="$HOME/pictures"
+XDG_VIDEOS_DIR="$HOME/.config/xdg-redirect/"

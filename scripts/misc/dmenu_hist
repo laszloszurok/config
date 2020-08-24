@@ -26,10 +26,8 @@ if [ -z "$TERMINAL_CMD" ]; then
   fi
 fi
 
-dmenu_height=26
-dmenu_font='monospace:size=12'
+dmenu_cmd="dmenu -h 26 -fn monospace:size=12 -i -p run: $@"
 
-dmenu_cmd="dmenu $DMENU_OPTIONS"
 max_recent=199 # Number of recent commands to track
 
 cache_dir="${XDG_CONFIG_HOME:-$HOME/.cache}/dmenu-hist"
@@ -51,7 +49,7 @@ if stest -dqr -n "$rest_cache" $PATH 2>/dev/null; then
 fi
 
 IFS=" "
-cmd=$(cat "$recent_cache" "$rest_cache" | $dmenu_cmd -h "$dmenu_height" -fn "$dmenu_font" -p run: "$@") || exit
+cmd=$(cat "$recent_cache" "$rest_cache" | $dmenu_cmd) || exit
 
 if ! grep -qx "$cmd" "$recent_cache" &> /dev/null; then
     grep -vx "$cmd" "$rest_cache" > "$rest_cache.$$"
@@ -74,7 +72,7 @@ word0=${cmd%% *}
 match="^$word0$"
 
 get_type () {
-    while type=$(echo $known_types | xargs -n1 | $dmenu_cmd -h "$dmenu_height" -fn "$dmenu_font" -p Type:); do
+    while type=$(echo $known_types | xargs -n1 | $dmenu_cmd -p type:); do
         [[ $known_types =~ " $type " ]] || continue
         echo "$word0" >> "$config_dir/$type"
         break

@@ -32,11 +32,13 @@ autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
 # Managing environmental variables
-# export JAVA_HOME=/usr/lib/jvm/java-14-openjdk
-# PATH="$JAVA_HOME/bin:$PATH"
-PATH="$PATH:/home/pulzar/scripts/misc"
-PATH="$PATH:/home/pulzar/flutter/bin"
-export PATH="$PATH:/home/pulzar/.emacs.d/bin"
+export JAVA_HOME=/usr/lib/jvm/java-14-openjdk
+export ANDROID_HOME=/home/pulzar/Android/Sdk
+PATH="$JAVA_HOME/bin:$PATH"
+PATH="$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH"
+PATH="$PATH:$HOME/scripts/misc"
+PATH="$PATH:$HOME/flutter/bin"
+export PATH="$PATH:$HOME/.emacs.d/bin"
 
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null

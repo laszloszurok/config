@@ -30,7 +30,7 @@ dmenu_cmd="dmenu -h 26 -fn monospace:size=12 -i -p run: $@"
 
 max_recent=199 # Number of recent commands to track
 
-cache_dir="${XDG_CONFIG_HOME:-$HOME/.cache}/dmenu-hist"
+cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/dmenu-hist"
 recent_cache="$cache_dir/recent"
 rest_cache="$cache_dir/all"
 known_types=" background terminal terminal_hold "

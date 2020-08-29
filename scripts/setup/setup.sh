@@ -68,6 +68,7 @@ cd /home/$current_user
 # installing softwer from the AUR
 sudo -u $current_user yay -S spotify
 sudo -u $current_user yay -S spicetify-cli
+sudo -u $current_user yay -S protonvpn-cli-ng
 sudo -u $current_user yay -S windscribe-cli
 sudo -u $current_user yay -S hugo
 sudo -u $current_user yay -S vscodium-bin

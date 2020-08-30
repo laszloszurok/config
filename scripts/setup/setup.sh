@@ -16,8 +16,23 @@ else
     current_user=$(whoami)
 fi
 
+# check internet connection
+systemctl enable --now NetworkManager
+ping -q -w 1 -c 1 `ip r | grep default | cut -d ' ' -f 3` > /dev/null && echo "internet connection ok" || `echo "no internet connection"; exit 1`
+
 # sync mirrors, update the system
 pacman -Syyu
+
+# fixing wireless driver, connecting to wifi
+pacman -S dkms git
+git clone https://github.com/lwfinger/rtw88.git /home/$current_user/.config/rtw88
+cd /home/$current_use/.config/rtw88
+sudo -u $current_user make
+make install
+cd /home/$current_user
+dkms add ./.config/rtw88
+dkms install rtlwifi-new/0.6
+nmtui
 
 # x related
 pacman -S xf86-video-intel xf86-video-amdgpu xorg xorg-xinit
@@ -72,7 +87,6 @@ sudo -u $current_user yay -S protonvpn-cli-ng
 sudo -u $current_user yay -S windscribe-cli
 sudo -u $current_user yay -S hugo
 sudo -u $current_user yay -S vscodium-bin
-sudo -u $current_user yay -S jmptfs
 
 # enabling services
 sh -c "echo -e '[Unit]\nDescription=PowerTop\n\n[Service]\nType=oneshot\nRemainAfterExit=true\nExecStart=/usr/bin/powertop --auto-tune\n\n[Install]\nWantedBy=multi-user.target\n' > /etc/systemd/system/powertop.service"
@@ -109,13 +123,13 @@ EndSection" > /etc/X11/xorg.conf.d/xorg.conf
 
 # cloning my configs from my github and setting up a bare repository for config file management
 sudo -u $current_user git clone --separate-git-dir=/home/$current_user/.myconf https://github.com/laszloszurok/suckless-arch.git /home/$current_user/myconf-tmp
-sudo -u $current_user rm -r /home/$current_user/.config
-sudo -u $current_user mv /home/$current_user/myconf-tmp/* /home/$current_user/myconf-tmp/.[!.]* /home/$current_user
-sudo -u $current_user rm -rf /home/$current_user/myconf-tmp/ /home/$current_user/.git
+sudo -u $current_user cp /home/$current_user/myconf-tmp/scripts /home/$current_user/myconf-tmp/suckless-builds /home/$current_user
+sudo -u $current_user cp -f /home/$current_user/myconf-tmp/.config/* /home/$current_user/.config
+sudo -u $current_user rm -rf /home/$current_user/myconf-tmp/
 sudo -u $current_user /usr/bin/git --git-dir=/home/$current_user/.myconf/ --work-tree=/home/$current_user config status.showUntrackedFiles no
 
 # cloning my wallpaper repo
-sudo -u $current_user git clone https://github.com/laszloszurok/Wallpapers
+sudo -u $current_user git clone https://github.com/laszloszurok/Wallpapers /home/$current_use/pictures/wallpapers
 
 # installing my suckless builds
 cd /home/$current_user/suckless-builds/dwm
@@ -134,10 +148,10 @@ make install
 cd /home/$current_user
 
 # spotify wm
-sudo -u $current_user git clone https://github.com/dasJ/spotifywm.git
-cd /home/$current_user/spotifywm
+sudo -u $current_user git clone https://github.com/dasJ/spotifywm.git /home/$current_user/.config/spotifywm
+cd /home/$current_user/.config/spotifywm
 sudo -u $current_user make
-sudo -u $current_user echo "LD_PRELOAD=/usr/lib/libcurl.so.4:/home/pulzar/spotifywm/spotifywm.so /usr/bin/spotify" > /usr/local/bin/spotify
+sudo -u $current_user echo "LD_PRELOAD=/usr/lib/libcurl.so.4:/home/$current_user/.config/spotifywm/spotifywm.so /usr/bin/spotify" > /usr/local/bin/spotify
 
 cd /home/$current_user
 
@@ -146,8 +160,8 @@ sudo -u $current_user mkdir /home/$current_user/.cache/zsh
 echo "ZDOTDIR=\$HOME/.config/zsh" > /etc/zsh/zshenv
 sudo -u $current_user chsh -s /usr/bin/zsh
 
-# zdata cache directory
-sudo -u $current_user mkdir /home/$current_user/.cache/z
+# # zdata cache directory
+# sudo -u $current_user mkdir /home/$current_user/.cache/z
 
 mkdir /usr/share/xsessions
 echo "[Desktop Entry]

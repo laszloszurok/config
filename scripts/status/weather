@@ -1,0 +1,6 @@
+echo 
+
+case $BUTTON in
+    1) dunstify --replace=1 "todo: weather info";;
+    3) st -e "$HOME/scripts/status/helper_scripts/show_forecast.sh";;
+esac

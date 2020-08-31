@@ -32,7 +32,7 @@ passwd
 read -p "Chose a username: " username
 useradd -m $username
 passwd $username
-usermod -aG wheel,audio,video,optical,storage,libvirt $username
+usermod -aG wheel,audio,video,optical,storage $username
 EDITOR=nvim visudo
 echo "Done. Type exit, then umount -a, then reboot and run bootstrap.sh"
 

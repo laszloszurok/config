@@ -25,8 +25,8 @@ pacman -Syyu
 
 # fixing wireless driver, connecting to wifi
 pacman -S dkms git
-git clone https://github.com/lwfinger/rtw88.git /home/$current_user/.config/rtw88
-cd /home/$current_use/.config/rtw88
+sudo -u $current_user git clone https://github.com/lwfinger/rtw88.git /home/$current_user/.config/rtw88
+cd /home/$current_user/.config/rtw88
 sudo -u $current_user make
 make install
 cd /home/$current_user
@@ -71,7 +71,7 @@ fi
 exec dwm" > /home/$current_user/.xinitrc
 
 # installing my most used software
-pacman -S pcmanfm-gtk3 firefox qbittorrent gvfs gvfs-mtp ntfs-3g zip unzip xarchiver zathura zathura-pdf-poppler gimp lxappearance qt5ct neovim zsh zsh-syntax-highlighting ttf-font-awesome ttf-dejavu feh python-pywal scrot numlockx xclip arc-gtk-theme arc-icon-theme powertop lxsession mpv dunst discord alsa-utils playerctl sxiv libreoffice-still texlive-most ffmpeg ffmpegthumbnailer cups usbutils ufw vifm ueberzug newsboat picom xautolock virt-manager qemu dnsmaq pass translate-shell qutebrowser
+pacman -S pcmanfm-gtk3 firefox qbittorrent gvfs gvfs-mtp ntfs-3g zip unzip xarchiver zathura zathura-pdf-poppler gimp lxappearance qt5ct neovim zsh zsh-syntax-highlighting ttf-font-awesome ttf-dejavu feh python-pywal scrot numlockx xclip arc-gtk-theme arc-icon-theme powertop lxsession mpv dunst discord alsa-utils playerctl sxiv libreoffice-still texlive-most ffmpeg ffmpegthumbnailer cups usbutils ufw vifm ueberzug newsboat picom xautolock virt-manager qemu dnsmasq pass translate-shell qutebrowser
 
 # installing yay
 sudo -u $current_user git clone https://aur.archlinux.org/yay.git
@@ -121,15 +121,15 @@ echo "Section \"ServerFlags\"
     Option \"DontVTSwitch\" \"True\"
 EndSection" > /etc/X11/xorg.conf.d/xorg.conf
 
-# cloning my configs from my github and setting up a bare repository for config file management
-sudo -u $current_user git clone --separate-git-dir=/home/$current_user/.myconf https://github.com/laszloszurok/suckless-arch.git /home/$current_user/myconf-tmp
-sudo -u $current_user cp /home/$current_user/myconf-tmp/scripts /home/$current_user/myconf-tmp/suckless-builds /home/$current_user
-sudo -u $current_user cp -f /home/$current_user/myconf-tmp/.config/* /home/$current_user/.config
+# cloning my configs from my gitlab and setting up a bare repository for config file management
+sudo -u $current_user git clone --separate-git-dir=/home/$current_user/.myconf https://gitlab.com/laszloszurok/suckless-arch.git /home/$current_user/myconf-tmp
+sudo -u $current_user cp -rf /home/$current_user/myconf-tmp/scripts /home/$current_user/myconf-tmp/suckless-builds /home/$current_user
+sudo -u $current_user cp -ff /home/$current_user/myconf-tmp/.config/* /home/$current_user/.config
 sudo -u $current_user rm -rf /home/$current_user/myconf-tmp/
 sudo -u $current_user /usr/bin/git --git-dir=/home/$current_user/.myconf/ --work-tree=/home/$current_user config status.showUntrackedFiles no
 
 # cloning my wallpaper repo
-sudo -u $current_user git clone https://github.com/laszloszurok/Wallpapers /home/$current_use/pictures/wallpapers
+sudo -u $current_user git clone https://gitlab.com/laszloszurok/Wallpapers /home/$current_user/pictures/wallpapers
 
 # installing my suckless builds
 cd /home/$current_user/suckless-builds/dwm
@@ -160,8 +160,8 @@ sudo -u $current_user mkdir /home/$current_user/.cache/zsh
 echo "ZDOTDIR=\$HOME/.config/zsh" > /etc/zsh/zshenv
 sudo -u $current_user chsh -s /usr/bin/zsh
 
-# # zdata cache directory
-# sudo -u $current_user mkdir /home/$current_user/.cache/z
+# zdata history directory
+sudo -u $current_user mkdir /home/$current_user/.local/share/z
 
 mkdir /usr/share/xsessions
 echo "[Desktop Entry]

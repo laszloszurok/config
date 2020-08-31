@@ -124,7 +124,7 @@ EndSection" > /etc/X11/xorg.conf.d/xorg.conf
 # cloning my configs from my gitlab and setting up a bare repository for config file management
 sudo -u $current_user git clone --separate-git-dir=/home/$current_user/.myconf https://gitlab.com/laszloszurok/suckless-arch.git /home/$current_user/myconf-tmp
 sudo -u $current_user cp -rf /home/$current_user/myconf-tmp/scripts /home/$current_user/myconf-tmp/suckless-builds /home/$current_user
-sudo -u $current_user cp -ff /home/$current_user/myconf-tmp/.config/* /home/$current_user/.config
+sudo -u $current_user cp -rf /home/$current_user/myconf-tmp/.config/* /home/$current_user/.config
 sudo -u $current_user rm -rf /home/$current_user/myconf-tmp/
 sudo -u $current_user /usr/bin/git --git-dir=/home/$current_user/.myconf/ --work-tree=/home/$current_user config status.showUntrackedFiles no
 

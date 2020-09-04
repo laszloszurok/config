@@ -7,7 +7,7 @@ ln -sf /usr/share/zoneinfo/Europe/Budapest /etc/localtime
 hwclock --systohc
 
 # generate locale
-echo "ech_US.UTF-8" > /etc/locale.gen
+echo "en_US.UTF-8" > /etc/locale.gen
 locale-gen
 
 # set language

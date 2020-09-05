@@ -71,7 +71,60 @@ fi
 exec dwm" > /home/$current_user/.xinitrc
 
 # installing my most used software
-pacman -S pcmanfm-gtk3 firefox qbittorrent gvfs gvfs-mtp ntfs-3g zip unzip xarchiver zathura zathura-pdf-poppler gimp lxappearance qt5ct neovim zsh zsh-syntax-highlighting ttf-font-awesome ttf-dejavu feh python-pywal scrot numlockx xclip arc-gtk-theme arc-icon-theme powertop lxsession mpv dunst discord alsa-utils playerctl sxiv libreoffice-still texlive-most ffmpeg ffmpegthumbnailer cups usbutils ufw vifm ueberzug newsboat picom xautolock virt-manager qemu dnsmasq pass translate-shell qutebrowser
+
+# graphical file explorer
+pacman -S pcmanfm-gtk3 gvfs gvfs-mtp ntfs-3g
+
+# archiving tools
+pacman -S zip unzip xarchiver
+
+# pdf reader
+pacman -S zathura zathura-pdf-poppler
+
+# themeing tools and themes
+pacman -S lxappearance qt5ct arc-gtk-theme arc-icon-theme python-pywal feh picom
+
+# shell
+pacman -S zsh zsh-syntax-highlighting
+
+# other x tools
+pacman -S numlockx xclip xautolock
+
+# virt-manager
+pacman -S virt-manager qemu ebtables dnsmasq
+usermod -aG libvirt $current_user
+systemctl enable --now libvirtd
+virsh net-autostart default
+
+# fonts
+pacman -S ttf-font-awesome ttf-dejavu
+
+# browsers
+pacman -S firefox qutebrowser
+
+# multimedia
+pacman -S mpv alsa-utils playerctl ffmpeg
+
+# vifm
+pacman -S vifm ffmpegthumbnailer ueberzug
+
+# printing service
+pacman -S cups
+systemctl enable org.cups.cupsd.socket
+
+# firewall
+pacman -S ufw
+ufw default deny incoming
+ufw default allow outgoing
+ufw enable
+
+# power saving
+pacman -S powertop
+sh -c "echo -e '[Unit]\nDescription=PowerTop\n\n[Service]\nType=oneshot\nRemainAfterExit=true\nExecStart=/usr/bin/powertop --auto-tune\n\n[Install]\nWantedBy=multi-user.target\n' > /etc/systemd/system/powertop.service"
+systemctl enable --now powertop
+
+# misc
+pacman -S qbittorrent gimp neovim scrot lxsession dunst sxiv libreoffice-still texlive-most usbutils newsboat pass translate-shell
 
 # installing yay
 sudo -u $current_user git clone https://aur.archlinux.org/yay.git
@@ -87,14 +140,6 @@ sudo -u $current_user yay -S protonvpn-cli-ng
 sudo -u $current_user yay -S windscribe-cli
 sudo -u $current_user yay -S hugo
 sudo -u $current_user yay -S vscodium-bin
-
-# enabling services
-sh -c "echo -e '[Unit]\nDescription=PowerTop\n\n[Service]\nType=oneshot\nRemainAfterExit=true\nExecStart=/usr/bin/powertop --auto-tune\n\n[Install]\nWantedBy=multi-user.target\n' > /etc/systemd/system/powertop.service"
-systemctl enable --now powertop
-systemctl enable org.cups.cupsd.socket
-ufw default deny incoming
-ufw default allow outgoing
-ufw enable
 
 # service to launch slock on suspend
 echo "[Unit]
@@ -121,7 +166,7 @@ echo "Section \"ServerFlags\"
     Option \"DontVTSwitch\" \"True\"
 EndSection" > /etc/X11/xorg.conf.d/xorg.conf
 
-# cloning my configs from my gitlab and setting up a bare repository for config file management
+# cloning my configs from gitlab and setting up a bare repository for config file management
 sudo -u $current_user git clone --separate-git-dir=/home/$current_user/.myconf https://gitlab.com/laszloszurok/suckless-arch.git /home/$current_user/myconf-tmp
 sudo -u $current_user cp -rf /home/$current_user/myconf-tmp/scripts /home/$current_user/myconf-tmp/suckless-builds /home/$current_user
 sudo -u $current_user cp -rf /home/$current_user/myconf-tmp/.config/* /home/$current_user/.config

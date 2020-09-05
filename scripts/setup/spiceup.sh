@@ -1,7 +1,9 @@
 #!/bin/bash
+[ -z $1 ] && echo "Usage: ./spiceup.sh path/to/an/image"
+! [ -f $1 ] && echo "The given argument is not a valid file"
 
 # running wal
-wal -i ~/Wallpapers/ocean-minimal.png
+wal -i $1
 
 ~/scripts/misc/genzathurarc
 

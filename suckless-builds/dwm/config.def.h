@@ -149,6 +149,7 @@ static const Layout layouts[] = {
         { 0,                       XK_Print,                   spawn,          SHCMD("$HOME/scripts/misc/screenshot") },
         { MODKEY,                  XK_Print,                   spawn,          SHCMD("$HOME/scripts/misc/screenshot -w") },
         { MODKEY|ShiftMask,        XK_Print,                   spawn,          SHCMD("$HOME/scripts/misc/screenshot -s") },
+        { MODKEY,                  XK_n,                       spawn,          SHCMD("st -e newsboat; pkill RTMIN+21") },
     };
 
     /* button definitions */

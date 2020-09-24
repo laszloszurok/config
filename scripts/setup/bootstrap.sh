@@ -226,8 +226,7 @@ echo "Section \"InputClass\"
 EndSection" > /etc/X11/xorg.conf.d/30-touchpad.conf
 
 # theme settings
-echo "GTK_THEME=Arc-Dark
-QT_QPA_PLATFORMTHEME=qt5ct" >> /etc/environment
+echo "QT_QPA_PLATFORMTHEME=qt5ct" >> /etc/environment
 
 sudo -u $current_user echo "
 Finished

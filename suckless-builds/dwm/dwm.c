@@ -1034,6 +1034,7 @@ focus(Client *c)
 	selmon->sel = c;
 	if (selmon->sel)
 		resizeclient(c, c->x, c->y, c->w, c->h);
+    arrange(selmon);
 	drawbars();
 }
 

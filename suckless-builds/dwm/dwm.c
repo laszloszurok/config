@@ -1425,7 +1425,7 @@ monocle(Monitor *m)
 	Client *c;
 
 	for (c = nexttiled(m->clients); c; c = nexttiled(c->next))
-		resize(c, m->wx, m->wy, m->ww - 2 * c->bw, m->wh - 2 * c->bw, 0);
+		resize(c, m->wx, m->wy, m->ww, m->wh, 0);
 }
 
 void
@@ -1610,12 +1610,12 @@ resizeclient(Client *c, int x, int y, int w, int h)
 	c->oldh = c->h; c->h = wc.height = h;
 
     if (c == selmon->sel)
-		wc.border_width = c->bw;
-	else {
-		wc.border_width = 0;
-		wc.x += c->bw;
-		wc.y += c->bw;
-	}
+        wc.border_width = c->bw;
+    else {
+        wc.border_width = 0;
+        wc.x += c->bw;
+        wc.y += c->bw;
+    }
 
     for (n = 0, nbc = nexttiled(selmon->clients); nbc; nbc = nexttiled(nbc->next), n++);
 

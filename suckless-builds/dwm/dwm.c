@@ -575,7 +575,6 @@ buttonpress(XEvent *e)
 		} else if (ev->x < x + blw)
 			click = ClkLtSymbol;
 		else if (ev->x > selmon->ww - TEXTW(stext) + lrpad - 2) {
-            /* x = (selmon->ww - TEXTW(stext) + lrpad - 2); */
 			click = ClkStatusText;
 
 			char *text = rawstext;
@@ -1032,6 +1031,8 @@ focus(Client *c)
 		XDeleteProperty(dpy, root, netatom[NetActiveWindow]);
 	}
 	selmon->sel = c;
+	if (selmon->sel)
+		resizeclient(c, c->x, c->y, c->w, c->h);
 	drawbars();
 }
 
@@ -1419,14 +1420,8 @@ maprequest(XEvent *e)
 void
 monocle(Monitor *m)
 {
-	unsigned int n = 0;
 	Client *c;
 
-	for (c = m->clients; c; c = c->next)
-		if (ISVISIBLE(c))
-			n++;
-	if (n > 0) /* override layout symbol */
-		snprintf(m->ltsymbol, sizeof m->ltsymbol, "│  [%d]", n);
 	for (c = nexttiled(m->clients); c; c = nexttiled(c->next))
 		resize(c, m->wx, m->wy, m->ww - 2 * c->bw, m->wh - 2 * c->bw, 0);
 }
@@ -1611,7 +1606,14 @@ resizeclient(Client *c, int x, int y, int w, int h)
 	c->oldy = c->y; c->y = wc.y = y;
 	c->oldw = c->w; c->w = wc.width = w;
 	c->oldh = c->h; c->h = wc.height = h;
-	wc.border_width = c->bw;
+
+    if (c == selmon->sel)
+		wc.border_width = c->bw;
+	else {
+		wc.border_width = 0;
+		wc.x += c->bw;
+		wc.y += c->bw;
+	}
 
     for (n = 0, nbc = nexttiled(selmon->clients); nbc; nbc = nexttiled(nbc->next), n++);
 
@@ -2243,6 +2245,9 @@ unfocus(Client *c, int setfocus)
 		XSetInputFocus(dpy, root, RevertToPointerRoot, CurrentTime);
 		XDeleteProperty(dpy, root, netatom[NetActiveWindow]);
 	}
+	if (c == selmon->sel)
+		selmon->sel = NULL;
+	resizeclient(c, c->x, c->y, c->w, c->h);
 }
 
 void

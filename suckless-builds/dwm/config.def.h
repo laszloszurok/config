@@ -3,7 +3,7 @@
 #include <X11/XF86keysym.h>
 
 /* appearance */
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int gappx     = 15;       /* gap pixel between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int horizpadbar        = 0;        /* horizontal padding for statusbar */
@@ -15,36 +15,7 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 
 static const char *fonts[]          = { "FontAwesome:size=12", "monospace:size=10" };
 
-/* #include "/home/pulzar/.cache/wal/colors-wal-dwm.h" */
-
-static const char norm_fg[] = "#e0dbd2";
-static const char norm_bg[] = "#050A18";
-static const char norm_border[] = "#9c9993";
-
-static const char sel_fg[] = "#e0dbd2";
-static const char sel_bg[] = "#444Bff";
-static const char sel_border[] = "#e0dbd2";
-
-static const char not_sel_fg[] = "#e0dbd2";
-static const char not_sel_bg[]  = "#77b";
-static const char not_sel_border[] = "#9c9993";
-
-static const char hid_fg[] = "#e0dbd2";
-static const char hid_bg[] = "#050A18";
-static const char hid_border[] = "#305D6A";
-
-static const char urg_fg[] = "#e0dbd2";
-static const char urg_bg[] = "#e05D6A";
-static const char urg_border[] = "#e05D6A";
-
-static const char *colors[][3]      = {
-    /*                 fg           bg          border                         */
-    [SchemeNorm]   = { norm_fg,     norm_bg,    norm_border }, 
-    [SchemeSel]    = { sel_fg,      sel_bg,     sel_border },  // the focused win
-    [SchemeUrg]    = { urg_fg,      urg_bg,     urg_border },
-	[SchemeHid]    = { hid_fg,      hid_bg,     hid_border },
-    [SchemeNotSel] = { not_sel_fg,  not_sel_bg, not_sel_border }  // unfocused wins
-};
+#include "../color-source/dwm-colors.h"
 
 /* tagging */
 static const char *tags[] = { "", "", "", "", "", "",  "", "", "" };

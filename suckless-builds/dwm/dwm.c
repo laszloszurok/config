@@ -1032,10 +1032,7 @@ focus(Client *c)
 		XDeleteProperty(dpy, root, netatom[NetActiveWindow]);
 	}
 	selmon->sel = c;
-	if (selmon->sel)
-		resizeclient(c, c->x, c->y, c->w, c->h);
-    arrange(selmon);
-	drawbars();
+    drawbars();
 }
 
 /* there are some broken focus acquiring clients needing extra handling */
@@ -1562,17 +1559,6 @@ void
 quit(const Arg *arg)
 {
 	if(arg->i) restart = 1;
-
-    // fix: reloading dwm keeps all the hidden clients hidden
-	Monitor *m;
-	Client *c;
-	for (m = mons; m; m = m->next) {
-		if (m) {
-			for (c = m->stack; c; c = c->next)
-				if (c && HIDDEN(c)) showwin(c);
-		}
-	}
-
 	running = 0;
 }
 
@@ -1608,14 +1594,7 @@ resizeclient(Client *c, int x, int y, int w, int h)
 	c->oldy = c->y; c->y = wc.y = y;
 	c->oldw = c->w; c->w = wc.width = w;
 	c->oldh = c->h; c->h = wc.height = h;
-
-    if (c == selmon->sel)
-        wc.border_width = c->bw;
-    else {
-        wc.border_width = 0;
-        wc.x += c->bw;
-        wc.y += c->bw;
-    }
+    wc.border_width = c->bw;
 
     for (n = 0, nbc = nexttiled(selmon->clients); nbc; nbc = nexttiled(nbc->next), n++);
 
@@ -1626,7 +1605,7 @@ resizeclient(Client *c, int x, int y, int w, int h)
            }
     }
 
-	XConfigureWindow(dpy, c->win, CWX|CWY|CWWidth|CWHeight|CWBorderWidth, &wc);
+    XConfigureWindow(dpy, c->win, CWX|CWY|CWWidth|CWHeight|CWBorderWidth, &wc);
 	configure(c);
 	XSync(dpy, False);
 }
@@ -2247,9 +2226,6 @@ unfocus(Client *c, int setfocus)
 		XSetInputFocus(dpy, root, RevertToPointerRoot, CurrentTime);
 		XDeleteProperty(dpy, root, netatom[NetActiveWindow]);
 	}
-	if (c == selmon->sel)
-		selmon->sel = NULL;
-	resizeclient(c, c->x, c->y, c->w, c->h);
 }
 
 void

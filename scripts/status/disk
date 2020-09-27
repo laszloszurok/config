@@ -4,5 +4,5 @@ echo -e ""
 
 case $BUTTON in
     1) dunstify --replace=1 "Free space(home): $free_space_home" "Right click to open pcmanfm";;
-	3) pcmanfm $HOME;;
+	3) pcmanfm $HOME & disown;;
 esac

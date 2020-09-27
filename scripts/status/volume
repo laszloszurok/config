@@ -20,6 +20,6 @@ dunstify --replace=1 "Volume $vol%"
 
 case $BUTTON in
     1) dunstify --replace=1 "Volume $vol%" "Right click to open alsamixer";;
-    3) st -e alsamixer;;
+    3) st -e alsamixer & disown;;
 esac
 

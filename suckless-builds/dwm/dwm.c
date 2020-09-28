@@ -323,7 +323,7 @@ struct Pertag {
 	int showbars[LENGTH(tags) + 1]; /* display bar for the current tag */
 };
 
-static unsigned int scratchtag = 1 << LENGTH(tags);
+static unsigned int scratchtag = 1 << LENGTH(tags) - 1;
 
 /* compile-time check if all tags fit into an unsigned int bit array. */
 struct NumTags { char limitexceeded[LENGTH(tags) > 31 ? -1 : 1]; };
@@ -338,20 +338,25 @@ shiftview(const Arg *arg)
 	int i = arg->i;
 	int count = 0;
 	int nextseltags, curseltags = selmon->tagset[selmon->seltags];
+    int tagtojumpover = 1 << 9;
 
 	do {
-		if(i > 0) // left circular shift
+        if(i > 0) { // left circular shift
 			nextseltags = (curseltags << i) | (curseltags >> (LENGTH(tags) - i));
+        }
 
-		else // right circular shift
+        else { // right circular shift
 			nextseltags = curseltags >> (- i) | (curseltags << (LENGTH(tags) + i));
+        }
 
-                // Check if tag is visible
-		for (c = selmon->clients; c && !visible; c = c->next)
-			if (nextseltags & c->tags) {
-				visible = 1;
-				break;
-			}
+        if (nextseltags != tagtojumpover) {
+            // Check if tag is visible
+            for (c = selmon->clients; c && !visible; c = c->next)
+                if (nextseltags & c->tags) {
+                    visible = 1;
+                    break;
+                }
+        }
 		i += arg->i;
 	} while (!visible && ++count < 10);
 
@@ -914,7 +919,7 @@ drawbar(Monitor *m)
 			urg |= c->tags;
 	}
 	x = 0;
-	for (i = 0; i < LENGTH(tags); i++) {
+	for (i = 0; i < LENGTH(tags) - 1; i++) {
 		w = TEXTW(tags[i]);
 		drw_setscheme(drw, scheme[m->tagset[m->seltags] & 1 << i ? SchemeSel : SchemeNorm]);
 		drw_text(drw, x, 0, w, bh, lrpad / 2, tags[i], urg & 1 << i);

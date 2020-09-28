@@ -19,7 +19,7 @@ static const char *fonts[]          = { "FontAwesome:size=12", "monospace:size=1
 
 
 /* tagging */
-static const char *tags[] = { "", "", "", "", "", "",  "", "", "" };
+static const char *tags[] = { "", "", "", "", "", "",  "", "", "", "scratchtag" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -30,6 +30,7 @@ static const Rule rules[] = {
     /* class|instance|title|tags|mask|isfloating|isterminal|noswallow|monitor */
 	{ "st-256color",        NULL, NULL,      0, 0, 1,  0, -1 },
     { "firefox",            NULL, NULL, 1 << 1, 0, 0, -1, -1 },
+    { "qutebrowser",        NULL, NULL, 1 << 1, 0, 0, -1, -1 },
     { "Brave-browser",      NULL, NULL, 1 << 1, 0, 0, -1, -1 },
     { "Spotify",            NULL, NULL, 1 << 2, 0, 0,  0, -1 },
     { "Skype",              NULL, NULL, 1 << 3, 0, 0,  0, -1 },
@@ -107,8 +108,8 @@ static const Layout layouts[] = {
         { MODKEY,                       XK_period, focusmon,       {.i = +1 } },
         { MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 
-        { Mod1Mask,                     XK_j,      movestack,      {.i = +1} },
-        { Mod1Mask,                     XK_k,      movestack,      {.i = -1} },
+        { ControlMask,                  XK_j,      movestack,      {.i = +1} },
+        { ControlMask,                  XK_k,      movestack,      {.i = -1} },
         
         { MODKEY|ShiftMask,             XK_i,      incnmaster,     {.i = +1 } },
         { MODKEY|ShiftMask,             XK_d,      incnmaster,     {.i = -1 } },

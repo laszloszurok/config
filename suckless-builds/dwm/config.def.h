@@ -48,6 +48,8 @@ static const Rule rules[] = {
     { "Gimp",               NULL, NULL, 1 << 5, 0, 0,  0, -1 },
     { "Inkscape",           NULL, NULL, 1 << 5, 0, 0,  0, -1 },
     { "Pcmanfm",            NULL, NULL, 1 << 6, 0, 0,  0, -1 },
+    { "Zathura",            NULL, NULL, 1 << 6, 0, 0,  0, -1 },
+    { "DesktopEditors",     NULL, NULL, 1 << 6, 0, 0,  0, -1 },
     { "Virt-manager",       NULL, NULL, 1 << 7, 0, 0,  0, -1 },
     { "VirtualBox Manager", NULL, NULL, 1 << 7, 0, 0,  0, -1 },
     { "Genymotion",         NULL, NULL, 1 << 7, 0, 0,  0, -1 },

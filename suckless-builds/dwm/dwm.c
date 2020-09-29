@@ -573,8 +573,8 @@ buttonpress(XEvent *e)
 		i = x = 0;
 		do
 			x += TEXTW(tags[i]);
-		while (ev->x >= x && ++i < LENGTH(tags));
-		if (i < LENGTH(tags)) {
+		while (ev->x >= x && ++i < LENGTH(tags) - 1);
+		if (i < LENGTH(tags) - 1) {
 			click = ClkTagBar;
 			arg.ui = 1 << i;
 		} else if (ev->x < x + blw)
@@ -830,7 +830,7 @@ createmon(void)
 	m->pertag = ecalloc(1, sizeof(Pertag));
 	m->pertag->curtag = m->pertag->prevtag = 1;
 
-	for (i = 0; i <= LENGTH(tags); i++) {
+	for (i = 0; i <= LENGTH(tags) - 1; i++) {
 		m->pertag->nmasters[i] = m->nmaster;
 		m->pertag->mfacts[i] = m->mfact;
 

@@ -7,6 +7,8 @@
 
 " ------------------------------------------------------------------------------
 
+map q :q<cr>
+
 " Image preview settings
 fileviewer *.pdf
     \ vifmimg pdfpreview %px %py %pw %ph %c

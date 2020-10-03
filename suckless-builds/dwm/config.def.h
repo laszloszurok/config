@@ -47,6 +47,7 @@ static const Rule rules[] = {
     { "VSCodium",           NULL, NULL, 1 << 4, 0, 0,  0, -1 },
     { "Gimp",               NULL, NULL, 1 << 5, 0, 0,  0, -1 },
     { "Inkscape",           NULL, NULL, 1 << 5, 0, 0,  0, -1 },
+    { "draw.io",            NULL, NULL, 1 << 5, 0, 0,  0, -1 },
     { "Pcmanfm",            NULL, NULL, 1 << 6, 0, 0,  0, -1 },
     { "Zathura",            NULL, NULL, 1 << 6, 0, 0,  0, -1 },
     { "DesktopEditors",     NULL, NULL, 1 << 6, 0, 0,  0, -1 },
@@ -110,8 +111,8 @@ static const Layout layouts[] = {
         { MODKEY,                       XK_period, focusmon,       {.i = +1 } },
         { MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 
-        { ControlMask,                  XK_j,      movestack,      {.i = +1} },
-        { ControlMask,                  XK_k,      movestack,      {.i = -1} },
+        { ControlMask|ShiftMask,        XK_j,      movestack,      {.i = +1} },
+        { ControlMask|ShiftMask,        XK_k,      movestack,      {.i = -1} },
         
         { MODKEY|ShiftMask,             XK_i,      incnmaster,     {.i = +1 } },
         { MODKEY|ShiftMask,             XK_d,      incnmaster,     {.i = -1 } },

@@ -124,7 +124,7 @@ sh -c "echo -e '[Unit]\nDescription=PowerTop\n\n[Service]\nType=oneshot\nRemainA
 systemctl enable --now powertop
 
 # misc
-pacman -S qbittorrent gimp neovim scrot lxsession dunst sxiv libreoffice-still texlive-most usbutils newsboat pass translate-shell
+pacman -S qbittorrent gimp neovim scrot lxsession dunst sxiv onlyoffice-bin texlive-most usbutils newsboat pass translate-shell galculator
 
 # installing yay
 sudo -u $current_user git clone https://aur.archlinux.org/yay.git

@@ -100,7 +100,7 @@ virsh net-autostart default
 pacman -S ttf-font-awesome ttf-dejavu
 
 # browsers
-pacman -S firefox qutebrowser
+pacman -S firefox qutebrowser brave
 
 # multimedia
 pacman -S mpv alsa-utils playerctl ffmpeg
@@ -140,6 +140,7 @@ sudo -u $current_user yay -S protonvpn-cli-ng
 sudo -u $current_user yay -S windscribe-cli
 sudo -u $current_user yay -S hugo
 sudo -u $current_user yay -S vscodium-bin
+sudo -u $current_user yay -S ripcord
 
 # service to launch slock on suspend
 echo "[Unit]

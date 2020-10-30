@@ -36,39 +36,6 @@ nmtui
 
 # x related
 pacman -S xf86-video-intel xf86-video-amdgpu xorg xorg-xinit
-sudo -u $current_user echo "#!/bin/sh
-
-userresources=\$HOME/.Xresources
-usermodmap=\$HOME/.Xmodmap
-sysresources=/etc/X11/xinit/.Xresources
-sysmodmap=/etc/X11/xinit/.Xmodmap
-
-# merge in defaults and keymaps
-if [ -f \$sysresources ]; then
-    xrdb -merge \$sysresources
-fi
-
-if [ -f \$sysmodmap ]; then
-    xmodmap \$sysmodmap
-fi
-
-if [ -f "\$userresources" ]; then
-    xrdb -merge "\$userresources"
-fi
-
-if [ -f "\$usermodmap" ]; then
-    xmodmap "\$usermodmap"
-fi
-
-# start some nice programs
-if [ -d /etc/X11/xinit/xinitrc.d ] ; then
- for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
-  [ -x "\$f" ] && . "\$f"
- done
- unset f
-fi
-
-exec dwm" > /home/$current_user/.xinitrc
 
 # installing my most used software
 
@@ -100,7 +67,7 @@ virsh net-autostart default
 pacman -S ttf-font-awesome ttf-dejavu
 
 # browsers
-pacman -S firefox qutebrowser brave
+pacman -S firefox qutebrowser
 
 # multimedia
 pacman -S mpv alsa-utils playerctl ffmpeg
@@ -124,7 +91,7 @@ sh -c "echo -e '[Unit]\nDescription=PowerTop\n\n[Service]\nType=oneshot\nRemainA
 systemctl enable --now powertop
 
 # misc
-pacman -S qbittorrent gimp neovim scrot lxsession dunst sxiv onlyoffice-bin texlive-most usbutils newsboat pass translate-shell galculator
+pacman -S qbittorrent gimp neovim scrot lxsession dunst sxiv texlive-most usbutils newsboat pass translate-shell galculator gnu-netcat
 
 # installing yay
 sudo -u $current_user git clone https://aur.archlinux.org/yay.git
@@ -141,6 +108,8 @@ sudo -u $current_user yay -S windscribe-cli
 sudo -u $current_user yay -S hugo
 sudo -u $current_user yay -S vscodium-bin
 sudo -u $current_user yay -S ripcord
+sudo -u $current_user yay -S brave
+sudo -u $current_user yay -S onlyoffice-bin
 
 # service to launch slock on suspend
 echo "[Unit]
@@ -171,6 +140,7 @@ EndSection" > /etc/X11/xorg.conf.d/xorg.conf
 sudo -u $current_user git clone --separate-git-dir=/home/$current_user/.myconf https://gitlab.com/laszloszurok/suckless-arch.git /home/$current_user/myconf-tmp
 sudo -u $current_user cp -rf /home/$current_user/myconf-tmp/scripts /home/$current_user/myconf-tmp/suckless-builds /home/$current_user
 sudo -u $current_user cp -rf /home/$current_user/myconf-tmp/.config/* /home/$current_user/.config
+sudo -u $current_user cp -f /home/$current_user/myconf-tmp/.xinitrc /home/$current_user
 sudo -u $current_user rm -rf /home/$current_user/myconf-tmp/
 sudo -u $current_user /usr/bin/git --git-dir=/home/$current_user/.myconf/ --work-tree=/home/$current_user config status.showUntrackedFiles no
 

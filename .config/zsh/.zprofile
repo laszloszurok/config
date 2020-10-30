@@ -12,6 +12,7 @@ PATH="$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools"
 PATH="$PATH:$HOME/scripts/misc"
 PATH="$PATH:$HOME/flutter/bin"
 PATH="$PATH:$HOME/.emacs.d/bin"
+PATH="$PATH:$HOME/.dotnet/tools"
 export PATH
 
 # ~/ Clean-up:
@@ -36,3 +37,6 @@ export _Z_DATA="$XDG_DATA_HOME/z/zdata"
 
 # j as jump
 export _Z_CMD="j"
+
+# disable dotnet core telemetry
+export DOTNET_CLI_TELEMETRY_OPTOUT=1

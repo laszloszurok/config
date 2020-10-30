@@ -6,7 +6,7 @@ set statusbar-v-padding  15
 set statusbar-h-padding  75
 set font "monospace normal 11"
 
-set recolor "true"
+# set recolor "true"
 
 set completion-bg "#050A18"
 set completion-fg "#e0dbd2"

@@ -17,9 +17,8 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 
 static const char *fonts[]          = { "FontAwesome:size=12", "monospace:size=10" };
 
-
 /* tagging */
-static const char *tags[] = { "", "", "", "", "", "",  "", "", "", "scratchtag" };
+static const char *tags[] = { "", "", "", "", "", "",  "", "", "", "scratchtag" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -38,6 +37,7 @@ static const Rule rules[] = {
     { "Ripcord",            NULL, NULL, 1 << 3, 0, 0,  0, -1 },
     { "discord",            NULL, NULL, 1 << 3, 0, 0,  0, -1 },
     { "jetbrains-webstorm", NULL, NULL, 1 << 4, 0, 0,  0, -1 },
+    { "jetbrains-clion",    NULL, NULL, 1 << 4, 0, 0,  0, -1 },
     { "jetbrains-idea",     NULL, NULL, 1 << 4, 0, 0,  0, -1 },
     { "jetbrains-idea-ce",  NULL, NULL, 1 << 4, 0, 0,  0, -1 },
     { "jetbrains-studio",   NULL, NULL, 1 << 4, 0, 0,  0, -1 },

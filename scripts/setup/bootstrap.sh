@@ -90,8 +90,12 @@ pacman -S powertop
 sh -c "echo -e '[Unit]\nDescription=PowerTop\n\n[Service]\nType=oneshot\nRemainAfterExit=true\nExecStart=/usr/bin/powertop --auto-tune\n\n[Install]\nWantedBy=multi-user.target\n' > /etc/systemd/system/powertop.service"
 systemctl enable --now powertop
 
+# neovim
+pacman -S nodejs npm python-pip neovim
+sudo -u $current_user python3 -m pip install --user --upgrade pynvim
+
 # misc
-pacman -S qbittorrent gimp neovim scrot lxsession dunst sxiv texlive-most usbutils newsboat pass translate-shell galculator gnu-netcat
+pacman -S qbittorrent gimp scrot lxsession dunst sxiv texlive-most usbutils newsboat pass translate-shell galculator gnu-netcat
 
 # installing yay
 sudo -u $current_user git clone https://aur.archlinux.org/yay.git
@@ -108,7 +112,7 @@ sudo -u $current_user yay -S windscribe-cli
 sudo -u $current_user yay -S hugo
 sudo -u $current_user yay -S vscodium-bin
 sudo -u $current_user yay -S ripcord
-sudo -u $current_user yay -S brave
+sudo -u $current_user yay -S brave-bin
 sudo -u $current_user yay -S onlyoffice-bin
 
 # service to launch slock on suspend

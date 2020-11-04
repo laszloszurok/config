@@ -10,7 +10,7 @@ export ANDROID_HOME=/home/pulzar/Android/Sdk
 PATH="$PATH:$JAVA_HOME/bin"
 PATH="$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools"
 PATH="$PATH:$HOME/scripts/misc"
-PATH="$PATH:$HOME/flutter/bin"
+PATH="$PATH:$HOME/.local/flutter/bin"
 PATH="$PATH:$HOME/.emacs.d/bin"
 PATH="$PATH:$HOME/.dotnet/tools"
 export PATH

@@ -114,6 +114,7 @@ sudo -u $current_user yay -S vscodium-bin
 sudo -u $current_user yay -S ripcord
 sudo -u $current_user yay -S brave-bin
 sudo -u $current_user yay -S onlyoffice-bin
+sudo -u $current_user yay -S scrcpy
 
 # service to launch slock on suspend
 echo "[Unit]
@@ -172,6 +173,7 @@ sudo -u $current_user git clone https://github.com/dasJ/spotifywm.git /home/$cur
 cd /home/$current_user/.config/spotifywm
 sudo -u $current_user make
 sudo -u $current_user echo "LD_PRELOAD=/usr/lib/libcurl.so.4:/home/$current_user/.config/spotifywm/spotifywm.so /usr/bin/spotify" > /usr/local/bin/spotify
+chmod +x /usr/local/spotify
 
 cd /home/$current_user
 

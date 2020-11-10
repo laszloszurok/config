@@ -115,6 +115,7 @@ sudo -u $current_user yay -S ripcord
 sudo -u $current_user yay -S brave-bin
 sudo -u $current_user yay -S onlyoffice-bin
 sudo -u $current_user yay -S scrcpy
+sudo -u $current_user yay -S palenight-gtk-theme
 
 # service to launch slock on suspend
 echo "[Unit]

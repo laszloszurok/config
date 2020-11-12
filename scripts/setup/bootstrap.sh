@@ -49,13 +49,13 @@ pacman -S zip unzip xarchiver
 pacman -S zathura zathura-pdf-poppler
 
 # themeing tools and themes
-pacman -S lxappearance qt5ct arc-gtk-theme arc-icon-theme python-pywal feh picom
+pacman -S lxappearance qt5ct arc-gtk-theme arc-icon-theme picom
 
 # shell
 pacman -S zsh zsh-syntax-highlighting
 
 # other x tools
-pacman -S numlockx xclip xautolock
+pacman -S numlockx xclip xautolock xwallpaper
 
 # virt-manager
 pacman -S virt-manager qemu ebtables dnsmasq

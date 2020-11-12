@@ -143,7 +143,7 @@ static const Layout layouts[] = {
         { 0, XF86XK_MonBrightnessDown, spawn, SHCMD("xbacklight -dec 3; $HOME/scripts/status/helper_scripts/brightness-notify") },
         { 0, XK_Print,                 spawn, SHCMD("$HOME/scripts/misc/screenshot") },
         
-        { MODKEY,            XK_v,     spawn, SHCMD("st -e vifm $HOME") },
+        { MODKEY,            XK_v,     spawn, SHCMD("st -e vifm") },
         { MODKEY,            XK_n,     spawn, SHCMD("st -e newsboat; pkill -RTMIN+21 dwmblocks") },
         { MODKEY,            XK_Print, spawn, SHCMD("$HOME/scripts/misc/screenshot -w") },
         { Mod1Mask,          XK_space, spawn, SHCMD("pkill -RTMIN+12 dwmblocks") },

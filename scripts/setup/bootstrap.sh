@@ -49,7 +49,7 @@ pacman -S zip unzip xarchiver
 pacman -S zathura zathura-pdf-poppler
 
 # themeing tools and themes
-pacman -S lxappearance qt5ct arc-gtk-theme arc-icon-theme picom
+pacman -S lxappearance qt5ct arc-gtk-theme arc-icon-theme picom python-pywal
 
 # shell
 pacman -S zsh zsh-syntax-highlighting

@@ -36,6 +36,5 @@ picom &
 numlockx &
 lxpolkit &
 $HOME/scripts/misc/inactivity &
-$HOME/scripts/status/helper_scripts/reload_newsboat &
 dwmblocks &
 exec dwm

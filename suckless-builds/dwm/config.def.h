@@ -139,8 +139,8 @@ static const Layout layouts[] = {
         { 0, XF86XK_AudioRaiseVolume,  spawn, SHCMD("amixer sset Master 5%+ ;  pkill -RTMIN+10 dwmblocks") },
         { 0, XF86XK_AudioLowerVolume,  spawn, SHCMD("amixer sset Master 5%- ; pkill -RTMIN+10 dwmblocks") },
         { 0, XF86XK_AudioMute,         spawn, SHCMD("amixer sset Master toggle ; pkill -RTMIN+10 dwmblocks") },
-        { 0, XF86XK_MonBrightnessUp,   spawn, SHCMD("xbacklight -inc 3; $HOME/scripts/status/helper_scripts/brightness-notify") },
-        { 0, XF86XK_MonBrightnessDown, spawn, SHCMD("xbacklight -dec 3; $HOME/scripts/status/helper_scripts/brightness-notify") },
+        { 0, XF86XK_MonBrightnessUp,   spawn, SHCMD("xbacklight -inc 3; dunstify --replace=1 \"Brightness $(xbacklight -get | awk '{print int($1)\"%\"}')\"") },
+        { 0, XF86XK_MonBrightnessDown, spawn, SHCMD("xbacklight -dec 3; dunstify --replace=1 \"Brightness $(xbacklight -get | awk '{print int($1)\"%\"}')\"") },
         { 0, XK_Print,                 spawn, SHCMD("$HOME/scripts/misc/screenshot") },
         
         { MODKEY,            XK_v,     spawn, SHCMD("st -e vifm") },

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sudo mount /dev/sda6 /run/media/pulzar/storage

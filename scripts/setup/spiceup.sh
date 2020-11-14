@@ -16,11 +16,19 @@ else
     exit 1
 fi
 
+# generating config file
+spicetify
+
 # enabling spotify dev-tools
 spicetify backup apply enable-devtool
 
 # applying custom css theme for spotify
 spicetify update
+
+# basic settings
+spicetify config spotify_path /opt/spotify
+spicetify config prefs_path "$HOME/.config/spotify/prefs"
+spicetify config current_theme Spicy
 
 # installing lyrics fetching app for spotify
 cd "$(dirname "$(spicetify -c)")/CustomApps"

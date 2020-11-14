@@ -136,18 +136,21 @@ static const Layout layouts[] = {
         { 0, XF86XK_AudioPrev,         spawn, SHCMD("playerctl previous") },
         { 0, XF86XK_AudioPlay,         spawn, SHCMD("playerctl play-pause") },
         { 0, XF86XK_AudioNext,         spawn, SHCMD("playerctl next") },
+
         { 0, XF86XK_AudioRaiseVolume,  spawn, SHCMD("amixer sset Master 5%+ ;  pkill -RTMIN+10 dwmblocks") },
         { 0, XF86XK_AudioLowerVolume,  spawn, SHCMD("amixer sset Master 5%- ; pkill -RTMIN+10 dwmblocks") },
         { 0, XF86XK_AudioMute,         spawn, SHCMD("amixer sset Master toggle ; pkill -RTMIN+10 dwmblocks") },
+
         { 0, XF86XK_MonBrightnessUp,   spawn, SHCMD("xbacklight -inc 3; dunstify --replace=1 \"Brightness $(xbacklight -get | awk '{print int($1)\"%\"}')\"") },
         { 0, XF86XK_MonBrightnessDown, spawn, SHCMD("xbacklight -dec 3; dunstify --replace=1 \"Brightness $(xbacklight -get | awk '{print int($1)\"%\"}')\"") },
-        { 0, XK_Print,                 spawn, SHCMD("$HOME/scripts/misc/screenshot") },
+
+        { 0,                 XK_Print, spawn, SHCMD("screenshot") },
+        { MODKEY,            XK_Print, spawn, SHCMD("screenshot -w") },
+        { MODKEY|ShiftMask,  XK_Print, spawn, SHCMD("screenshot -s") },
         
         { MODKEY,            XK_v,     spawn, SHCMD("st -e vifm") },
         { MODKEY,            XK_n,     spawn, SHCMD("st -e newsboat; pkill -RTMIN+21 dwmblocks") },
-        { MODKEY,            XK_Print, spawn, SHCMD("$HOME/scripts/misc/screenshot -w") },
         { Mod1Mask,          XK_space, spawn, SHCMD("pkill -RTMIN+12 dwmblocks") },
-        { MODKEY|ShiftMask,  XK_Print, spawn, SHCMD("$HOME/scripts/misc/screenshot -s") },
 
         TAGKEYS( XK_1, 0 )
         TAGKEYS( XK_2, 1 )

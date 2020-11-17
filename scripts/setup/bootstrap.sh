@@ -45,8 +45,8 @@ pacman -S pcmanfm-gtk3 gvfs gvfs-mtp ntfs-3g
 # archiving tools
 pacman -S zip unzip xarchiver
 
-# pdf reader
-pacman -S zathura zathura-pdf-poppler
+# pdf reader and office suite
+pacman -S zathura zathura-pdf-poppler libreoffice-still
 
 # themeing tools and themes
 pacman -S lxappearance qt5ct arc-gtk-theme arc-icon-theme picom python-pywal
@@ -113,7 +113,6 @@ sudo -u $current_user yay -S hugo
 sudo -u $current_user yay -S vscodium-bin
 sudo -u $current_user yay -S ripcord
 sudo -u $current_user yay -S brave-bin
-sudo -u $current_user yay -S onlyoffice-bin
 sudo -u $current_user yay -S scrcpy
 sudo -u $current_user yay -S palenight-gtk-theme
 

@@ -4,6 +4,9 @@ export TERMINAL="st"
 export BROWSER="firefox"
 export READER="zathura"
 
+# Custom askpass script for sudo -A
+export SUDO_ASKPASS="$HOME/scripts/utils/dmenu_askpass"
+
 # Path:
 export JAVA_HOME=/usr/lib/jvm/java-14-openjdk
 export ANDROID_HOME=/home/pulzar/Android/Sdk

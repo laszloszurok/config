@@ -1,7 +1,12 @@
 #!/bin/bash
 
 # This script is a dmenu_run wrapper with customized height, font and history functionality
+# If the string 'sudo' is provided as the first argument and $SUDO_ASKPASS is set, the 
+# selected program will be executed with sudo -A.
 
+privileges=$1
+
+# Find a terminal emulator to be able to launch programs in a terminal window
 if [ -z "$TERMINAL_CMD" ]; then
   if [ "$(which st)" ]; then
   TERMINAL_CMD="st -e"
@@ -26,13 +31,15 @@ if [ -z "$TERMINAL_CMD" ]; then
   fi
 fi
 
-dmenu_cmd="dmenu -h 26 -fn monospace:size=12 -i -p run: $@"
+dmenu_cmd="dmenu -h 26 -fn monospace:size=12 -i -p run: ${@:2}"
 
 max_recent=199 # Number of recent commands to track
 
 cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/dmenu-hist"
+
 recent_cache="$cache_dir/recent"
 rest_cache="$cache_dir/all"
+
 known_types=" background terminal terminal_hold "
 
 config_dir="${XDG_CONFIG_HOME:-$HOME/.config}/dmenu-hist"
@@ -90,7 +97,29 @@ else
     fi
 fi
 
-[[ "$type" = "background" ]] && exec $cmd
-[[ "$type" = "terminal" ]] && exec $TERMINAL_CMD "$cmd"
-[[ "$type" = "terminal_hold" ]] &&
-    exec $TERMINAL_CMD sh -c "$cmd && echo Press Enter to kill me... && read line"
+run_as_sudo() {
+    [[ "$type" = "background" ]] && exec sudo -A $cmd
+    [[ "$type" = "terminal" ]] && exec sudo -A $TERMINAL_CMD "$cmd"
+    [[ "$type" = "terminal_hold" ]] &&
+        exec sudo -A $TERMINAL_CMD sh -c "$cmd && echo Press Enter to kill me... && read line"
+}
+
+run_as_normal() {
+    [[ "$type" = "background" ]] && exec $cmd
+    [[ "$type" = "terminal" ]] && exec $TERMINAL_CMD "$cmd"
+    [[ "$type" = "terminal_hold" ]] &&
+        exec $TERMINAL_CMD sh -c "$cmd && echo Press Enter to kill me... && read line"
+}
+
+# If the firts argument is the string 'sudo' and $SUDO_ASKPASS is set,
+# run the selected program as sudo. Otherwise run with normal privileges.
+if [ "$1" == "sudo" ]; then
+    if [ ! -z $SUDO_ASKPASS ]; then
+        run_as_sudo
+    else
+        echo "\$SUDO_ASKPASS is not set, running with normal privileges"
+        run_as_normal
+    fi
+else
+    run_as_normal
+fi

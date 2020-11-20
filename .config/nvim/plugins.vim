@@ -25,6 +25,9 @@ Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdtree'
 Plug 'justinmk/vim-sneak'
 Plug 'mhinz/vim-startify'
+Plug 'lotabout/skim', { 'dir': '~/.skim', 'do': './install' }
+Plug 'lotabout/skim.vim'
+Plug 'vifm/vifm.vim'
 call plug#end()
 
 " Show hidden files in NerdTree

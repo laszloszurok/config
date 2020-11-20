@@ -12,8 +12,15 @@ source ~/.config/nvim/helpers.vim
 "           GENERAL           "
 """""""""""""""""""""""""""""""
 
+" :W writes the file as sudo. (The SUDO_ASKPASS environmental variable
+" has to be set to the path of a script that asks for the sudo password.)
+com -bar W exe 'w !sudo tee >/dev/null %:p:S' | setl nomod
+
 " Set working directory to the current files directory
 autocmd BufEnter * lcd %:p:h
+
+" enable hiding of a buffer, even if it has unsaved changes
+set hidden
 
 " Sets how many lines of history VIM has to remember
 set history=500
@@ -22,7 +29,7 @@ set history=500
 filetype plugin on
 filetype indent on
 
-" Use system clipboard clipboard
+" Use system clipboard
 set clipboard+=unnamedplus
 
 " Don't redraw while executing macros (good performance config)
@@ -86,7 +93,7 @@ set showmatch
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""
-"           TEXT, TAB AND INDENT RELATED           "
+"       TEXT, TABULATION AND INDENT RELATED        "
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Use spaces instead of tabs

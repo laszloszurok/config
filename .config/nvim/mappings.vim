@@ -8,8 +8,7 @@ map <leader>f :YcmCompleter FixIt<cr>
 nmap <leader>w :w!<cr>
 
 " Shortcuts for NerdTree
-map <leader>n :NERDTreeToggle<cr>
-map <leader>r :NERDTreeRefreshRoot<cr>
+map <leader>e :CocCommand explorer<cr>
 
 " Leader + g to toggle Goyo (Have to set the colors, otherwise they are overwritten)
 map <leader>g :Goyo \| colorscheme palenight\| set background=dark \| highlight LineNr ctermfg=grey  \| set linebreak<CR>
@@ -32,14 +31,14 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
+" Switch between buffers
 map <leader>l :bnext<cr>
 map <leader>h :bprevious<cr>
+map <leader>b :Buffers<cr>
 
 " Useful mappings for managing tabs
 map <leader><leader>t :tabnew<cr>
-map <leader><leader>o :tabonly<cr>
 map <leader><leader>c :tabclose<cr>
-map <leader><leader>m :tabmove 
 map <leader><leader>n :tabnext<cr>
 map <leader><leader>p :tabprevious<cr>
 

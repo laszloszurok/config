@@ -9,7 +9,7 @@ nmap <leader>w :w!<cr>
 
 " Shortcuts for NerdTree
 map <leader>e :NERDTreeToggle<cr>
-map <leader>cd :NERDTreeCWD<cr>
+map <leader>cd :NERDTreeCWD<cr>:wincmd w<cr>
 
 " Leader + g to toggle Goyo (Have to set the colors, otherwise they are overwritten)
 map <leader>g :Goyo \| colorscheme palenight\| set background=dark \| highlight LineNr ctermfg=grey  \| set linebreak<CR>

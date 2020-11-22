@@ -19,6 +19,9 @@ com -bar W exe 'w !sudo tee >/dev/null %:p:S' | setl nomod
 " Set working directory to the current files directory
 autocmd BufEnter * lcd %:p:h
 
+" Return to last edit position when opening files
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
 " enable hiding of a buffer, even if it has unsaved changes
 set hidden
 
@@ -44,6 +47,15 @@ set noswapfile
 """"""""""""""""""""""""""""""""""""""
 "           USER INTERFACE           " 
 """"""""""""""""""""""""""""""""""""""
+
+" When running nvim without arguments make sure to run startify first
+" and then open NERDTree
+autocmd VimEnter *
+            \   if !argc()
+            \ |   Startify
+            \ |   NERDTree
+            \ |   wincmd w
+            \ | endif
 
 " Enable true colors
 if (has("termguicolors"))
@@ -113,4 +125,3 @@ set tw=500
 set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
-

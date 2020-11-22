@@ -17,11 +17,12 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'natebosch/vim-lsc'
 Plug 'natebosch/vim-lsc-dart'
-Plug 'drewtempelmeyer/palenight.vim'
 Plug 'ap/vim-css-color'
+Plug 'laszloszurok/palenight.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
 Plug 'itchyny/lightline.vim'
+Plug 'mengelbrecht/lightline-bufferline'
 Plug 'preservim/nerdtree'
 Plug 'justinmk/vim-sneak'
 Plug 'mhinz/vim-startify'
@@ -30,8 +31,14 @@ Plug 'lotabout/skim.vim'
 Plug 'vifm/vifm.vim'
 call plug#end()
 
-" Show hidden files in NerdTree
-let NERDTreeShowHidden=1
+" NerdTree settings
+let g:NERDTreeWinSize=40
+let NERDTreeMapToggleHidden='.'
+let NERDTreeMapOpenVSplit='V'
+let NERDTreeMapOpenSplit='H'
+let NERDTreeMapChangeRoot='l'
+let NERDTreeMapUpdir='h'
+let NERDTreeMinimalUI = 1
 
 " Pressing s or S after a sneak search moves you to the next or previous match
 let g:sneak#s_next = 1 

@@ -8,7 +8,8 @@ map <leader>f :YcmCompleter FixIt<cr>
 nmap <leader>w :w!<cr>
 
 " Shortcuts for NerdTree
-map <leader>e :CocCommand explorer<cr>
+map <leader>e :NERDTreeToggle<cr>
+map <leader>cd :NERDTreeCWD<cr>
 
 " Leader + g to toggle Goyo (Have to set the colors, otherwise they are overwritten)
 map <leader>g :Goyo \| colorscheme palenight\| set background=dark \| highlight LineNr ctermfg=grey  \| set linebreak<CR>
@@ -25,7 +26,7 @@ vmap <C-M-k> :m'<-2<cr>`>my`<mzgv`yo`z
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
 
-" Smart way to move between windows
+" Faster way to move between splits
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
@@ -35,6 +36,7 @@ map <C-l> <C-W>l
 map <leader>l :bnext<cr>
 map <leader>h :bprevious<cr>
 map <leader>b :Buffers<cr>
+nnoremap <leader>b :ls<cr>:b<space>
 
 " Useful mappings for managing tabs
 map <leader><leader>t :tabnew<cr>
@@ -52,7 +54,7 @@ au TabLeave * let g:lasttab = tabpagenr()
 map <leader>te :tabedit <C-r>=expand("%:p:h")<cr>/
 
 " Switch CWD to the directory of the open buffer
-map <leader>cd :cd %:p:h<cr>:pwd<cr>
+" map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
 " Don't lose visual selection after change of indent level
 vmap < <gv

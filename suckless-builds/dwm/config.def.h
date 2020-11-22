@@ -153,6 +153,7 @@ static const Layout layouts[] = {
         
         { MODKEY,            XK_v,     spawn, SHCMD("st -e vifm") },
         { MODKEY,            XK_n,     spawn, SHCMD("st -e newsboat; pkill -RTMIN+21 dwmblocks") },
+        { MODKEY,            XK_e,     spawn, SHCMD("st -e $EDITOR") },
         { Mod1Mask,          XK_space, spawn, SHCMD("pkill -RTMIN+12 dwmblocks") },
 
         TAGKEYS( XK_1, 0 )

@@ -10,11 +10,7 @@ if ! [ $(id -u) = 0 ]; then
 fi
 
 # checking who is the current user
-if [ $SUDO_USER ]; then
-    current_user=$SUDO_USER
-else
-    current_user=$(whoami)
-fi
+current_user=$(whoami)
 
 # check internet connection
 systemctl enable --now NetworkManager
@@ -115,6 +111,10 @@ sudo -u $current_user yay -S ripcord
 sudo -u $current_user yay -S brave-bin
 sudo -u $current_user yay -S scrcpy
 sudo -u $current_user yay -S palenight-gtk-theme
+sudo -u $current_user yay -S nextdns
+
+# nextdns settings
+sudo nextdns install -config 51a3bd -report-client-info -auto-activate
 
 # service to launch slock on suspend
 echo "[Unit]

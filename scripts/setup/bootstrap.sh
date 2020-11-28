@@ -66,7 +66,7 @@ pacman -S ttf-font-awesome ttf-dejavu
 pacman -S firefox qutebrowser
 
 # multimedia
-pacman -S mpv alsa-utils playerctl ffmpeg
+pacman -S mpv pulseaudio pulseaudio-alsa playerctl ffmpeg
 
 # vifm
 pacman -S vifm ffmpegthumbnailer ueberzug

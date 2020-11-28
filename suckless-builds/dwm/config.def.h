@@ -43,6 +43,7 @@ static const Rule rules[] = {
     { "jetbrains-studio",   NULL, NULL, 1 << 4, 0, 0,  0, -1 },
     { "com.oracle.javafx.scenebuipp.ScederApp",
                             NULL, NULL, 1 << 4, 0, 0,  0, -1 },
+	{ "st-256color",        NULL,"nvim",1 << 4, 0, 1,  0, -1 },
     { "code-oss",           NULL, NULL, 1 << 4, 0, 0,  0, -1 },
     { "VSCodium",           NULL, NULL, 1 << 4, 0, 0,  0, -1 },
     { "PacketTracer7",      NULL, NULL, 1 << 4, 0, 0,  0, -1 },
@@ -140,9 +141,10 @@ static const Layout layouts[] = {
         { 0, XF86XK_AudioPlay,         spawn, SHCMD("playerctl play-pause") },
         { 0, XF86XK_AudioNext,         spawn, SHCMD("playerctl next") },
 
-        { 0, XF86XK_AudioRaiseVolume,  spawn, SHCMD("amixer sset Master 5%+ ;  pkill -RTMIN+10 dwmblocks") },
-        { 0, XF86XK_AudioLowerVolume,  spawn, SHCMD("amixer sset Master 5%- ; pkill -RTMIN+10 dwmblocks") },
-        { 0, XF86XK_AudioMute,         spawn, SHCMD("amixer sset Master toggle ; pkill -RTMIN+10 dwmblocks") },
+        /* use pactl list sinks to get the name of the sink */
+        { 0, XF86XK_AudioRaiseVolume,  spawn, SHCMD("pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo +5%; pkill -RTMIN+10 dwmblocks") },
+        { 0, XF86XK_AudioLowerVolume,  spawn, SHCMD("pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo -5%; pkill -RTMIN+10 dwmblocks") },
+        { 0, XF86XK_AudioMute,         spawn, SHCMD("pactl set-sink-mute alsa_output.pci-0000_00_1f.3.analog-stereo toggle; pkill -RTMIN+10 dwmblocks") },
 
         { 0, XF86XK_MonBrightnessUp,   spawn, SHCMD("xbacklight -inc 3; dunstify --replace=1 \"Brightness $(xbacklight -get | awk '{print int($1)\"%\"}')\"") },
         { 0, XF86XK_MonBrightnessDown, spawn, SHCMD("xbacklight -dec 3; dunstify --replace=1 \"Brightness $(xbacklight -get | awk '{print int($1)\"%\"}')\"") },

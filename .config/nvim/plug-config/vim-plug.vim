@@ -4,6 +4,7 @@ if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 	silent !mkdir -p ~/.config/nvim/autoload/
 	silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ~/.config/nvim/autoload/plug.vim
 	autocmd VimEnter * PlugInstall
+	autocmd VimEnter * CocInstall coc-emmet
 endif
 
 call plug#begin('~/.config/nvim/plugged')
@@ -25,10 +26,11 @@ Plug 'mengelbrecht/lightline-bufferline'
 Plug 'junegunn/goyo.vim'
 Plug 'mhinz/vim-startify'
 
-Plug 'lotabout/skim', { 'dir': '~/.skim', 'do': './install' }
-Plug 'lotabout/skim.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 Plug 'preservim/nerdtree'
+Plug 'airblade/vim-rooter'
 Plug 'voldikss/vim-floaterm'
 Plug 'liuchengxu/vim-which-key'
 

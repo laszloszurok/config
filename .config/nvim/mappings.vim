@@ -7,7 +7,7 @@ nmap <leader>w :w!<cr>
 
 " Shortcuts for NerdTree
 map <leader>e :NERDTreeToggle<cr>
-map <leader>cd :NERDTreeCWD<cr>:wincmd w<cr>
+map <leader>cd :cd %:p:h<cr>:pwd<cr>:NERDTreeCWD<cr>:wincmd w<cr>
 
 " Leader + g to toggle Goyo
 map <leader>g :Goyo <cr> 
@@ -34,7 +34,11 @@ map <C-l> <C-W>l
 map <leader>bn :bnext<cr>
 map <leader>bp :bprevious<cr>
 nmap <leader>bc :Bclose<cr>
-nnoremap <leader>bl :ls<cr>:b<space>
+nnoremap <leader>bl :Buffers<cr>
+
+" Cycle through buffers with tab and shift+tab
+nnoremap <TAB> :bnext<CR>
+nnoremap <S-TAB> :bprevious<CR>
 
 " Useful mappings for managing tabs
 map <leader><leader>t :tabnew<cr>
@@ -46,13 +50,6 @@ map <leader><leader>p :tabprevious<cr>
 let g:lasttab = 1
 nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
 au TabLeave * let g:lasttab = tabpagenr()
-
-" Opens a new tab with the current buffer's path
-" Super useful when editing files in the same directory
-map <leader>te :tabedit <C-r>=expand("%:p:h")<cr>/
-
-" Switch CWD to the directory of the open buffer
-" map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
 " Don't lose visual selection after change of indent level
 vmap < <gv

@@ -2,11 +2,16 @@
 "           INCLUDES           "
 """"""""""""""""""""""""""""""""
 
-source ~/.config/nvim/plugins.vim
 source ~/.config/nvim/mappings.vim
-source ~/.config/nvim/statusline.vim
 source ~/.config/nvim/helpers.vim
-
+source ~/.config/nvim/plug-config/vim-plug.vim
+source ~/.config/nvim/plug-config/which-key.vim
+source ~/.config/nvim/plug-config/floaterm.vim
+source ~/.config/nvim/plug-config/coc.vim
+source ~/.config/nvim/plug-config/lightline.vim
+source ~/.config/nvim/plug-config/nerdtree.vim
+source ~/.config/nvim/plug-config/sneak.vim
+source ~/.config/nvim/plug-config/startify.vim
 
 """""""""""""""""""""""""""""""
 "           GENERAL           "
@@ -15,9 +20,6 @@ source ~/.config/nvim/helpers.vim
 " :W writes the file as sudo. (The SUDO_ASKPASS environmental variable
 " has to be set to the path of a script that asks for the sudo password.)
 com -bar W exe 'w !sudo tee >/dev/null %:p:S' | setl nomod
-
-" Set working directory to the current files directory
-autocmd BufEnter * lcd %:p:h
 
 " Return to last edit position when opening files
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -69,6 +71,15 @@ endtry
 
 set background=dark
 
+" Always show the tabline
+set showtabline=2
+
+" Always show the status line
+set laststatus=2
+
+" Info to show in the status line
+set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
+
 " Highlight the line where the cursor is
 set cursorline
 
@@ -104,14 +115,14 @@ set incsearch
 set showmatch 
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""
-"       TEXT, TABULATION AND INDENT RELATED        "
-""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""
+"       TEXT AND INDENT RELATED        "
+""""""""""""""""""""""""""""""""""""""""
 
 " Use spaces instead of tabs
 set expandtab
 
-" Be smart when using tabs ;)
+" When on, a <Tab> in front of a line inserts blanks according to 'shiftwidth'.
 set smarttab
 
 " 1 tab == 4 spaces

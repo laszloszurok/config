@@ -2,8 +2,6 @@
 " like <leader>w saves the current file
 let mapleader = " "
 
-map <leader>f :YcmCompleter FixIt<cr>
-
 " Fast saving
 nmap <leader>w :w!<cr>
 
@@ -11,8 +9,8 @@ nmap <leader>w :w!<cr>
 map <leader>e :NERDTreeToggle<cr>
 map <leader>cd :NERDTreeCWD<cr>:wincmd w<cr>
 
-" Leader + g to toggle Goyo (Have to set the colors, otherwise they are overwritten)
-map <leader>g :Goyo \| colorscheme palenight\| set background=dark \| highlight LineNr ctermfg=grey  \| set linebreak<CR>
+" Leader + g to toggle Goyo
+map <leader>g :Goyo <cr> 
 
 " Remap VIM 0 to first non-blank character
 map 0 ^
@@ -33,10 +31,10 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 " Switch between buffers
-map <leader>l :bnext<cr>
-map <leader>h :bprevious<cr>
-map <leader>b :Buffers<cr>
-nnoremap <leader>b :ls<cr>:b<space>
+map <leader>bn :bnext<cr>
+map <leader>bp :bprevious<cr>
+nmap <leader>bc :Bclose<cr>
+nnoremap <leader>bl :ls<cr>:b<space>
 
 " Useful mappings for managing tabs
 map <leader><leader>t :tabnew<cr>
@@ -63,3 +61,7 @@ vmap > >gv
 " Visual mode pressing * or # searches for the current selection
 vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
 vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
+
+" Paste 'forgets' the copied content after the first paste
+" by default. This solves the issue
+xnoremap p pgvy

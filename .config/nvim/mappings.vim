@@ -5,12 +5,16 @@ let mapleader = " "
 " Fast saving
 nmap <leader>w :w!<cr>
 
-" Shortcuts for NerdTree
-map <leader>e :NERDTreeToggle<cr>
-map <leader>cd :cd %:p:h<cr>:pwd<cr>:NERDTreeCWD<cr>:wincmd w<cr>
+" Open defx file explorer tree
+map <leader>e :Defx -split=vertical -winwidth=40 -direction=topleft -toggle<cr>:wincmd w<cr>
 
-" Leader + g to toggle Goyo
-map <leader>g :Goyo <cr> 
+" Shortcuts for NerdTree
+" map <leader>e :NERDTreeToggle<cr>
+" map <leader>cd :cd %:p:h<cr>:pwd<cr>:NERDTreeCWD<cr>:wincmd w<cr>
+" map <leader>r :NERDTreeRefreshRoot
+
+" 'Refresh' defx to show the directory of the current file
+map <leader>cd :cd %:p:h<cr>:pwd<cr>:Defx -split=vertical -winwidth=40 -direction=topleft -toggle<cr>:Defx -split=vertical -winwidth=40 -direction=topleft -toggle<cr>:wincmd w<cr>
 
 " Remap VIM 0 to first non-blank character
 map 0 ^

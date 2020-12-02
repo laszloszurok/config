@@ -10,6 +10,7 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'mattn/emmet-vim'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'natebosch/vim-lsc'
 Plug 'natebosch/vim-lsc-dart'
@@ -21,6 +22,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'ap/vim-css-color'
 
 Plug 'laszloszurok/palenight.vim'
+Plug 'tomasiser/vim-code-dark'
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'junegunn/goyo.vim'
@@ -29,12 +32,10 @@ Plug 'mhinz/vim-startify'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-Plug 'preservim/nerdtree'
-Plug 'airblade/vim-rooter'
+Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'voldikss/vim-floaterm'
 Plug 'liuchengxu/vim-which-key'
-
-Plug 'mattn/emmet-vim'
-
 Plug 'justinmk/vim-sneak'
+
+Plug 'antoinemadec/FixCursorHold.nvim' " bug fix, better performance
 call plug#end()

@@ -13,6 +13,7 @@
   "explorer.position": "left",
   "explorer.file.column.clip.copy": "",
   "explorer.file.column.clip.cut": "",
+  "explorer.previewAction.onHover": false,
   "explorer.keyMappings.global": {
     "gk": "expandablePrev",
     "gj": "expandableNext",

@@ -1,7 +1,7 @@
 "Lightline colorscheme and tabline settings
 let g:lightline = {
       \ 'enable': { 'tabline': 1 },
-      \ 'colorscheme': 'palenight',
+      \ 'colorscheme': 'dracula',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ]
       \ },

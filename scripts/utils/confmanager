@@ -1,0 +1,53 @@
+#!/bin/bash
+
+# I have a git bare repository set up to manage my dotfiles in my home directory.
+# I use this script to be able to manage files and make commits easier and faster.
+
+print_usage() {
+    echo "Usage: 
+   to show status:    confmanager -s
+   to show logs:      confmanager -l
+   to push to remote: confmanager -p
+   to show diff:      confmanager -d file
+   to add files:      confmanager -a file1 file2 ... 'commit message'
+   to remove files:   confmanager -r file1 file2 ... 'commit message'"
+}
+
+arg_array=( "$@" ) # all arguments
+len=${#arg_array[@]} # number of arguments
+
+[ $len -eq 0 ] && print_usage && exit 1; # exit if no args found
+
+action=$1 # action to execute (add, remove, etc.)
+commit_msg=${arg_array[$len-1]} # last argument
+
+git_command="/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME" # the command to manage the bare repo
+
+if [ "$action" == "-a" ]; then
+    [ $len -lt 3 ] && print_usage && exit 1 # exit if arguments are wrong
+    files="${@:2:$len-2}" # args from second to the one before the last are the files to add
+    $git_command add "$files"
+    $git_command commit -m "$commit_msg"
+elif [ "$action" == "-r" ]; then
+    [ $len -lt 3 ] && print_usage && exit 1 # exit if arguments are wrong
+    files="${@:2:$len-2}" # args from second to the one before the last are the files to remove
+    $git_command rm --cached "$files"
+    $git_command commit -m "$commit_msg"
+elif [ "$action" == "-d" ]; then
+    [ $len -gt 2 ] && print_usage && exit 1 # exit if arguments are wrong
+    files=$2 # second arg is the file
+    $git_command diff "$files"
+elif [ "$action" == "-s" ]; then
+    [ $len -gt 1 ] && print_usage && exit 1 # exit if arguments are wrong
+    $git_command status
+elif [ "$action" == "-l" ]; then
+    [ $len -gt 1 ] && print_usage && exit 1 # exit if arguments are wrong
+    $git_command log
+elif [ "$action" == "-p" ]; then
+    [ $len -gt 1 ] && print_usage && exit 1 # exit if arguments are wrong
+    $git_command push
+else
+    print_usage
+fi
+
+

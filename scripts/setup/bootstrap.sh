@@ -91,7 +91,7 @@ pacman -S nodejs npm python-pip neovim
 sudo -u $current_user python3 -m pip install --user --upgrade pynvim
 
 # misc
-pacman -S qbittorrent gimp scrot lxsession dunst sxiv texlive-most usbutils newsboat pass translate-shell galculator gnu-netcat
+pacman -S qbittorrent gimp scrot lxsession dunst sxiv texlive-most usbutils newsboat youtube-dl pass translate-shell galculator gnu-netcat
 
 # installing yay
 sudo -u $current_user git clone https://aur.archlinux.org/yay.git

@@ -4,8 +4,11 @@ vnoremap <silent> <leader> :silent <c-u> :silent WhichKeyVisual '<Space>'<CR>
 
 " Create map to add keys to
 let g:which_key_map =  {}
+
 " Define a separator
 let g:which_key_sep = '→'
+
+" How fast the popup shows up
 set timeoutlen=100
 
 " Not a fan of floating windows for this
@@ -22,13 +25,44 @@ autocmd! FileType which_key
 autocmd  FileType which_key set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
 
-" Single mappings
-" let g:which_key_map['e'] = [ ':Defx -split=vertical -winwidth=40 -direction=topleft -toggle', 'explorer' ]
+" Single mappings (functions are defined in ~/.config/nvim/helpers.vim)
+let g:which_key_map['w'] = [ ':w!'                        , 'write' ]
+let g:which_key_map['q'] = [ ':q'                         , 'quit' ]
+let g:which_key_map['e'] = [ ':call ToggleDefx()'         , 'toggle defx' ]
+let g:which_key_map['r'] = [ ':call RefreshDefx()'        , 'refresh defx' ]
 let g:which_key_map['/'] = [ '<Plug>NERDCommenterToggle'  , 'comment' ]
 let g:which_key_map['g'] = [ ':Goyo'                      , 'goyo' ]
 let g:which_key_map['S'] = [ ':Startify'                  , 'start screen' ]
-let g:which_key_map['h'] = [ '<C-W>s'                     , 'split below']
-let g:which_key_map['v'] = [ '<C-W>v'                     , 'split right']
+let g:which_key_map['h'] = [ '<C-W>s'                     , 'split below' ]
+let g:which_key_map['v'] = [ '<C-W>v'                     , 'split right' ]
+
+" manage buffers
+let g:which_key_map.b = {
+    \ 'name' : '+buffers',
+    \ 'n' : [':bnext'    , 'next buffer'],
+    \ 'p' : [':bprevious', 'previous buffer'],
+    \ 'c' : [':Bclose'   , 'close buffer'],
+    \ 'l' : [':Buffers'  , 'list buffers'],
+  \ }
+
+" mange tabs
+let g:lasttab = 1 " Let 'tl' toggle between this and the last accessed tab
+au TabLeave * let g:lasttab = tabpagenr()
+let g:which_key_map.t = {
+    \ 'name' : '+tabs',
+    \ 't' : [':tabnew'                 , 'new tab'],
+    \ 'n' : [':tabnext'                , 'next tab'],
+    \ 'p' : [':tabprevious'            , 'previous tab'],
+    \ 'c' : [':tabclose'               , 'close tab'],
+    \ 'l' : [':exe "tabn ".g:lasttab'  , 'switch to last accessed tab']
+  \ }
+
+" toggle wrapping of lines
+let g:which_key_map.l = {
+    \ 'name' : '+linewrap',
+    \ 'w' : [':set wrap'  , 'wrap'],
+    \ 'n' : [':set nowrap', 'nowrap'],
+  \ }
 
 " s is for search
 let g:which_key_map.s = {
@@ -54,9 +88,18 @@ let g:which_key_map.s = {
       \ 'S' : [':Colors'       , 'color schemes'],
       \ 't' : [':Rg'           , 'text Rg'],
       \ 'T' : [':BTags'        , 'buffer tags'],
-      \ 'w' : [':Windows'      , 'search windows'],
       \ 'y' : [':Filetypes'    , 'file types'],
       \ 'z' : [':FZF'          , 'FZF'],
+      \ }
+
+" floaterm commands
+let g:which_key_map.f = {
+      \ 'name' : '+floaterm' ,
+      \ 'b' : [':FloatermNew --wintype=normal --height=9' , 'bottom terminal'],
+      \ 'f' : [':FloatermToggle'                          , 'floating terminal'],
+      \ 'g' : [':FloatermNew lazygit'                     , 'lazygit'],
+      \ 'v' : [':FloatermNew vifm'                        , 'vifm'],
+      \ 'y' : [':FloatermNew ytop'                        , 'ytop'],
       \ }
 
 " Register which key map

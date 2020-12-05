@@ -53,7 +53,7 @@ if (has("termguicolors"))
 endif
 
 try
-    colorscheme dracula
+    colorscheme palenight
 catch
 endtry
 
@@ -75,7 +75,11 @@ set wildmode=longest,list,full
 set cursorline
 
 " Set 7 lines to the cursor - when moving vertically using j/k
-set so=7
+set so=999
+
+" Always keep the cursor in the center of the screen, when moving
+" horizontally on long lines, that don't fit the screen (nowrap)
+set siso=999
 
 " Line numbers
 set number relativenumber
@@ -126,4 +130,4 @@ set tw=500
 
 set ai "Auto indent
 set si "Smart indent
-set wrap "Wrap lines
+set nowrap "Don't wrap lines

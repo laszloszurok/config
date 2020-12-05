@@ -22,8 +22,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'ap/vim-css-color'
 
 Plug 'laszloszurok/palenight.vim'
-Plug 'tomasiser/vim-code-dark'
-Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'ghifarit53/tokyonight-vim'
+
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'junegunn/goyo.vim'
@@ -38,4 +38,5 @@ Plug 'liuchengxu/vim-which-key'
 Plug 'justinmk/vim-sneak'
 
 Plug 'antoinemadec/FixCursorHold.nvim' " bug fix, better performance
+
 call plug#end()

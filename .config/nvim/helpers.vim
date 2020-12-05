@@ -100,3 +100,18 @@ function s:Kwbd(kwbdStage)
 endfunction
 
 command! Bclose call s:Kwbd(1)
+
+" Function to open/close Defx
+function ToggleDefx()
+    execute 'Defx -split=vertical -winwidth=40 -direction=topleft -toggle'
+    execute 'wincmd w'
+endfunction
+
+" Function to 'refresh' defx filetree, to show the active buffers directory
+function RefreshDefx()
+    execute 'cd %:p:h'
+    execute 'pwd'
+    execute 'Defx -split=vertical -winwidth=40 -direction=topleft -toggle'
+    execute 'Defx -split=vertical -winwidth=40 -direction=topleft -toggle'
+    execute 'wincmd w'
+endfunction

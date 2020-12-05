@@ -68,10 +68,11 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "│ ",      tile },    /* first entry is default */
-	{ "│ ",      NULL },    /* no layout function means floating behavior */
 	{ "│ ",      monocle },
 	{ "│ ",      centeredmaster },
 	{ "│ ",      centeredfloatingmaster },
+	{ "│ ",      NULL },    /* no layout function means floating behavior */
+    { NULL,       NULL } /* indicates the end of the list, has to be the last */
 };
 
     /* key definitions */
@@ -105,10 +106,16 @@ static const Layout layouts[] = {
         { MODKEY,                       XK_k,      focusstackvis,  {.i = -1 } },
         { MODKEY,                       XK_j,      focusstackvis,  {.i = +1 } },
         { MODKEY,                       XK_q,      killclient,     {0} },
-        { MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-        { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-        { MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-        { MODKEY,                       XK_c,      setlayout,      {.v = &layouts[3]} },
+
+        /* { MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} }, */
+        /* { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} }, */
+        /* { MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} }, */
+        /* { MODKEY,                       XK_c,      setlayout,      {.v = &layouts[3]} }, */
+        /* { MODKEY|ShiftMask,             XK_c,      setlayout,      {.v = &layouts[4]} }, */
+
+        { Mod1Mask,		                XK_l,      cyclelayout,    {.i = +1 } },
+        { Mod1Mask|ShiftMask,           XK_l,      cyclelayout,    {.i = -1 } },
+
         { MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
         { MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
         { MODKEY,                       XK_0,      view,           {.ui = ~0 } },
@@ -124,7 +131,6 @@ static const Layout layouts[] = {
         { MODKEY|ShiftMask,             XK_d,      incnmaster,     {.i = -1 } },
         { MODKEY|ShiftMask,             XK_k,      shiftview,      {.i = +1} },
         { MODKEY|ShiftMask,             XK_j,      shiftview,      {.i = -1} },
-        { MODKEY|ShiftMask,             XK_c,      setlayout,      {.v = &layouts[4]} },
         { MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	    { MODKEY|ShiftMask,             XK_h,      setcfact,       {.f = +0.25} },
 	    { MODKEY|ShiftMask,             XK_l,      setcfact,       {.f = -0.25} },
@@ -156,6 +162,7 @@ static const Layout layouts[] = {
         { MODKEY,            XK_v,     spawn, SHCMD("st -e vifm") },
         { MODKEY,            XK_n,     spawn, SHCMD("st -e newsboat; pkill -RTMIN+21 dwmblocks") },
         { MODKEY,            XK_e,     spawn, SHCMD("st -e $EDITOR") },
+        { MODKEY,            XK_c,     spawn, SHCMD("st -f 'mono:pixelsize=20:antialias=true:autohint=true' -e calcurse") },
         { Mod1Mask,          XK_space, spawn, SHCMD("pkill -RTMIN+12 dwmblocks") },
 
         TAGKEYS( XK_1, 0 )

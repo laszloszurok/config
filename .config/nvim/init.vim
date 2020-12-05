@@ -11,5 +11,7 @@ source ~/.config/nvim/plug-config/sneak.vim
 source ~/.config/nvim/plug-config/startify.vim
 source ~/.config/nvim/plug-config/fzf.vim
 source ~/.config/nvim/plug-config/defx.vim
+source ~/.config/nvim/plug-config/tokyonight.vim
+source ~/.config/nvim/plug-config/palenight.vim
 
 source ~/.config/nvim/basic-settings.vim

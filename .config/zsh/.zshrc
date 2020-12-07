@@ -6,7 +6,7 @@ HISTSIZE=10000
 SAVEHIST=10000
 setopt HIST_IGNORE_ALL_DUPS
 
-source $HOME/.config/zsh/z.sh # access frequently visited directories faster
+eval "$(zoxide init zsh --cmd j)" # access frequently visited directories faster
 source $HOME/.config/zsh/prompt.zsh
 source $HOME/.config/zsh/aliases.zsh
 source $HOME/.config/zsh/extract.zsh # function to extract archives

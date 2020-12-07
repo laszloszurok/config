@@ -101,17 +101,18 @@ sudo -u $current_user makepkg -si
 cd /home/$current_user
 
 # installing softwer from the AUR
-sudo -u $current_user yay -S spotify
-sudo -u $current_user yay -S spicetify-cli
-sudo -u $current_user yay -S protonvpn-cli-ng
-sudo -u $current_user yay -S windscribe-cli
-sudo -u $current_user yay -S hugo
-sudo -u $current_user yay -S vscodium-bin
-sudo -u $current_user yay -S ripcord
-sudo -u $current_user yay -S brave-bin
-sudo -u $current_user yay -S scrcpy
-sudo -u $current_user yay -S palenight-gtk-theme
-sudo -u $current_user yay -S nextdns
+sudo -u $current_user yay -Sy spotify
+sudo -u $current_user yay -Sy spicetify-cli
+sudo -u $current_user yay -Sy protonvpn-cli-ng
+sudo -u $current_user yay -Sy windscribe-cli
+sudo -u $current_user yay -Sy hugo
+sudo -u $current_user yay -Sy vscodium-bin
+sudo -u $current_user yay -Sy ripcord
+sudo -u $current_user yay -Sy brave-bin
+sudo -u $current_user yay -Sy scrcpy
+sudo -u $current_user yay -Sy palenight-gtk-theme
+sudo -u $current_user yay -Sy nextdns
+sudo -u $current_user yay -Sy zoxide-bin
 
 # nextdns settings
 sudo nextdns install -config 51a3bd -report-client-info -auto-activate

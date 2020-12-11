@@ -17,11 +17,9 @@ GIT_BRANCH_SYMBOL_COLOR="%F{141}"
 # usage: %v in PROMPT
 autoload -Uz add-zsh-hook
 print_cwd () {
-    if [ "$(pwd)" = "$HOME" ]; then
-        psvar[1]="$(pwd)"
-    else
-        psvar[1]="$(echo '~')${$(pwd)#$HOME} "
-    fi
+    cwd=$(pwd)
+    [[ "$cwd" == "$HOME/"* ]] && cwd="~${$(pwd)#$HOME} " # somewhere in $HOME/*, replace $HOME with ~
+    psvar[1]="$cwd"
 }
 add-zsh-hook precmd print_cwd
 

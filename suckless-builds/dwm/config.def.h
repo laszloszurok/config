@@ -107,19 +107,21 @@ static const Layout layouts[] = {
         { MODKEY,                       XK_j,      focusstackvis,  {.i = +1 } },
         { MODKEY,                       XK_q,      killclient,     {0} },
 
-        /* { MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} }, */
-        /* { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} }, */
-        /* { MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} }, */
-        /* { MODKEY,                       XK_c,      setlayout,      {.v = &layouts[3]} }, */
-        /* { MODKEY|ShiftMask,             XK_c,      setlayout,      {.v = &layouts[4]} }, */
+        { Mod1Mask,                     XK_1,      setlayout,      {.v = &layouts[0]} },
+        { Mod1Mask,                     XK_2,      setlayout,      {.v = &layouts[1]} },
+        { Mod1Mask,                     XK_3,      setlayout,      {.v = &layouts[2]} },
+        { Mod1Mask,                     XK_4,      setlayout,      {.v = &layouts[3]} },
+        { Mod1Mask,                     XK_5,      setlayout,      {.v = &layouts[4]} },
+        { Mod1Mask,                     XK_space,  setlayout,      {0} }, /* toggle betwwen this and the last used layout */
 
-        { Mod1Mask,		                XK_l,      cyclelayout,    {.i = +1 } },
-        { Mod1Mask|ShiftMask,           XK_l,      cyclelayout,    {.i = -1 } },
+        { Mod1Mask,		                XK_n,      cyclelayout,    {.i = +1 } },
+        { Mod1Mask,                     XK_p,      cyclelayout,    {.i = -1 } },
+
+        { Mod1Mask,                     XK_f,      togglefloating, {0} },
 
         { MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
         { MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
         { MODKEY,                       XK_0,      view,           {.ui = ~0 } },
-        { MODKEY,                       XK_space,  setlayout,      {0} },
         { MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
         { MODKEY,                       XK_period, focusmon,       {.i = +1 } },
         { MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
@@ -129,13 +131,16 @@ static const Layout layouts[] = {
         
         { MODKEY|ShiftMask,             XK_i,      incnmaster,     {.i = +1 } },
         { MODKEY|ShiftMask,             XK_d,      incnmaster,     {.i = -1 } },
+
         { MODKEY|ShiftMask,             XK_k,      shiftview,      {.i = +1} },
         { MODKEY|ShiftMask,             XK_j,      shiftview,      {.i = -1} },
+        
         { MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
+        
 	    { MODKEY|ShiftMask,             XK_h,      setcfact,       {.f = +0.25} },
 	    { MODKEY|ShiftMask,             XK_l,      setcfact,       {.f = -0.25} },
 	    { MODKEY|ShiftMask,             XK_o,      setcfact,       {.f =  0.00} },
-        { MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
+
         { MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
         { MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
         { MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
@@ -147,7 +152,7 @@ static const Layout layouts[] = {
         { 0, XF86XK_AudioPlay,         spawn, SHCMD("playerctl play-pause") },
         { 0, XF86XK_AudioNext,         spawn, SHCMD("playerctl next") },
 
-        /* 0 is the index of the sink. Use pactl list sinks to get sink names */
+        /* 0 is the index of the sink. Use 'pactl list sinks' to get sink names */
         { 0, XF86XK_AudioRaiseVolume,  spawn, SHCMD("pactl set-sink-volume 0 +5%; pkill -RTMIN+10 dwmblocks") },
         { 0, XF86XK_AudioLowerVolume,  spawn, SHCMD("pactl set-sink-volume 0 -5%; pkill -RTMIN+10 dwmblocks") },
         { 0, XF86XK_AudioMute,         spawn, SHCMD("pactl set-sink-mute 0 toggle; pkill -RTMIN+10 dwmblocks") },
@@ -163,7 +168,7 @@ static const Layout layouts[] = {
         { MODKEY,            XK_n,     spawn, SHCMD("st -e newsboat; pkill -RTMIN+21 dwmblocks") },
         { MODKEY,            XK_e,     spawn, SHCMD("st -e $EDITOR") },
         { MODKEY,            XK_c,     spawn, SHCMD("st -f 'mono:pixelsize=20:antialias=true:autohint=true' -e calcurse") },
-        { Mod1Mask,          XK_space, spawn, SHCMD("pkill -RTMIN+12 dwmblocks") },
+        { MODKEY,            XK_space, spawn, SHCMD("pkill -RTMIN+12 dwmblocks") },
 
         TAGKEYS( XK_1, 0 )
         TAGKEYS( XK_2, 1 )

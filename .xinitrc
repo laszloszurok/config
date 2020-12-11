@@ -31,7 +31,8 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 $HOME/scripts/utils/setwallpaper &
-setxkbmap -layout us,hu -option 'grp:alt_space_toggle' -option 'caps:swapescape'
+# 'use localectl list-x11-keymap-options | grep grp' to get toggleing options
+setxkbmap -layout us,hu -option 'grp:win_space_toggle' -option 'caps:swapescape'
 picom &
 numlockx &
 lxpolkit &

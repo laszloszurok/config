@@ -1,13 +1,9 @@
 #!/bin/bash
 
-# Run this script with sudo
-# -------------------------
-
-# exit if not using sudo
-if ! [ $(id -u) = 0 ]; then
-   echo "The script need to be run as root." >&2
-   exit 1
-fi
+stty_orig=$(stty -g)                     # save original terminal setting.
+stty -echo                               # turn-off echoing.
+IFS= read -p "sudo password:" -r passwd  # read the password
+stty "$stty_orig"                        # restore terminal setting.
 
 # checking who is the current user
 current_user=$(whoami)
@@ -20,105 +16,119 @@ ping -q -w 1 -c 1 `ip r | grep default | cut -d ' ' -f 3` > /dev/null && echo "i
 pacman -Syyu
 
 # fixing wireless driver, connecting to wifi
-pacman -S dkms git
-sudo -u $current_user git clone https://github.com/lwfinger/rtw88.git /home/$current_user/.config/rtw88
-cd /home/$current_user/.config/rtw88
-sudo -u $current_user make
+echo $passwd | sudo -S pacman -S --noconfirm dkms git
+git clone https://github.com/lwfinger/rtw88.git $HOME/.config/rtw88
+cd $HOME/.config/rtw88
+echo $passwd | sudo -S make
 make install
-cd /home/$current_user
-dkms add ./.config/rtw88
-dkms install rtlwifi-new/0.6
+cd
+echo $passwd | sudo -S dkms add ./.config/rtw88
+echo $passwd | sudo -S dkms install rtlwifi-new/0.6
 nmtui
 
 # x related
-pacman -S xf86-video-intel xf86-video-amdgpu xorg xorg-xinit
+echo $passwd | sudo -S pacman -S --noconfirm \
+    pacman -S xf86-video-intel xf86-video-amdgpu xorg xorg-xinit
 
 # installing my most used software
 
 # graphical file explorer
-pacman -S pcmanfm-gtk3 gvfs gvfs-mtp ntfs-3g
+echo $passwd | sudo -S pacman -S --noconfirm \
+    pacman -S pcmanfm-gtk3 gvfs gvfs-mtp ntfs-3g
 
 # archiving tools
-pacman -S zip unzip xarchiver
+echo $passwd | sudo -S pacman -S --noconfirm \
+    pacman -S zip unzip xarchiver
 
 # pdf reader and office suite
-pacman -S zathura zathura-pdf-poppler libreoffice-still
+echo $passwd | sudo -S pacman -S --noconfirm \
+    pacman -S zathura zathura-pdf-poppler libreoffice-still
 
 # themeing tools and themes
-pacman -S lxappearance qt5ct arc-gtk-theme arc-icon-theme picom python-pywal
+echo $passwd | sudo -S pacman -S --noconfirm \
+    pacman -S lxappearance qt5ct arc-gtk-theme arc-icon-theme picom python-pywal
 
 # shell
-pacman -S zsh zsh-syntax-highlighting
+echo $passwd | sudo -S pacman -S --noconfirm \
+    pacman -S zsh zsh-syntax-highlighting
 
 # other x tools
-pacman -S numlockx xclip xautolock xwallpaper
+echo $passwd | sudo -S pacman -S --noconfirm \
+    pacman -S numlockx xclip xautolock xwallpaper
 
 # virt-manager
-pacman -S virt-manager qemu ebtables dnsmasq
+echo $passwd | sudo -S pacman -S --noconfirm \
+    pacman -S virt-manager qemu ebtables dnsmasq
 usermod -aG libvirt $current_user
 systemctl enable --now libvirtd
 virsh net-autostart default
 
 # fonts
-pacman -S ttf-font-awesome ttf-dejavu
+echo $passwd | sudo -S pacman -S --noconfirm \
+    pacman -S ttf-font-awesome ttf-dejavu
 
 # browsers
-pacman -S firefox qutebrowser
+echo $passwd | sudo -S pacman -S --noconfirm \
+    pacman -S firefox qutebrowser
 
 # multimedia
-pacman -S mpv pulseaudio pulseaudio-alsa playerctl ffmpeg
+echo $passwd | sudo -S pacman -S --noconfirm \
+    pacman -S mpv pulseaudio pulseaudio-alsa playerctl ffmpeg
 
 # vifm
-pacman -S vifm ffmpegthumbnailer ueberzug
+echo $passwd | sudo -S pacman -S --noconfirm \
+    pacman -S vifm ffmpegthumbnailer ueberzug
 
 # printing service
-pacman -S cups
+echo $passwd | sudo -S pacman -S --noconfirm pacman -S cups
 systemctl enable org.cups.cupsd.socket
 
 # firewall
-pacman -S ufw
+echo $passwd | sudo -S pacman -S --noconfirm pacman -S ufw
 ufw default deny incoming
 ufw default allow outgoing
 ufw enable
 
 # power saving
-pacman -S powertop
+echo $passwd | sudo -S pacman -S --noconfirm pacman -S powertop
 sh -c "echo -e '[Unit]\nDescription=PowerTop\n\n[Service]\nType=oneshot\nRemainAfterExit=true\nExecStart=/usr/bin/powertop --auto-tune\n\n[Install]\nWantedBy=multi-user.target\n' > /etc/systemd/system/powertop.service"
 systemctl enable --now powertop
 
 # neovim
-pacman -S nodejs npm python-pip neovim
+echo $passwd | sudo -S pacman -S --noconfirm \
+    pacman -S nodejs npm python-pip neovim
 sudo -u $current_user python3 -m pip install --user --upgrade pynvim
 
 # misc
-pacman -S qbittorrent gimp scrot lxsession dunst sxiv texlive-most usbutils newsboat youtube-dl pass translate-shell galculator gnu-netcat caclurse
+echo $passwd | sudo -S pacman -S --noconfirm \
+    pacman -S qbittorrent gimp scrot lxsession dunst sxiv texlive-most usbutils newsboat youtube-dl pass translate-shell galculator gnu-netcat caclurse
 
 # installing yay
-sudo -u $current_user git clone https://aur.archlinux.org/yay.git
-cd /home/$current_user/yay
-sudo -u $current_user makepkg -si
+git clone https://aur.archlinux.org/yay.git $HOME/source
+cd $HOME/source/yay
+echo $passwd | sudo -S makepkg -si
 
-cd /home/$current_user
+cd
 
 # installing softwer from the AUR
-sudo -u $current_user yay -Sy spotify
-sudo -u $current_user yay -Sy spicetify-cli
-sudo -u $current_user yay -Sy protonvpn-cli-ng
-sudo -u $current_user yay -Sy windscribe-cli
-sudo -u $current_user yay -Sy hugo
-sudo -u $current_user yay -Sy vscodium-bin
-sudo -u $current_user yay -Sy ripcord
-sudo -u $current_user yay -Sy brave-bin
-sudo -u $current_user yay -Sy scrcpy
-sudo -u $current_user yay -Sy palenight-gtk-theme
-sudo -u $current_user yay -Sy nextdns
-sudo -u $current_user yay -Sy zoxide-bin
+echo $passwd | sudo -S yay -Sy spotify
+echo $passwd | sudo -S yay -Sy spicetify-cli
+echo $passwd | sudo -S yay -Sy protonvpn-cli-ng
+echo $passwd | sudo -S yay -Sy windscribe-cli
+echo $passwd | sudo -S yay -Sy hugo
+echo $passwd | sudo -S yay -Sy vscodium-bin
+echo $passwd | sudo -S yay -Sy ripcord
+echo $passwd | sudo -S yay -Sy brave-bin
+echo $passwd | sudo -S yay -Sy scrcpy
+echo $passwd | sudo -S yay -Sy palenight-gtk-theme
+echo $passwd | sudo -S yay -Sy nextdns
+echo $passwd | sudo -S yay -Sy zoxide-bin
 
 # nextdns settings
-sudo nextdns install -config 51a3bd -report-client-info -auto-activate
+echo $passwd | sudo -S nextdns install -config 51a3bd -report-client-info -auto-activate
 
 # service to launch slock on suspend
-echo "[Unit]
+echo $passwd | sudo -S echo "[Unit]
 Description=Lock X session using slock for user %i
 Before=sleep.target
 Before=suspend.target
@@ -135,59 +145,63 @@ TimeoutSec=infinity
 WantedBy=sleep.target
 WantedBy=suspend.target" > /etc/systemd/system/slock@.service
 
-systemctl enable slock@$current_user.service
+echo $passwd | sudo -S systemctl enable slock@$current_user.service
 
 # disable tty swithcing when X is running, so the lockscreen cannot be bypassed
-echo "Section \"ServerFlags\"
+echo $passwd | sudo -S echo "Section \"ServerFlags\"
     Option \"DontVTSwitch\" \"True\"
 EndSection" > /etc/X11/xorg.conf.d/xorg.conf
 
-# cloning my configs from gitlab and setting up a bare repository for config file management
-sudo -u $current_user git clone --separate-git-dir=/home/$current_user/.myconf https://gitlab.com/laszloszurok/suckless-arch.git /home/$current_user/myconf-tmp
-sudo -u $current_user cp -rf /home/$current_user/myconf-tmp/scripts /home/$current_user/myconf-tmp/suckless-builds /home/$current_user
-sudo -u $current_user cp -rf /home/$current_user/myconf-tmp/.config/* /home/$current_user/.config
-sudo -u $current_user cp -f /home/$current_user/myconf-tmp/.xinitrc /home/$current_user
-sudo -u $current_user rm -rf /home/$current_user/myconf-tmp/
-sudo -u $current_user /usr/bin/git --git-dir=/home/$current_user/.myconf/ --work-tree=/home/$current_user config status.showUntrackedFiles no
+# cloning my configs from github to a bare repository for config file management
+echo ".cfg" >> .gitignore
+git clone --bare https://github.com/laszloszurok/suckless-arch $HOME/.cfg
+alias cfg="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
+cfg config --local status.showUntrackedFiles no
+cfg checkout -f
 
-# cloning my wallpaper repo
-sudo -u $current_user git clone https://gitlab.com/laszloszurok/Wallpapers /home/$current_user/pictures/wallpapers
+# cloning my suckless builds
+git clone https://github.com/laszloszurok/dwm.git $HOME/source/suckless-builds/dwm
+git clone https://github.com/laszloszurok/dwmblocks.git $HOME/source/suckless-builds/dwmblocks
+git clone https://github.com/laszloszurok/dmenu.git $HOME/source/suckless-builds/dmenu
+git clone https://github.com/laszloszurok/st.git $HOME/source/suckless-builds/st
+git clone https://github.com/laszloszurok/slock.git $HOME/source/suckless-builds/slock
+git clone https://github.com/laszloszurok/wmname.git $HOME/source/suckless-builds/wmname
 
 # installing my suckless builds
-cd /home/$current_user/suckless-builds/dwm
-make install
-cd ../dmenu
-make install
+cd $HOME/source/suckless-builds/dwm
+echo $passwd | sudo -S -u $current_user make install
 cd ../dwmblocks
-make install
+echo $passwd | sudo -S -u $current_user make install
+cd ../dmenu
+echo $passwd | sudo -S -u $current_user make install
 cd ../st
-make install
-cd ../wmname
-make install
+echo $passwd | sudo -S -u $current_user make install
 cd ../slock
-make install
+echo $passwd | sudo -S -u $current_user make install
+cd ../wmname
+echo $passwd | sudo -S -u $current_user make install
 
-cd /home/$current_user
+cd
+
+# cloning my wallpaper repo
+git clone https://github.com/laszloszurok/Wallpapers $HOME/pictures/wallpapers
 
 # spotify wm
-sudo -u $current_user git clone https://github.com/dasJ/spotifywm.git /home/$current_user/.config/spotifywm
-cd /home/$current_user/.config/spotifywm
-sudo -u $current_user make
-sudo -u $current_user echo "LD_PRELOAD=/usr/lib/libcurl.so.4:/home/$current_user/.config/spotifywm/spotifywm.so /usr/bin/spotify" > /usr/local/bin/spotify
-chmod +x /usr/local/spotify
+git clone https://github.com/dasJ/spotifywm.git $HOME/.config/spotifywm
+cd $HOME/.config/spotifywm
+make
+echo $passwd | sudo -S -u $current_user echo "LD_PRELOAD=/usr/lib/libcurl.so.4:$HOME/.config/spotifywm/spotifywm.so /usr/bin/spotify" > /usr/local/bin/spotify
+echo $passwd | sudo -S chmod +x /usr/local/spotify
 
 cd /home/$current_user
 
 # changing the default shell to zsh
-sudo -u $current_user mkdir /home/$current_user/.cache/zsh
-echo "ZDOTDIR=\$HOME/.config/zsh" > /etc/zsh/zshenv
-sudo -u $current_user chsh -s /usr/bin/zsh
+mkdir $HOME/.cache/zsh
+echo $passwd | sudo -S echo "ZDOTDIR=\$HOME/.config/zsh" > /etc/zsh/zshenv
+echo $passwd | sudo -S -u $current_user chsh -s /usr/bin/zsh
 
-# zdata history directory
-sudo -u $current_user mkdir /home/$current_user/.local/share/z
-
-mkdir /usr/share/xsessions
-echo "[Desktop Entry]
+echo $passwd | sudo -S mkdir /usr/share/xsessions
+echo $passwd | sudo -S echo "[Desktop Entry]
 Encoding=UTF-8
 Name=dwm
 Comment=Dynamic Window Manager
@@ -195,7 +209,7 @@ Exec=/usr/local/bin/dwm
 Type=Application" > /usr/share/xsessions/dwm.desktop
 
 # touchpad settings
-echo "Section \"InputClass\"
+echo $passwd | sudo -S echo "Section \"InputClass\"
     Identifier \"touchpad\"
     Driver \"libinput\"
     MatchIsTouchpad \"on\"
@@ -204,8 +218,8 @@ echo "Section \"InputClass\"
 EndSection" > /etc/X11/xorg.conf.d/30-touchpad.conf
 
 # theme settings
-echo "QT_QPA_PLATFORMTHEME=qt5ct" >> /etc/environment
+echo $passwd | sudo -S echo "QT_QPA_PLATFORMTHEME=qt5ct" >> /etc/environment
 
-sudo -u $current_user echo "
+echo "
 Finished
 Please reboot your computer"

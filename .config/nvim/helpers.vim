@@ -103,7 +103,7 @@ command! Bclose call s:Kwbd(1)
 
 " Function to open/close Defx
 function ToggleDefx()
-    execute 'Defx -split=vertical -winwidth=40 -direction=topleft -toggle'
+    execute 'Defx -split=vertical -winwidth=35 -direction=topleft -toggle'
     execute 'wincmd w'
 endfunction
 
@@ -111,7 +111,7 @@ endfunction
 function RefreshDefx()
     execute 'cd %:p:h'
     execute 'pwd'
-    execute 'Defx -split=vertical -winwidth=40 -direction=topleft -toggle'
-    execute 'Defx -split=vertical -winwidth=40 -direction=topleft -toggle'
+    execute 'Defx -split=vertical -winwidth=35 -direction=topleft -toggle'
+    execute 'Defx -split=vertical -winwidth=35 -direction=topleft -toggle'
     execute 'wincmd w'
 endfunction

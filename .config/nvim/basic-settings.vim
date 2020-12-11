@@ -43,7 +43,7 @@ set splitright
 autocmd VimEnter *
             \   if !argc()
             \ |   Startify
-            \ |   Defx -split=vertical -winwidth=40 -direction=topleft
+            \ |   Defx -split=vertical -winwidth=35 -direction=topleft
             \ |   wincmd w
             \ | endif
 

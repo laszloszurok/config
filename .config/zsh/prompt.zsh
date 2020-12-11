@@ -1,16 +1,16 @@
 PROMPT_PREFIX="%Bcwd:%b "
-PROMPT_PREFIX_COLOR="%F{40}"
+PROMPT_PREFIX_COLOR="%F{69}"
 
-CWD_COLOR="%F{5}"
+CWD_COLOR="%F{141}"
 
 PROMPT_SYMBOL="%B%b "
-PROMPT_SYMBOL_COLOR="%F{40}"
+PROMPT_SYMBOL_COLOR="%F{141}"
 
 GIT_BRANCH_PREFIX="%Bon%b "
-GIT_BRANCH_PREFIX_COLOR="%F{40}"
+GIT_BRANCH_PREFIX_COLOR="%F{69}"
 
 GIT_BRANCH_SYMBOL=" "
-GIT_BRANCH_SYMBOL_COLOR="%F{5}"
+GIT_BRANCH_SYMBOL_COLOR="%F{141}"
 
 # registering precmd function (executes every time before the prompt is drawn)
 # if cwd=$HOME --> display /home/username, else display ~/current/path 
@@ -36,10 +36,10 @@ zstyle ':vcs_info:*' stagedstr '%F{172}✚%f'
 zstyle ':vcs_info:*' unstagedstr '%F{172}●%f'
 
 zstyle ':vcs_info:*' actionformats \
-   '%F{5}%F{5}%b%F{5}%f %u %c (%a)'
+   '%F{141}%b%f %u %c (%a)'
 
 zstyle ':vcs_info:*' formats \
-   '%F{5}%F{5}%b%F{5}%f %u %c'
+   '%F{141}%b%f %u %c'
 
 vcs_info_wrapper() {
   vcs_info
@@ -48,6 +48,5 @@ vcs_info_wrapper() {
   fi
 }
 
-# RPROMPT=$'$(vcs_info_wrapper)'
 PROMPT="$PROMPT_PREFIX_COLOR$PROMPT_PREFIX$CWD_COLOR%v"$'$(vcs_info_wrapper)'$'\n'"%f$PROMPT_SYMBOL_COLOR$PROMPT_SYMBOL%f"
-# RPS1="  %m    %n"
+RPROMPT="%F{141}  %m    %n%f"

@@ -1,0 +1,66 @@
+# Basic options
+default_keybindings = false
+notify = true
+volnorm = true
+volnorm_pregain = -3
+
+[saved_state]
+shuffle = true
+
+[keybindings]
+"Enter" = "play"
+"Space" = "playpause"
+
+"+" = "volup 1"
+"-" = "voldown 1"
+"n" = "next"
+"p" = "previous"
+
+"A" = "goto album"
+"a" = "goto artist"
+
+"O" = "open current"
+"o" = "open selected"
+"l" = "open selected"
+"h" = "back"
+"Esc" = "back"
+
+"q" = "quit"
+"?" = "help"
+"U" = "update"
+
+"H" = "move left 1"
+"L" = "move right 1"
+"j" = "move down 1"
+"J" = "move down 5"
+"k" = "move up 1"
+"K" = "move up 5"
+"g" = "move top"
+"G" = "move bottom"
+
+"Ctrl+q" = "focus queue"
+"Ctrl+s" = "focus search"
+"Ctrl+l" = "focus library"
+
+"c" = "clear"
+"r" = "repeat"
+"s" = "shuffle"
+"S" = "save"
+"D" = "delete"
+
+[theme]
+background = "default"
+primary = "light white"
+secondary = "light black"
+title = "magenta"
+playing = "magenta"
+playing_selected = "magenta"
+highlight = "light white"
+highlight_bg = "#484848"
+error = "light white"
+error_bg = "red"
+statusbar = "light white"
+statusbar_progress = "magenta"
+cmdline = "light white"
+cmdline_bg = "#555"
+search_match = "light red"

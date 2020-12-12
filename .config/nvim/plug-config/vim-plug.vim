@@ -22,7 +22,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'ap/vim-css-color'
 
 Plug 'laszloszurok/palenight.vim'
-Plug 'ghifarit53/tokyonight-vim'
 
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'

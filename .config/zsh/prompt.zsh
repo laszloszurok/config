@@ -28,7 +28,7 @@ print_cwd () {
 # icons in psvar variables, which I display in the right side prompt (%v2 and %v3).
 check_config_status () {
     # checking for any changes
-    /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME update-index --refresh > /dev/null # otherwise a timestamp difference would count as a chenge
+    /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME update-index --refresh > /dev/null # otherwise a timestamp difference would count as a change
     changes=$(/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME diff-index HEAD --) 
 
     # checking for commits that are not pushed yet

@@ -22,7 +22,7 @@ print_cwd () {
     psvar[1]="$cwd"
 }
 check_config_status () {
-    /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME diff-index --quiet HEAD --  && psvar[2]="" || psvar[2]="+"
+    /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME diff-index --quiet HEAD --  && psvar[2]="" || psvar[2]=" "
 }
 add-zsh-hook precmd print_cwd
 add-zsh-hook precmd check_config_status
@@ -34,7 +34,7 @@ autoload -Uz vcs_info
 
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' stagedstr '%F{172}%f'
+zstyle ':vcs_info:*' stagedstr '%F{172}+%f'
 zstyle ':vcs_info:*' unstagedstr '%F{172}●%f'
 
 zstyle ':vcs_info:*' actionformats \

@@ -30,10 +30,10 @@ check_config_status () {
 
     if [ -n "$changes" ] && [ -n "$not_pushed" ]; then
         psvar[2]=" "
-        psvar[3]=""
+        psvar[3]=" "
     elif [ -n "$not_pushed" ]; then
         psvar[2]=""
-        psvar[3]=""
+        psvar[3]=" "
     elif [ -n "$changes" ]; then
         psvar[2]=""
         psvar[3]=" "

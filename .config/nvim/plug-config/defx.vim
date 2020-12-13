@@ -1,5 +1,21 @@
 let g:loaded_netrwPlugin = 1 " Disable netrw.vim
 
+call defx#custom#column('icon', {
+            \ 'directory_icon': '▸',
+            \ 'opened_icon': '▾',
+            \ 'root_icon': '',
+            \ })
+
+call defx#custom#column('filename', {
+            \ 'min_width': 40,
+            \ 'max_width': 40,
+            \ })
+
+call defx#custom#column('mark', {
+            \ 'readonly_icon': '✗',
+            \ 'selected_icon': '✓',
+            \ })
+
 function! s:defx_my_settings() abort
     nnoremap <silent><buffer><expr> <CR>
                 \ defx#do_action('open', 'wincmd w \| drop')
@@ -112,7 +128,7 @@ function! s:open_defx_if_directory()
     endif
 endfunction
 
-augroup defx_config
+augroup defx_autocmd
     autocmd!
     autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'defx') | q | endif
     autocmd FileType defx call s:defx_my_settings()

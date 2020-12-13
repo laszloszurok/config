@@ -23,6 +23,7 @@ print_cwd () {
 }
 check_config_status () {
     # checking for any changes
+    /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME update-index --refresh > /dev/null # otherwise a timestamp difference would count as a chenge
     changes=$(/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME diff-index HEAD --) 
 
     # checking for not pushed commits

@@ -26,7 +26,7 @@ check_config_status () {
     /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME update-index --refresh > /dev/null # otherwise a timestamp difference would count as a chenge
     changes=$(/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME diff-index HEAD --) 
 
-    # checking for not pushed commits
+    # checking for commits that are not pushed yet
     not_pushed=$(/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME log origin/master..HEAD)
 
     if [ -n "$changes" ] && [ -n "$not_pushed" ]; then

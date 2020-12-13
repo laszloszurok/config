@@ -23,15 +23,20 @@ print_cwd () {
 }
 check_config_status () {
     # checking for any changes
-    /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME diff-index --quiet HEAD --  && psvar[2]="" && changes=0 || psvar[2]=" " && changes=1
+    changes=$(/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME diff-index HEAD --) 
 
     # checking for not pushed commits
     not_pushed=$(/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME log origin/master..HEAD)
-    if [ $changes -eq 1 ] && [ -n "$not_pushed" ]; then
+
+    if [ -n $changes ] && [ -n "$not_pushed" ]; then
+        psvar[2]=" "
         psvar[3]=""
     elif [ -n "$not_pushed" ]; then
         psvar[3]=""
         psvar[2]=""
+    elif [ -n "$changes" ]; then
+        psvar[3]=""
+        psvar[2]=" "
     else
         psvar[2]=""
         psvar[3]=""

@@ -22,7 +22,9 @@ print_cwd () {
     psvar[1]="$cwd"
 }
 check_config_status () {
-    /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME diff-index --quiet HEAD --  && psvar[2]="" || psvar[2]="  uncommitted changes"
+    /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME diff-index --quiet HEAD --  && psvar[2]="" || psvar[2]=" "
+    not_pushed=$(/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME log origin/master..HEAD)
+    [[ -n "$not_pushed" ]] && psvar[3]="!"
 }
 add-zsh-hook precmd print_cwd
 add-zsh-hook precmd check_config_status
@@ -52,4 +54,4 @@ vcs_info_wrapper() {
 
 PROMPT="$PROMPT_PREFIX_COLOR$PROMPT_PREFIX$CWD_COLOR%v"$'$(vcs_info_wrapper)'$'\n'"%f$PROMPT_SYMBOL_COLOR$PROMPT_SYMBOL%f"
 # RPROMPT="%F{141}  %m    %n%f"
-RPROMPT="%F{141}%2v%f"
+RPROMPT="%F{141}%2v  %3v%f"

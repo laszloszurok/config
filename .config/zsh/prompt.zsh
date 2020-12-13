@@ -34,15 +34,16 @@ check_config_status () {
     # checking for commits that are not pushed yet
     not_pushed=$(/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME log origin/master..HEAD)
 
+    # ! -> unstaged changes, + -> staged changes
     if [ -n "$changes" ] && [ -n "$not_pushed" ]; then
-        psvar[2]=" "
-        psvar[3]=" "
+        psvar[2]=" "
+        psvar[3]=" "
     elif [ -n "$not_pushed" ]; then
         psvar[2]=""
-        psvar[3]=" "
+        psvar[3]=" "
     elif [ -n "$changes" ]; then
         psvar[2]=""
-        psvar[3]=" "
+        psvar[3]=" "
     else
         psvar[2]=""
         psvar[3]=""

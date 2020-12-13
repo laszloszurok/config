@@ -51,4 +51,5 @@ vcs_info_wrapper() {
 }
 
 PROMPT="$PROMPT_PREFIX_COLOR$PROMPT_PREFIX$CWD_COLOR%v"$'$(vcs_info_wrapper)'$'\n'"%f$PROMPT_SYMBOL_COLOR$PROMPT_SYMBOL%f"
-RPROMPT="%F{141}  %m %2v    %n%f"
+# RPROMPT="%F{141}  %m    %n%f"
+RPROMPT="%2v"

@@ -16,6 +16,5 @@ let g:startify_lists = [
 let g:startify_bookmarks = [
             \ { 'i': '~/.config/nvim/init.vim' },
             \ { 'z': '~/.config/zsh/.zshrc' },
-            \ { 's': '~/scripts/' },
-            \ { 'S': '~/suckless-builds/' },
+            \ { 's': '~/source/' },
             \ ]

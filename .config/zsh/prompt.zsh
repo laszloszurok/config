@@ -61,8 +61,8 @@ autoload -Uz vcs_info
 
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' stagedstr '%F{172}+%f'
-zstyle ':vcs_info:*' unstagedstr '%F{172}●%f'
+zstyle ':vcs_info:*' unstagedstr '%F{172}%B!%f'
+zstyle ':vcs_info:*' stagedstr '%F{172}%B+%f'
 
 zstyle ':vcs_info:*' actionformats \
    '%F{141}%b%f %u %c (%a)'
@@ -79,4 +79,4 @@ vcs_info_wrapper() {
 
 PROMPT="$PROMPT_PREFIX_COLOR$PROMPT_PREFIX$CWD_COLOR%v"$'$(vcs_info_wrapper)'$'\n'"%f$PROMPT_SYMBOL_COLOR$PROMPT_SYMBOL%f"
 # RPROMPT="%F{141}  %m    %n%f"
-RPROMPT="%F{141}%2v %3v%f"
+RPROMPT="%F{172}%2v %3v%f"

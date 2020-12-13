@@ -12,15 +12,20 @@ GIT_BRANCH_PREFIX_COLOR="%F{69}"
 GIT_BRANCH_SYMBOL=" "
 GIT_BRANCH_SYMBOL_COLOR="%F{141}"
 
-# registering precmd function (executes every time before the prompt is drawn)
+# enabling precmd 
+autoload -Uz add-zsh-hook
+
 # if cwd=$HOME --> display /home/username, else display ~/current/path 
 # usage: %v in PROMPT
-autoload -Uz add-zsh-hook
 print_cwd () {
     cwd=$(pwd)
     [[ "$cwd" == "$HOME/"* ]] && cwd="~${$(pwd)#$HOME} " # somewhere in $HOME/*, replace $HOME with ~
     psvar[1]="$cwd"
 }
+
+# I am using a bare git repository for managing my config files. This function checks
+# if there are staged or unstaged changes in the bare repo, and sets some indicator
+# icons in psvar variables, which I display in the right side prompt (%v2 and %v3).
 check_config_status () {
     # checking for any changes
     /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME update-index --refresh > /dev/null # otherwise a timestamp difference would count as a chenge
@@ -43,6 +48,8 @@ check_config_status () {
         psvar[3]=""
     fi
 }
+
+# registering precmd functions (executes every time before the prompt is drawn)
 add-zsh-hook precmd print_cwd
 add-zsh-hook precmd check_config_status
 

@@ -32,6 +32,9 @@ check_config_status () {
     elif [ -n "$not_pushed" ]; then
         psvar[3]=""
         psvar[2]=""
+    else
+        psvar[2]=""
+        psvar[3]=""
     fi
 }
 add-zsh-hook precmd print_cwd

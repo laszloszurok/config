@@ -36,6 +36,6 @@ setxkbmap -layout us,hu -option 'grp:win_space_toggle' -option 'caps:swapescape'
 picom &
 numlockx &
 lxpolkit &
-$HOME/scripts/utils/inactivity &
+inactivity &
 dwmblocks &
 exec dwm

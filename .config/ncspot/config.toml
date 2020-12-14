@@ -11,6 +11,9 @@ shuffle = true
 "Enter" = "play"
 "Space" = "playpause"
 
+"Right" = "seek +1000"
+"Left" = "seek -1000"
+
 "+" = "volup 1"
 "-" = "voldown 1"
 "n" = "next"

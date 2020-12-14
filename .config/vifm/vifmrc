@@ -121,7 +121,7 @@ mark h ~/
 mark c ~/.config
 mark d ~/downloads
 mark p ~/pictures
-mark s /media/storage
+mark s /storage
 
 " ------------------------------------------------------------------------------
 

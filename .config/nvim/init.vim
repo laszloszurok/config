@@ -5,7 +5,6 @@ source ~/.config/nvim/plug-config/vim-plug.vim
 source ~/.config/nvim/plug-config/floaterm.vim
 source ~/.config/nvim/plug-config/coc.vim
 source ~/.config/nvim/plug-config/lightline.vim
-source ~/.config/nvim/plug-config/nerdtree.vim
 source ~/.config/nvim/plug-config/sneak.vim
 source ~/.config/nvim/plug-config/startify.vim
 source ~/.config/nvim/plug-config/fzf.vim

@@ -75,11 +75,11 @@ set wildmode=longest,list,full
 set cursorline
 
 " Set 7 lines to the cursor - when moving vertically using j/k
-set so=999
+set so=10
 
 " Always keep the cursor in the center of the screen, when moving
 " horizontally on long lines, that don't fit the screen (nowrap)
-set siso=999
+" set siso=30
 
 " Line numbers
 set number relativenumber

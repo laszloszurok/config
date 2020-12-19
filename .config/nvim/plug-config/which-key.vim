@@ -99,7 +99,6 @@ let g:which_key_map.f = {
       \ 'f' : [':FloatermToggle'                          , 'floating terminal'],
       \ 'g' : [':FloatermNew lazygit'                     , 'lazygit'],
       \ 'v' : [':FloatermNew vifm'                        , 'vifm'],
-      \ 'y' : [':FloatermNew ytop'                        , 'ytop'],
       \ }
 
 " Register which key map

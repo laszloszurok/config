@@ -17,10 +17,11 @@ Plug 'jiangmiao/auto-pairs'
 
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 Plug 'ap/vim-css-color'
 
 Plug 'laszloszurok/palenight.vim'
+Plug 'laszloszurok/tokyonight-vim'
 
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
@@ -34,6 +35,7 @@ Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'voldikss/vim-floaterm'
 Plug 'liuchengxu/vim-which-key'
 Plug 'justinmk/vim-sneak'
+Plug 'airblade/vim-rooter'
 
 Plug 'antoinemadec/FixCursorHold.nvim' " bug fix, better performance
 

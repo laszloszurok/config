@@ -53,7 +53,7 @@ if (has("termguicolors"))
 endif
 
 try
-    colorscheme palenight
+    colorscheme tokyonight
 catch
 endtry
 

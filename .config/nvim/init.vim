@@ -12,5 +12,7 @@ source ~/.config/nvim/plug-config/defx.vim
 source ~/.config/nvim/plug-config/palenight.vim
 source ~/.config/nvim/plug-config/tokyonight.vim
 source ~/.config/nvim/plug-config/which-key.vim
+source ~/.config/nvim/plug-config/gitgutter.vim
 
 source ~/.config/nvim/basic-settings.vim
+

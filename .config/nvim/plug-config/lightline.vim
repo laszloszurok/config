@@ -16,3 +16,5 @@ let g:lightline = {
       \   'buffers': 'tabsel'
       \ }
       \ }
+
+let g:lightline.subseparator = { 'left': '', 'right': '' }

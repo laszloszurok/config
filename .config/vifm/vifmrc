@@ -108,8 +108,6 @@ endif
 
 " Set custom status line look
 
-highlight User1 ctermfg=magenta cterm=bold
-
 set statusline="%1*  %A  %u:%g  %s  %d  %t  %=  free: %a  "
 
 " ------------------------------------------------------------------------------

@@ -10,10 +10,8 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mattn/emmet-vim'
-Plug 'dart-lang/dart-vim-plugin'
-Plug 'natebosch/vim-lsc'
-Plug 'natebosch/vim-lsc-dart'
 Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-surround'
 
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'tpope/vim-commentary'
@@ -36,6 +34,8 @@ Plug 'voldikss/vim-floaterm'
 Plug 'liuchengxu/vim-which-key'
 Plug 'justinmk/vim-sneak'
 Plug 'airblade/vim-rooter'
+
+Plug 'lambdalisue/suda.vim'
 
 Plug 'antoinemadec/FixCursorHold.nvim' " bug fix, better performance
 

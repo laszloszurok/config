@@ -1,8 +1,13 @@
 # Basic auto/tab complete:
+
 autoload -Uz compinit
+
+for dump in ~/.cache/zcompdump-$ZSH_VERSION(N.mh+24); do
+    compinit -C -d ~/.cache/zcompdump-$ZSH_VERSION
+done
+
 zstyle ':completion:*' menu select
 zmodload zsh/complist
-compinit -D ~/.cache/zsh/zcompdump-$ZSH_VERSION # separate dir for the .zcompdump file
 _comp_options+=(globdots) # Include hidden files.
 
 # Use vim keys in tab complete menu:

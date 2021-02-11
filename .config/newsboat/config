@@ -1,4 +1,4 @@
-browser firefox %u
+browser brave %u
 
 auto-reload yes
 
@@ -21,8 +21,8 @@ bind-key D pb-download
 bind-key U show-urls
 bind-key x pb-delete
 
-macro w set browser "setsid -f mpv" ; open-in-browser ; set browser "firefox %u"
-macro c set browser "straw-viewer --comments=%u" ; open-in-browser ; set browser "firefox %u"
+macro w set browser "setsid -f st -e mpv" ; open-in-browser ; set browser "brave %u"
+macro c set browser "straw-viewer --comments=%u" ; open-in-browser ; set browser "brave %u"
 
 # color background          color236   default
 color listnormal          color244   default

@@ -1,0 +1,39 @@
+# More information on how to configure the styleset can be found in
+# the aerc-styleset(7) manpage. Please read the manual before
+# modifying or creating a styleset.
+
+*.default = true
+
+*.selected.reverse = false
+
+dirlist_default.selected.bg = #1c1c1c
+
+msglist_*.selected.bg = #1c1c1c
+msglist_unread.bold = true
+msglist_unread.fg = #af5fff
+msglist_read.fg = #808080
+msglist_deleted.fg = gray
+
+tab.reverse = false
+tab.selected.bg = #f7768e
+tab.selected.fg = #24283b
+
+title.reverse = false
+header.bold = true
+
+*error.bold = true
+error.fg = red
+warning.fg = yellow
+success.fg = green
+
+statusline*.default = true
+statusline_default.reverse = false
+statusline_error.fg = red
+statusline_error.reverse = false
+
+completion_pill.reverse = false
+
+border.reverse = false
+
+selector_focused.reverse = false
+selector_chooser.bold = true

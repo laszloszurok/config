@@ -1,0 +1,25 @@
+IMAPStore laszloszurok@mail.ch-remote
+Host imap.mail.ch
+Port 993
+User laszloszurok@mail.ch
+PassCmd "pass Mail.ch/laszloszurok@mail.ch"
+AuthMechs LOGIN
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore laszloszurok@mail.ch-local
+Subfolders Verbatim
+Path ~/.local/share/mail/laszloszurok@mail.ch/
+Inbox ~/.local/share/mail/laszloszurok@mail.ch/INBOX
+Flatten .
+
+Channel laszloszurok@mail.ch
+Expunge Both
+Master :laszloszurok@mail.ch-remote:
+Slave :laszloszurok@mail.ch-local:
+Patterns * !"[Gmail]/All Mail"
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+# End profile

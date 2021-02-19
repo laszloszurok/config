@@ -1,6 +1,6 @@
-PROMPT_PREFIX="%Bcwd:%b "
-PROMPT_PREFIX_COLOR="%F{69}"
+PROMPT_PREFIX="%F{141}$(whoami)%f %F{69}%Bat%b%f %F{141}$(hostname)%f %F{69}%Bin%b%f "
 
+CWD="%~ "
 CWD_COLOR="%F{141}"
 
 PROMPT_SYMBOL="%B%b "
@@ -17,11 +17,11 @@ autoload -Uz add-zsh-hook
 
 # if cwd=$HOME --> display /home/username, else display ~/current/path 
 # usage: %v in PROMPT
-print_cwd () {
-    cwd=$(pwd)
-    [[ "$cwd" == "$HOME/"* ]] && cwd="~${$(pwd)#$HOME} " # somewhere in $HOME/*, replace $HOME with ~
-    psvar[1]="$cwd"
-}
+# print_cwd () {
+#     cwd=$(pwd)
+#     [[ "$cwd" == "$HOME/"* ]] && cwd="~${$(pwd)#$HOME} " # somewhere in $HOME/*, replace $HOME with ~
+#     psvar[1]="$cwd"
+# }
 
 # I am using a bare git repository for managing my config files. This function checks
 # if there are staged or unstaged changes in the bare repo, and sets some indicator
@@ -51,7 +51,7 @@ check_config_status () {
 }
 
 # registering precmd functions (executes every time before the prompt is drawn)
-add-zsh-hook precmd print_cwd
+# add-zsh-hook precmd print_cwd
 add-zsh-hook precmd check_config_status
 
 # Show git branch in git directories
@@ -77,6 +77,6 @@ vcs_info_wrapper() {
   fi
 }
 
-PROMPT="$PROMPT_PREFIX_COLOR$PROMPT_PREFIX$CWD_COLOR%v"$'$(vcs_info_wrapper)'$'\n'"%f$PROMPT_SYMBOL_COLOR$PROMPT_SYMBOL%f"
+PROMPT="$PROMPT_PREFIX$CWD_COLOR$CWD"$'$(vcs_info_wrapper)'$'\n'"%f$PROMPT_SYMBOL_COLOR$PROMPT_SYMBOL%f"
 # RPROMPT="%F{141}  %m    %n%f"
 RPROMPT="%F{172}%2v %3v%f"

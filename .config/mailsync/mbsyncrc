@@ -23,3 +23,29 @@ SyncState *
 MaxMessages 0
 ExpireUnread no
 # End profile
+
+IMAPStore pulzar@envs.net-remote
+Host mail.envs.net
+Port 993
+User pulzar@envs.net
+PassCmd "pass envs.net/pulzar"
+AuthMechs LOGIN
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore pulzar@envs.net-local
+Subfolders Verbatim
+Path ~/.local/share/mail/pulzar@envs.net/
+Inbox ~/.local/share/mail/pulzar@envs.net/INBOX
+Flatten .
+
+Channel pulzar@envs.net
+Expunge Both
+Master :pulzar@envs.net-remote:
+Slave :pulzar@envs.net-local:
+Patterns * !"[Gmail]/All Mail"
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+# End profile

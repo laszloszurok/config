@@ -4,7 +4,7 @@
 
 " :W writes the file as sudo. (The SUDO_ASKPASS environmental variable
 " has to be set to the path of a script that asks for the sudo password.)
-com -bar W exe 'w !sudo tee >/dev/null %:p:S' | setl nomod
+" com -bar W exe 'w !sudo tee >/dev/null %:p:S' | setl nomod
 
 " Return to last edit position when opening files
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -40,12 +40,12 @@ set splitright
 
 " When running nvim without arguments make sure to run startify first
 " and then open Defx file tree
-autocmd VimEnter *
-            \   if !argc()
-            \ |   Startify
-            \ |   Defx -split=vertical -winwidth=35 -direction=topleft
-            \ |   wincmd w
-            \ | endif
+" autocmd VimEnter *
+"             \   if !argc()
+"             \ |   Startify
+"             \ |   Defx -split=vertical -winwidth=35 -direction=topleft
+"             \ |   wincmd w
+"             \ | endif
 
 " Enable true colors
 if (has("termguicolors"))
@@ -71,15 +71,15 @@ set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:
 " Auto completition in vim's command bar
 set wildmode=longest,list,full
 
+" Turn off visual highlight for tab completition in the command bar
+set nowildmenu
+
 " Highlight the line where the cursor is
 set cursorline
 
-" Set 7 lines to the cursor - when moving vertically using j/k
+" Some 'padding' for the cursor
 set so=10
-
-" Always keep the cursor in the center of the screen, when moving
-" horizontally on long lines, that don't fit the screen (nowrap)
-" set siso=30
+set siso=10
 
 " Line numbers
 set number relativenumber
@@ -124,10 +124,9 @@ set smarttab
 set shiftwidth=4
 set tabstop=4
 
-" Linebreak on 500 characters
+" Linebreak on 200 characters
 set lbr
-set tw=500
+set tw=200
 
 set ai "Auto indent
 set si "Smart indent
-set nowrap "Don't wrap lines

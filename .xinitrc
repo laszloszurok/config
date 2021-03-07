@@ -33,6 +33,7 @@ fi
 setwallpaper &
 # 'use localectl list-x11-keymap-options | grep grp' to get toggleing options
 setxkbmap -layout us,hu -option 'grp:win_space_toggle' -option 'caps:swapescape'
+unclutter --timeout 15 --ignore-scrolling --jitter 50 &
 picom &
 numlockx &
 lxpolkit &

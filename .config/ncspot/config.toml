@@ -1,6 +1,6 @@
 # Basic options
 default_keybindings = false
-notify = true
+notify = false
 volnorm = true
 volnorm_pregain = -3
 

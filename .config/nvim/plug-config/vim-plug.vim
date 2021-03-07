@@ -18,18 +18,20 @@ Plug 'tpope/vim-commentary'
 Plug 'airblade/vim-gitgutter'
 Plug 'ap/vim-css-color'
 
-Plug 'laszloszurok/palenight.vim'
+" Plug 'laszloszurok/palenight.vim'
 Plug 'laszloszurok/tokyonight-vim'
 
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'junegunn/goyo.vim'
-Plug 'mhinz/vim-startify'
+
+" Plug 'mhinz/vim-startify'
+Plug 'glepnir/dashboard-nvim'
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'voldikss/vim-floaterm'
 Plug 'liuchengxu/vim-which-key'
 Plug 'justinmk/vim-sneak'

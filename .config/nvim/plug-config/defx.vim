@@ -29,7 +29,7 @@ function! s:defx_my_settings() abort
     nnoremap <silent><buffer><expr> p
                 \ defx#do_action('paste')
 
-    nnoremap <silent><buffer><expr> dd
+    nnoremap <silent><buffer><expr> d
                 \ defx#do_action('remove')
 
     nnoremap <silent><buffer><expr> r

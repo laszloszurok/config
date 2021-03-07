@@ -2,6 +2,12 @@
 nnoremap <silent> <leader> :silent WhichKey '<Space>'<CR>
 vnoremap <silent> <leader> :silent <c-u> :silent WhichKeyVisual '<Space>'<CR>
 
+" Set to 1 to center the text in the which_key popup
+let g:which_key_centered = 0
+
+" Set to 1 to show a vertical list
+let g:which_key_vertical = 0
+
 " Create map to add keys to
 let g:which_key_map =  {}
 
@@ -30,15 +36,15 @@ let g:which_key_map['w'] = [ ':w!'                        , 'write' ]
 let g:which_key_map['q'] = [ ':q'                         , 'quit' ]
 let g:which_key_map['e'] = [ ':call ToggleDefx()'         , 'toggle defx' ]
 let g:which_key_map['r'] = [ ':call RefreshDefx()'        , 'refresh defx' ]
-let g:which_key_map['/'] = [ '<Plug>NERDCommenterToggle'  , 'comment' ]
 let g:which_key_map['g'] = [ ':Goyo'                      , 'goyo' ]
-let g:which_key_map['S'] = [ ':Startify'                  , 'start screen' ]
+let g:which_key_map['S'] = [ ':Dashboard'                 , 'start screen' ]
 let g:which_key_map['h'] = [ '<C-W>s'                     , 'split below' ]
 let g:which_key_map['v'] = [ '<C-W>v'                     , 'split right' ]
 
 " manage buffers
 let g:which_key_map.b = {
     \ 'name' : '+buffers',
+    \ 'e' : [':enew'     , 'empty buffer'],
     \ 'n' : [':bnext'    , 'next buffer'],
     \ 'p' : [':bprevious', 'previous buffer'],
     \ 'c' : [':Bclose'   , 'close buffer'],

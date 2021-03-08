@@ -1,0 +1,15 @@
+# bare repo git config for file management
+# run cfg fetch to fix prompt errors
+
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = true
+[remote "origin"]
+	url = https://github.com/laszloszurok/config
+    fetch = +refs/heads/*:refs/remotes/origin/*
+[status]
+	showUntrackedFiles = no
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master

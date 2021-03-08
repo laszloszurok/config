@@ -1,4 +1,4 @@
-PROMPT_PREFIX="%F{141}$(whoami)%f %F{69}%Bat%b%f %F{141}$(hostname)%f %F{69}%Bin%b%f "
+PROMPT_PREFIX="%F{141}$(whoami)%f %F{69}%Bat%b%f %F{141}$HOST%f %F{69}%Bin%b%f "
 
 CWD="%~ "
 CWD_COLOR="%F{141}"

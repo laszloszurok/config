@@ -1,0 +1,2 @@
+*/10 * * * * /home/pulzar/source/scripts/utils/bat_threshold
+*/15 * * * * /home/pulzar/source/scripts/utils/mailsync

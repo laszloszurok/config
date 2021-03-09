@@ -100,11 +100,11 @@
 # All layout components have a ratio value - if this is not set, then it defaults to 1. 
 # The default widget layout:
 [[row]]
-  ratio=20
+  ratio=35
   [[row.child]]
   type="cpu"
 [[row]]
-    ratio=40
+    ratio=35
     [[row.child]]
       ratio=3
       [[row.child.child]]
@@ -117,7 +117,7 @@
       ratio=4
       type="mem"
 [[row]]
-  ratio=40
+  ratio=30
   [[row.child]]
     type="net"
   [[row.child]]

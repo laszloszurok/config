@@ -7,6 +7,7 @@ for dump in ~/.cache/zcompdump-$ZSH_VERSION(N.mh+24); do
 done
 
 zstyle ':completion:*' menu select
+compinit -C -d ~/.cache/zcompdump-$ZSH_VERSION
 zmodload zsh/complist
 _comp_options+=(globdots) # Include hidden files.
 

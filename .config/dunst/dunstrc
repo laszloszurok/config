@@ -209,6 +209,34 @@
 # NOTE: It might be helpful to run dunst -print in a terminal in order
 # to find fitting options for rules.
 
+[volume]
+    appname = "volume"
+    history_ignore=yes
+
+[microphone]
+    appname = "microphone"
+    history_ignore=yes
+
+[brightness]
+    appname = "brightness"
+    history_ignore=yes
+
+[clock]
+    appname = "clock"
+    history_ignore=yes
+    
+[battery]
+    appname = "battery"
+    history_ignore=yes
+
+[wifi]
+    appname = "wifi"
+    history_ignore=yes
+
+[vpn]
+    appname = "vpn"
+    history_ignore=yes
+
 #[espeak]
 #    summary = "*"
 #    script = dunst_espeak.sh

@@ -7,7 +7,7 @@ export READER="zathura"
 # Custom askpass script for sudo -A
 export SUDO_ASKPASS="$HOME/source/scripts/utils/dmenu_askpass"
 
-# mailsync needs this to send notifications
+# needed by gpg-agent
 export GPG_TTY=$(tty)
 
 # Path:

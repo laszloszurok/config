@@ -1,4 +1,8 @@
 {
+    "diagnostic-languageserver.filetypes": {
+        // lint `sh` (includes `bash`) files
+        "sh": "shellcheck"
+    },
     "pairs.enableCharacters": ["(", "[", "{", "'", "\"", "`"],
         "coc.preferences.formatOnSaveFiletypes": [
             "java",

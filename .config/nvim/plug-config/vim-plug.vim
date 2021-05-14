@@ -6,6 +6,13 @@ if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 	autocmd VimEnter * PlugInstall
 endif
 
+let g:coc_global_extensions = [
+\ 'coc-diagnostic',
+\ 'coc-json',
+\ 'coc-html',
+\ 'coc-css',
+\ ]
+
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}

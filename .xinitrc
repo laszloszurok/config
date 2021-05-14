@@ -33,14 +33,10 @@ fi
 setwallpaper &
 
 # use 'localectl list-x11-keymap-options | grep grp' to get toggleing options
-setxkbmap hu -option 'caps:swapescape'
-
-# Bind the right alt key to Mod4 (the Windows key)
-# Use 'xmodmap -pke | grep Alt_R' to get the appropriate keycode
-xmodmap -e "keycode 108 = Super_L"
-xmodmap -e "remove mod1 = Super_L"
+setxkbmap hu -option 'caps:escape'
 
 unclutter --timeout 15 --ignore-scrolling --jitter 50 &
+clipmenud &
 picom &
 numlockx &
 lxpolkit &

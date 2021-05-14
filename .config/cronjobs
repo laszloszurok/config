@@ -1,2 +1,2 @@
-*/10 * * * * /home/pulzar/source/scripts/utils/bat_threshold
-*/15 * * * * /home/pulzar/source/scripts/utils/mailsync
+0 */3 * * * DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus ~/source/scripts/utils/todos-notify
+*/15 * * * * DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus ~/source/scripts/utils/mailsync

@@ -15,3 +15,5 @@ source ~/.config/nvim/plug-config/fix-cursor-hold.vim
 source ~/.config/nvim/plug-config/dashboard.vim
 
 source ~/.config/nvim/basic-settings.vim
+
+source ~/.config/nvim/autocompile.vim

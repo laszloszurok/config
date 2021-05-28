@@ -11,6 +11,7 @@ let g:coc_global_extensions = [
 \ 'coc-json',
 \ 'coc-html',
 \ 'coc-css',
+\ 'coc-clangd',
 \ ]
 
 call plug#begin('~/.config/nvim/plugged')

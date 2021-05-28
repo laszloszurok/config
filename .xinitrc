@@ -33,7 +33,7 @@ fi
 setwallpaper &
 
 # use 'localectl list-x11-keymap-options | grep grp' to get toggleing options
-setxkbmap hu -option 'caps:escape'
+setxkbmap us -option 'caps:escape'
 
 unclutter --timeout 15 --ignore-scrolling --jitter 50 &
 clipmenud &

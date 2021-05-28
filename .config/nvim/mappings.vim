@@ -32,3 +32,7 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 " Paste 'forgets' the copied content after the first paste
 " by default. This solves the issue
 xnoremap p pgvy
+
+" scroll with ctrl+j/k
+map <c-j> <c-e>
+map <c-k> <c-y>

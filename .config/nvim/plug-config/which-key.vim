@@ -101,7 +101,7 @@ let g:which_key_map.s = {
 " floaterm commands
 let g:which_key_map.f = {
       \ 'name' : '+floaterm' ,
-      \ 'b' : [':FloatermNew --wintype=normal --height=15', 'bottom terminal'],
+      \ 'b' : [':FloatermNew --wintype=normal --height=20', 'bottom terminal'],
       \ 'f' : [':FloatermToggle'                          , 'floating terminal'],
       \ 'g' : [':FloatermNew lazygit'                     , 'lazygit'],
       \ 'v' : [':FloatermNew vifm'                        , 'vifm'],

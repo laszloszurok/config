@@ -36,3 +36,6 @@ xnoremap p pgvy
 " scroll with ctrl+u/d
 map <c-d> <c-e>
 map <c-u> <c-y>
+
+" exit from terminal mode faster 
+tnoremap <C-\> <C-\><C-n>

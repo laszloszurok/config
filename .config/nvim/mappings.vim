@@ -33,6 +33,6 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 " by default. This solves the issue
 xnoremap p pgvy
 
-" scroll with ctrl+j/k
-map <c-j> <c-e>
-map <c-k> <c-y>
+" scroll with ctrl+u/d
+map <c-d> <c-e>
+map <c-u> <c-y>

@@ -32,14 +32,14 @@ autocmd  FileType which_key set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
 
 " Single mappings (functions are defined in ~/.config/nvim/helpers.vim)
-let g:which_key_map['w'] = [ ':w!'                        , 'write' ]
-let g:which_key_map['q'] = [ ':q'                         , 'quit' ]
-let g:which_key_map['e'] = [ ':call ToggleDefx()'         , 'toggle defx' ]
-let g:which_key_map['r'] = [ ':call RefreshDefx()'        , 'refresh defx' ]
-let g:which_key_map['g'] = [ ':Goyo'                      , 'goyo' ]
-let g:which_key_map['S'] = [ ':Dashboard'                 , 'start screen' ]
-let g:which_key_map['h'] = [ '<C-W>s'                     , 'split below' ]
-let g:which_key_map['v'] = [ '<C-W>v'                     , 'split right' ]
+let g:which_key_map['w'] = [ ':w!'                   , 'write' ]
+let g:which_key_map['q'] = [ ':q'                    , 'quit' ]
+let g:which_key_map['e'] = [ ':call ToggleDefx()'    , 'toggle defx' ]
+let g:which_key_map['r'] = [ ':call RefreshDefx()'   , 'refresh defx' ]
+let g:which_key_map['g'] = [ ':Goyo'                 , 'goyo' ]
+let g:which_key_map['S'] = [ ':Dashboard'            , 'start screen' ]
+let g:which_key_map['l'] = [ ':FloatermNew lazygit'  , 'lazygit']
+let g:which_key_map['v'] = [ ':FloatermNew vifm'     , 'vifm']
 
 " manage buffers
 let g:which_key_map.b = {
@@ -52,59 +52,53 @@ let g:which_key_map.b = {
   \ }
 
 " mange tabs
-let g:lasttab = 1 " Let 'tl' toggle between this and the last accessed tab
-au TabLeave * let g:lasttab = tabpagenr()
-let g:which_key_map.t = {
-    \ 'name' : '+tabs',
-    \ 't' : [':tabnew'                 , 'new tab'],
-    \ 'n' : [':tabnext'                , 'next tab'],
-    \ 'p' : [':tabprevious'            , 'previous tab'],
-    \ 'c' : [':tabclose'               , 'close tab'],
-    \ 'l' : [':exe "tabn ".g:lasttab'  , 'switch to last accessed tab']
+" let g:lasttab = 1 " Let 'tl' toggle between this and the last accessed tab
+" au TabLeave * let g:lasttab = tabpagenr()
+" let g:which_key_map.t = {
+"     \ 'name' : '+tabs',
+"     \ 't' : [':tabnew'                 , 'new tab'],
+"     \ 'n' : [':tabnext'                , 'next tab'],
+"     \ 'p' : [':tabprevious'            , 'previous tab'],
+"     \ 'c' : [':tabclose'               , 'close tab'],
+"     \ 'l' : [':exe "tabn ".g:lasttab'  , 'switch to last accessed tab']
+"   \ }
+
+" split right, split below
+let g:which_key_map.s = {
+    \ 'name' : '+split',
+    \ 'r' : [':vsplit', 'right'],
+    \ 'b' : [':split' , 'below'],
   \ }
 
 " toggle wrapping of lines
-let g:which_key_map.l = {
-    \ 'name' : '+linewrap',
-    \ 'w' : [':set wrap'  , 'wrap'],
-    \ 'n' : [':set nowrap', 'nowrap'],
-  \ }
+" let g:which_key_map.l = {
+"     \ 'name' : '+linewrap',
+"     \ 'w' : [':set wrap'  , 'wrap'],
+"     \ 'n' : [':set nowrap', 'nowrap'],
+"   \ }
 
-" s is for search
-let g:which_key_map.s = {
-      \ 'name' : '+search' ,
-      \ '/' : [':History/'     , 'history'],
-      \ ';' : [':Commands'     , 'commands'],
-      \ 'a' : [':Ag'           , 'text Ag'],
-      \ 'b' : [':BLines'       , 'current buffer'],
-      \ 'B' : [':Buffers'      , 'open buffers'],
-      \ 'c' : [':Commits'      , 'commits'],
-      \ 'C' : [':BCommits'     , 'buffer commits'],
+" f is for find
+let g:which_key_map.f = {
+      \ 'name' : '+find' ,
       \ 'f' : [':Files'        , 'files'],
-      \ 'g' : [':GFiles'       , 'git files'],
-      \ 'G' : [':GFiles?'      , 'modified git files'],
       \ 'h' : [':History'      , 'file history'],
-      \ 'H' : [':History:'     , 'command history'],
+      \ 's' : [':History/'     , 'search history'],
+      \ 'c' : [':History:'     , 'command history'],
+      \ 'C' : [':Commands'     , 'commands'],
       \ 'l' : [':Lines'        , 'lines'] ,
+      \ 'b' : [':BLines'       , 'lines in current buffer'],
+      \ 't' : [':Rg'           , 'text'],
       \ 'm' : [':Marks'        , 'marks'] ,
-      \ 'M' : [':Maps'         , 'normal maps'] ,
-      \ 'p' : [':Helptags'     , 'help tags'] ,
       \ 'P' : [':Tags'         , 'project tags'],
-      \ 's' : [':Snippets'     , 'snippets'],
       \ 'S' : [':Colors'       , 'color schemes'],
-      \ 't' : [':Rg'           , 'text Rg'],
       \ 'T' : [':BTags'        , 'buffer tags'],
-      \ 'y' : [':Filetypes'    , 'file types'],
-      \ 'z' : [':FZF'          , 'FZF'],
       \ }
 
-" floaterm commands
-let g:which_key_map.f = {
-      \ 'name' : '+floaterm' ,
+" open terminals
+let g:which_key_map.t = {
+      \ 'name' : '+terminals' ,
       \ 'b' : [':FloatermNew --wintype=normal --height=20', 'bottom terminal'],
       \ 'f' : [':FloatermToggle'                          , 'floating terminal'],
-      \ 'g' : [':FloatermNew lazygit'                     , 'lazygit'],
-      \ 'v' : [':FloatermNew vifm'                        , 'vifm'],
       \ }
 
 " Register which key map

@@ -41,6 +41,7 @@ Plug 'junegunn/fzf.vim'
 
 " Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'voldikss/vim-floaterm'
+Plug 'vifm/vifm.vim'
 Plug 'liuchengxu/vim-which-key'
 Plug 'justinmk/vim-sneak'
 Plug 'airblade/vim-rooter'

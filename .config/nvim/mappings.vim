@@ -39,3 +39,6 @@ map <c-u> <c-y>
 
 " exit from terminal mode faster 
 tnoremap <C-\> <C-\><C-n>
+
+" disable ctrl+z (suspends the editor)
+map <C-z> <Nop>

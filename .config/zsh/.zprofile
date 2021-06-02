@@ -13,10 +13,10 @@ export GPG_TTY=$(tty)
 # Path:
 export JAVA_HOME=/usr/lib/jvm/default
 export ANDROID_HOME="$HOME/Android/Sdk"
+PATH="$HOME/source/scripts/utils:$PATH"
 PATH="$PATH:$JAVA_HOME/bin"
 PATH="$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools"
 PATH="$PATH:$HOME/.local/bin"
-PATH="$PATH:$HOME/source/scripts/utils"
 PATH="$PATH:$HOME/.local/flutter/bin"
 PATH="$PATH:$HOME/.emacs.d/bin"
 PATH="$PATH:$HOME/.dotnet/tools"

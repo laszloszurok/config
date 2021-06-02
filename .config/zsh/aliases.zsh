@@ -12,3 +12,4 @@ alias cp="cp -i"
 alias mv='mv -i'
 alias rm='rm -i'
 alias x="extract"
+alias lazygitcfg="lazygit --git-dir=.cfg --work-tree=$HOME"

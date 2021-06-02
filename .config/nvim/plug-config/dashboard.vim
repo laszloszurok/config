@@ -5,16 +5,16 @@ let g:dashboard_custom_section={
       \ 'description': ['  Empty buffer                                  SPC b e'],
       \ 'command': ':enew' },
   \ '2': {
-      \ 'description': ['  History                                       SPC s h'],
+      \ 'description': ['  File history                                  SPC f h'],
       \ 'command': ':History' },
   \ '3': {
       \ 'description': ['  Load last session                             SPC o s'],
       \ 'command': ':SessionLoad' },
   \ '4': {
-      \ 'description': ['  Search file                                   SPC s f'],
+      \ 'description': ['  Find file                                     SPC f f'],
       \ 'command': ':Files' },
   \ '5': {
-      \ 'description': ['  Search text                                   SPC s t'],
+      \ 'description': ['  Find text                                     SPC f t'],
       \ 'command': ':Rg' },
   \ '9': {
       \ 'description': ['  Quit                                            SPC q'],

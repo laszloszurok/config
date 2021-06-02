@@ -120,3 +120,19 @@ endfunction
 function LazygitCfg()
     execute 'FloatermNew lazygit --git-dir=$HOME/.cfg --work-tree=$HOME'
 endfunction
+
+" if we are not in a git repo, set git gutters git_args to read the bare
+" repo in my home dir, that I use to manage dotfiles
+function CheckGitRepo()
+    silent! !git rev-parse --is-inside-work-tree
+    if v:shell_error == 0
+        let g:gitgutter_git_args=''
+        let g:which_key_map['l'] = [ ':FloatermNew lazygit'  , 'lazygit']
+    else
+        let g:gitgutter_git_args='--git-dir=$HOME/.cfg --work-tree=$HOME'
+        let g:which_key_map['l'] = [ ':call LazygitCfg()'  , 'lazygit']
+    endif
+endfunction
+" set the working directory to the path of the current buffer
+autocmd BufEnter * silent! cd %:p:h
+autocmd BufEnter * :call CheckGitRepo()

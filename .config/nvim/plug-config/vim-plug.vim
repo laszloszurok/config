@@ -44,7 +44,7 @@ Plug 'voldikss/vim-floaterm'
 Plug 'vifm/vifm.vim'
 Plug 'liuchengxu/vim-which-key'
 Plug 'justinmk/vim-sneak'
-Plug 'airblade/vim-rooter'
+" Plug 'airblade/vim-rooter'
 
 Plug 'lambdalisue/suda.vim'
 

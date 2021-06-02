@@ -39,6 +39,7 @@ let g:which_key_map['r'] = [ ':call RefreshDefx()'   , 'refresh defx' ]
 let g:which_key_map['g'] = [ ':Goyo'                 , 'goyo' ]
 let g:which_key_map['S'] = [ ':Dashboard'            , 'start screen' ]
 let g:which_key_map['l'] = [ ':FloatermNew lazygit'  , 'lazygit']
+let g:which_key_map['L'] = [ ':call LazygitCfg() '   , 'lazygit-cfg']
 let g:which_key_map['v'] = [ ':FloatermNew vifm'     , 'vifm']
 
 " manage buffers

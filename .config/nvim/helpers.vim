@@ -115,3 +115,8 @@ function RefreshDefx()
     execute 'Defx -split=vertical -winwidth=35 -direction=topleft -toggle'
     execute 'wincmd w'
 endfunction
+
+" Opens the bare repo in my home directory which I use for config file management
+function LazygitCfg()
+    execute 'FloatermNew lazygit --git-dir=$HOME/.cfg --work-tree=$HOME'
+endfunction

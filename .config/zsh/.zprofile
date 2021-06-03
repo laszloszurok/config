@@ -52,3 +52,6 @@ export MBSYNCRC="${XDG_CONFIG_HOME:-$HOME/.config}/mailsync/mbsyncrc"
 
 # disable dotnet core telemetry
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
+
+# fzf settings
+export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git/**'"

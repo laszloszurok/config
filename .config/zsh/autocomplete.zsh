@@ -18,4 +18,6 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -M menuselect '^M' .accept-line
 bindkey -M menuselect '\e' accept-search
+
+# Fix backspace bug when switching modes
 bindkey -v '^?' backward-delete-char

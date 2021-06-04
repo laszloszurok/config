@@ -5,7 +5,7 @@ success_symbol = "[]()"
 error_symbol = "[]()"
 
 [shell]
-disabled = false
+disabled = true
 
 [username]
 style_user = "fg:97 bold"

@@ -10,3 +10,7 @@
 .Xauthority
 .java/
 .cargo/
+
+.config/nvim/.netrwhist
+.config/wallpaper
+.config/pavucontrol.ini

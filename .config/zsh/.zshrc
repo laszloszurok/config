@@ -7,7 +7,10 @@ SAVEHIST=10000
 setopt HIST_IGNORE_ALL_DUPS
 
 eval "$(zoxide init zsh --cmd j)" # access frequently visited directories faster
-source $HOME/.config/zsh/prompt.zsh
+
+# source $HOME/.config/zsh/prompt.zsh
+eval "$(starship init zsh)"
+
 source $HOME/.config/zsh/aliases.zsh
 source $HOME/.config/zsh/vimode.zsh # use modes like in vim
 source $HOME/.config/zsh/autocomplete.zsh

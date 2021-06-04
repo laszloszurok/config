@@ -1,6 +1,5 @@
 *
 !.*
-!.config/*
 
 .pam-gnupg
 .bashrc

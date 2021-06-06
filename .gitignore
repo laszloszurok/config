@@ -76,3 +76,6 @@ st/
 .bash_profile
 .pam-gnupg
 wut
+
+message.asc
+plain

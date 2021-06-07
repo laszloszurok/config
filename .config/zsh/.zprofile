@@ -55,4 +55,5 @@ export MBSYNCRC="${XDG_CONFIG_HOME:-$HOME/.config}/mailsync/mbsyncrc"
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 # fzf settings
-export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git/**'"
+export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!{node_modules,.git,.cfg,.themes}'"
+export FZF_DEFAULT_OPTS="--reverse --inline-info --preview 'bat --color=always --style=numbers --line-range=:500 {}'"

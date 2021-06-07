@@ -12,4 +12,3 @@ alias cp="cp -i"
 alias mv='mv -i'
 alias rm='rm -i'
 alias x="xtract"
-alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"

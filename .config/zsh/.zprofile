@@ -3,7 +3,7 @@ export EDITOR="nvim"
 export TERMINAL="st"
 export BROWSER="brave"
 export READER="zathura"
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANPAGER="sh -c 'col -bx | bat -l man -p --paging=always'"
 
 # Custom askpass script for sudo -A
 export SUDO_ASKPASS="$HOME/source/scripts/utils/dmenu_askpass"

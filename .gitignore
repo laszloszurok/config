@@ -81,3 +81,5 @@ message.asc
 plain
 infbizt/
 .config/lbry/
+.config/chromium/
+.config/libreoffice/

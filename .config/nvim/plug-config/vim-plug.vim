@@ -20,34 +20,24 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mattn/emmet-vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
-
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'tpope/vim-commentary'
 Plug 'airblade/vim-gitgutter'
 Plug 'ap/vim-css-color'
-
-" Plug 'laszloszurok/palenight.vim'
 Plug 'laszloszurok/tokyonight-vim'
-
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'junegunn/goyo.vim'
-
-" Plug 'mhinz/vim-startify'
 Plug 'glepnir/dashboard-nvim'
-
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-
 " Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'voldikss/vim-floaterm'
 Plug 'vifm/vifm.vim'
 Plug 'liuchengxu/vim-which-key'
 Plug 'justinmk/vim-sneak'
-" Plug 'airblade/vim-rooter'
-
 Plug 'lambdalisue/suda.vim'
-
 Plug 'antoinemadec/FixCursorHold.nvim' " bug fix, better performance
+Plug 'cespare/vim-toml'
 
 call plug#end()

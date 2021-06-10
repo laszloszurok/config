@@ -3,6 +3,7 @@ add_newline = false
 [character]
 success_symbol = "[]()"
 error_symbol = "[]()"
+vicmd_symbol = "[]()"
 
 [shell]
 disabled = true

@@ -151,7 +151,8 @@ filextype {*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
             \ mpv %f
 
 " Object
-filetype {*.o},<application/x-object> nm %f | bat
+filetype {*.o},<application/x-object> nm %f | bat --paging always
+fileviewer {*.o},<application/x-object> nm %c | bat --color always -p
 
 " Man page
 filetype {*.[1-8]},<text/troff> man ./%c

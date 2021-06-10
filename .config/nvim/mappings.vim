@@ -42,3 +42,9 @@ tnoremap <C-\> <C-\><C-n>
 
 " disable ctrl+z (suspends the editor)
 map <C-z> <Nop>
+
+" redo with r
+map r :redo<cr>
+
+" reload config with ctrl+r
+map <C-r> :source ~/.config/nvim/init.vim<cr>

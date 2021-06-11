@@ -56,6 +56,8 @@ mark r /
 mark S /storage
 mark h ~/
 mark c ~/.config
+mark z ~/.config/zsh
+mark v ~/.config/vifm
 mark d ~/downloads
 mark p ~/pictures
 mark s ~/source

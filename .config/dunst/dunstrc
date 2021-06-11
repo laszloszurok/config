@@ -24,7 +24,7 @@
     format = "<b>%s %p</b>\n%b"
 
     # Sort messages by urgency.
-    sort = yes
+    sort = no
 
     # Show how many messages are currently hidden (because of geometry).
     indicate_hidden = yes

@@ -55,12 +55,13 @@ set vifminfo=dhistory,savedirs,chistory,state,tui,shistory,
 mark r /
 mark S /storage
 mark h ~/
-mark c ~/.config
-mark z ~/.config/zsh
-mark v ~/.config/vifm
 mark d ~/downloads
 mark p ~/pictures
 mark s ~/source
+mark c ~/.config
+mark z ~/.config/zsh
+mark v ~/.config/vifm
+mark n ~/.config/nvim
 
 " :com[mand][!] command_name action
 " The following macros can be used in a command

@@ -25,6 +25,8 @@ set norunexec
 " List of color schemes to try (picks the first one supported by the terminal)
 colorscheme palenight Default-256 Default
 
+set number relativenumber
+
 set timefmt=%m/%d\ %H:%M
 
 set wildmenu

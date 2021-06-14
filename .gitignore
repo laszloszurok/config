@@ -84,3 +84,4 @@ infbizt/
 .config/chromium/
 .config/libreoffice/
 .config/GIMP/
+dmenu-flexipatch

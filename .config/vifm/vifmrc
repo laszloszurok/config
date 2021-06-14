@@ -64,6 +64,7 @@ mark c ~/.config
 mark z ~/.config/zsh
 mark v ~/.config/vifm
 mark n ~/.config/nvim
+mark l ~/.local/share
 
 " :com[mand][!] command_name action
 " The following macros can be used in a command

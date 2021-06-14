@@ -85,3 +85,5 @@ infbizt/
 .config/libreoffice/
 .config/GIMP/
 dmenu-flexipatch
+.config/pcmanfm/
+.config/libfm/

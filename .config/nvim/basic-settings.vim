@@ -1,11 +1,6 @@
 """""""""""""""""""""""""""""""
 "           GENERAL           "
 """""""""""""""""""""""""""""""
-
-" :W writes the file as sudo. (The SUDO_ASKPASS environmental variable
-" has to be set to the path of a script that asks for the sudo password.)
-" com -bar W exe 'w !sudo tee >/dev/null %:p:S' | setl nomod
-
 " Return to last edit position when opening files
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
@@ -37,27 +32,10 @@ set splitright
 """"""""""""""""""""""""""""""""""""""
 "           USER INTERFACE           " 
 """"""""""""""""""""""""""""""""""""""
-
-" When running nvim without arguments make sure to run startify first
-" and then open Defx file tree
-" autocmd VimEnter *
-"             \   if !argc()
-"             \ |   Startify
-"             \ |   Defx -split=vertical -winwidth=35 -direction=topleft
-"             \ |   wincmd w
-"             \ | endif
-
-" Enable true colors
-if (has("termguicolors"))
-  set termguicolors
-endif
-
 try
     colorscheme tokyonight
 catch
 endtry
-
-set background=dark
 
 " Always show the tabline
 set showtabline=2
@@ -83,16 +61,12 @@ set siso=10
 
 " Line numbers
 set number relativenumber
-highlight LineNr ctermfg=grey
 
 " Mouse support
 set mouse=a
 
 "Always show current position
 set ruler
-
-" Height of the command bar
-set cmdheight=1
 
 " Ignore case when searching
 set ignorecase
@@ -109,11 +83,9 @@ set incsearch
 " Show matching brackets when text indicator is over them
 set showmatch 
 
-
 """"""""""""""""""""""""""""""""""""""""
 "       TEXT AND INDENT RELATED        "
 """"""""""""""""""""""""""""""""""""""""
-
 " Use spaces instead of tabs
 set expandtab
 
@@ -123,10 +95,6 @@ set smarttab
 " 1 tab == 4 spaces
 set shiftwidth=4
 set tabstop=4
-
-" Linebreak on 200 characters
-" set lbr
-" set tw=200
 
 set ai "Auto indent
 set si "Smart indent

@@ -12,7 +12,7 @@ highlight Win        cterm=none          ctermfg=251        ctermbg=default
 highlight Directory  cterm=bold          ctermfg=004        ctermbg=default
 highlight CurrLine   cterm=bold,inverse  ctermfg=default    ctermbg=default
 highlight OtherLine  cterm=bold          ctermfg=default    ctermbg=default
-highlight Selected   cterm=bold          ctermfg=135        ctermbg=234
+highlight Selected   cterm=bold          ctermfg=135        ctermbg=236
 highlight LineNr     cterm=none          ctermfg=lightblack ctermbg=default
 
 highlight JobLine    cterm=bold          ctermfg=251        ctermbg=008

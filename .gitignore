@@ -87,3 +87,6 @@ infbizt/
 dmenu-flexipatch
 .config/pcmanfm/
 .config/libfm/
+.ssh/
+from-storage/
+btc-count

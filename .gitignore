@@ -124,3 +124,6 @@ videos/
 .local/share/zoxide/
 .local/share/history
 .local/share/recently-used.xbel
+.config/darkorbit-client/
+.python_history
+szakdoga-kovetelmenyek

@@ -1,12 +1,13 @@
-# Enable colors and change prompt:
-#autoload -U colors && colors
-
 # History in cache directory:
 HISTSIZE=10000
 SAVEHIST=10000
 setopt HIST_IGNORE_ALL_DUPS
 
-eval "$(zoxide init zsh --cmd j)" # access frequently visited directories faster
+# do not highlight pasted text
+zle_highlight=('paste:none')
+
+# access frequently visited directories faster
+eval "$(zoxide init zsh --cmd j)" 
 
 # source $HOME/.config/zsh/prompt.zsh
 eval "$(starship init zsh)"

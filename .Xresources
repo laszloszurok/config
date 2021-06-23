@@ -1,4 +1,4 @@
 ! Used for setting sxiv font and colors
 *font: terminus-12
-*background: #292d3e
+*background: #000000
 *foreground: #afaecf

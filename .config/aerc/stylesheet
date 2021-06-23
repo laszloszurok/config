@@ -15,7 +15,7 @@ msglist_read.fg = #808080
 msglist_deleted.fg = gray
 
 tab.reverse = false
-tab.selected.bg = #f7768e
+tab.selected.bg = #ff3f3f
 tab.selected.fg = #24283b
 
 title.reverse = false

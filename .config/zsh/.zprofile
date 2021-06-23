@@ -1,5 +1,5 @@
 # Default programs:
-export EDITOR="nvim"
+export EDITOR="nvr -s"
 export TERMINAL="st"
 export BROWSER="brave"
 export READER="zathura"

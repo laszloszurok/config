@@ -127,3 +127,9 @@ videos/
 .config/darkorbit-client/
 .python_history
 szakdoga-kovetelmenyek
+.config/gtk-2.0/gtkfilechooser.ini
+.config/vifm/vifminfo.json_116048
+.config/QtProject.conf
+.local/share/Trash/
+.local/share/gvfs-metadata/
+.config/transmission-daemon/

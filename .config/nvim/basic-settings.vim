@@ -29,6 +29,9 @@ set noswapfile
 set splitbelow
 set splitright
 
+" Disable netrw
+let loaded_netrwPlugin = 1
+
 """"""""""""""""""""""""""""""""""""""
 "           USER INTERFACE           " 
 """"""""""""""""""""""""""""""""""""""

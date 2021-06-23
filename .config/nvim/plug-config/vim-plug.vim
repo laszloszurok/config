@@ -32,8 +32,8 @@ Plug 'glepnir/dashboard-nvim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 " Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'voldikss/vim-floaterm'
-Plug 'vifm/vifm.vim'
+" Plug 'voldikss/vim-floaterm'
+" Plug 'vifm/vifm.vim'
 Plug 'liuchengxu/vim-which-key'
 Plug 'justinmk/vim-sneak'
 Plug 'lambdalisue/suda.vim'

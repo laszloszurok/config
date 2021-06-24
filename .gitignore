@@ -133,3 +133,5 @@ szakdoga-kovetelmenyek
 .local/share/Trash/
 .local/share/gvfs-metadata/
 .config/transmission-daemon/
+.config/lutris/
+pwlist

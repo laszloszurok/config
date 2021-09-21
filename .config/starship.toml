@@ -1,56 +1,6 @@
+format = "$all"
+# right_format = ""
 add_newline = false
-
-[character]
-success_symbol = "[]()"
-error_symbol = "[]()"
-vicmd_symbol = "[]()"
-
-[shell]
-disabled = true
-
-[username]
-style_user = "fg:97 bold"
-show_always = true
-format = "[$user]($style) "
-
-[hostname]
-ssh_only = false
-style = "fg:97 bold"
-format = "at [$hostname]($style) "
-
-[directory]
-truncation_length = 0
-truncate_to_repo = false
-style = "fg:97 bold"
-format = "in [$path]($style) "
-
-[git_branch]
-style = "fg:97 bold"
-format = "on [$symbol$branch]($style) "
-
-[cmd_duration]
-disabled = true
-
-[python]
-disabled = true
-
-[package]
-disabled = true
-
-[ruby]
-disabled = true
-
-[rust]
-disabled = true
-
-[nodejs]
-disabled = true
-
-[java]
-disabled = true
-
-[golang]
-disabled = true
 
 [aws]
 disabled = true
@@ -58,17 +8,37 @@ disabled = true
 [battery]
 disabled = true
 
+[character]
+success_symbol = "[]()"
+error_symbol = "[]()"
+vicmd_symbol = "[]()"
+
+[cmake]
+disabled = true
+
+# [cobol]
+# disabled = true
+
+[cmd_duration]
+disabled = true
+
 [conda]
+disabled = true
+
+[crystal]
+disabled = true
+
+[dart]
 disabled = true
 
 [deno]
 disabled = true
 
-[cmake]
-disabled = true
-
-[dart]
-disabled = true
+[directory]
+truncation_length = 0
+truncate_to_repo = false
+style = "fg:97 bold"
+format = "in [$path]($style) "
 
 [docker_context]
 disabled = true
@@ -88,10 +58,32 @@ disabled = true
 [erlang]
 disabled = true
 
+# [fill]
+# symbol = "-"
+# style = "bold green"
+
 [gcloud]
 disabled = true
 
+[git_branch]
+style = "fg:97 bold"
+format = "on [$symbol$branch]($style) "
+
+[git_metrics]
+disabled = true
+
+[golang]
+disabled = true
+
 [helm]
+disabled = true
+
+[hostname]
+ssh_only = false
+style = "fg:97 bold"
+format = "at [$hostname]($style) "
+
+[java]
 disabled = true
 
 [jobs]
@@ -105,6 +97,9 @@ disabled = true
 
 [kubernetes]
 disabled = true
+
+[line_break]
+disabled = false
 
 [lua]
 disabled = true
@@ -121,10 +116,16 @@ disabled = true
 [nix_shell]
 disabled = true
 
+[nodejs]
+disabled = true
+
 [ocaml]
 disabled = true
 
 [openstack]
+disabled = true
+
+[package]
 disabled = true
 
 [perl]
@@ -136,10 +137,25 @@ disabled = true
 [purescript]
 disabled = true
 
+[python]
+disabled = true
+
+[rlang]
+disabled = true
+
 [red]
 disabled = true
 
+[ruby]
+disabled = true
+
+[rust]
+disabled = true
+
 [scala]
+disabled = true
+
+[shell]
 disabled = true
 
 [shlvl]
@@ -159,6 +175,11 @@ disabled = true
 
 [time]
 disabled = true
+
+[username]
+style_user = "fg:97 bold"
+show_always = true
+format = "[$user]($style) "
 
 [vagrant]
 disabled = true

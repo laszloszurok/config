@@ -3,6 +3,7 @@ default_keybindings = false
 notify = false
 volnorm = true
 volnorm_pregain = -3
+flip_status_indicators = true
 
 [saved_state]
 shuffle = true

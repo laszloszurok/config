@@ -54,13 +54,13 @@ shuffle = true
 
 [theme]
 background = "default"
-primary = "white"
+primary = "default"
 secondary = "light black"
 title = "magenta"
 playing = "magenta"
 playing_selected = "magenta"
-highlight = "white"
-highlight_bg = "#1c1c1c"
+highlight = "default"
+highlight_bg = "#2a2a2a"
 error = "light white"
 error_bg = "red"
 statusbar = "light white"

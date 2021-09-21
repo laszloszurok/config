@@ -9,7 +9,6 @@ end
 require 'paq' {
     'savq/paq-nvim';                  -- let paq manage itself
     'nvim-lua/plenary.nvim';          -- lua functions, used by telescope.nvim
-    'nvim-telescope/telescope.nvim';  -- fuzzy find files, text, etc.
     'folke/tokyonight.nvim';          -- colorscheme
     'junegunn/goyo.vim';              -- center text, hide ui
     'liuchengxu/vim-which-key';       -- complex keybindings
@@ -23,6 +22,10 @@ require 'paq' {
     'glepnir/dashboard-nvim';         -- a simple startpage
     'lewis6991/gitsigns.nvim';        -- line signs, hunk actions, etc.
     'b3nj5m1n/kommentary';            -- comment out lines/visual selection
+
+    -- plugins for fuzzy finding files, text, etc.
+    'nvim-telescope/telescope.nvim';
+    { 'nvim-telescope/telescope-fzf-native.nvim', run='make' };
 
     -- code completion plugins
     'neovim/nvim-lspconfig';

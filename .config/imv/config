@@ -23,8 +23,8 @@ p = prev
 <Right> = next
 <bracketright> = next
 n = next
-# gg = goto 1
-# <Shift+G> = goto -1
+gg = goto 1
+<Shift+G> = goto -1
 
 # Panning
 j = pan 0 -50
@@ -37,12 +37,12 @@ l = pan -50 0
 <Down> = zoom -1
 <Shift+plus> = zoom 1
 <minus> = zoom -1
-i = zoom 1
-o = zoom -1
-zz = zoom actual
+zi = zoom 3
+zo = zoom -3
+zz = reset
 
 # Rotate Clockwise by 90 degrees
-<Ctrl+r> = rotate by 90
+r = rotate by 90
 
 # Other commands
 x = close
@@ -51,9 +51,8 @@ d = overlay
 c = center
 # s = scaling next
 # <Shift+S> = upscaling next
-r = reset
-g = exec setsid -f gimp $imv_current_file
-w = exec setwallpaper $imv_current_file
+<Ctrl+g> = exec setsid -f gimp $imv_current_file
+<Ctrl+w> = exec setwallpaper $imv_current_file
 
 # Gif playback
 <period> = next_frame

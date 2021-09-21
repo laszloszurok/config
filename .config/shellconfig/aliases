@@ -12,3 +12,4 @@ alias cp="cp -i"
 alias mv='mv -i'
 alias rm='rm -i'
 alias x="xtract"
+alias startx='startx "$XDG_CONFIG_HOME/X11/xinitrc"'

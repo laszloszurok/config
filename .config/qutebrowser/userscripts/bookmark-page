@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# This userscript writes the current url into a given file
+
+if [ -z "$QUTE_FIFO" ] ; then
+    cat 1>&2 <<EOF
+Error: $0 can not be run as a standalone script.
+
+It is a qutebrowser userscript. In order to use it, call it using
+'spawn --userscript' as described in qute://help/userscripts.html
+EOF
+    exit 1
+fi
+
+bookmark_file="$HOME/.local/share/bookmarks"
+
+printf '%s\n' "$QUTE_URL $*" >> "$bookmark_file"

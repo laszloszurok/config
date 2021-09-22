@@ -26,7 +26,7 @@ c.content.blocking.method = "both"
 # fingerprinting
 c.content.webgl = False
 c.content.canvas_reading = False
-c.content.webrtc_ip_handling_policy = 'default-public-interface-only'
+c.content.webrtc_ip_handling_policy = 'disable-non-proxied-udp'
 
 # bindings
 config.bind('J', 'tab-prev')
@@ -38,7 +38,7 @@ config.bind('zo', 'zoom-out')
 config.bind('zz', 'zoom')
 config.bind('j', 'scroll-px 0 30')
 config.bind('k', 'scroll-px 0 -30')
-config.bind('<Ctrl-r>', 'config-source')
+config.bind('<Ctrl-r>', 'config-source ;; message-info "configuration reloaded"')
 config.bind('<Ctrl-Shift-r>', 'restart')
 config.bind('<Ctrl-Right>', 'tab-move +')
 config.bind('<Ctrl-Left>', 'tab-move -')
@@ -90,6 +90,7 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 
 # colors
 c.colors.webpage.darkmode.enabled = True
+c.colors.webpage.bg = 'black'
 c.colors.completion.odd.bg = '#191b28'
 c.colors.completion.even.bg = '#191b28'
 c.colors.completion.category.bg = 'black'
@@ -106,12 +107,11 @@ c.colors.tabs.even.fg = 'white'
 c.colors.tabs.even.bg = '#555555'
 c.colors.tabs.selected.odd.bg = '#563d7c'
 c.colors.tabs.selected.even.bg = '#563d7c'
-c.colors.webpage.bg = 'white'
 
 # redirect given sites to other urls
 REDIRECT_MAP = {
-    # "youtube.com": operator.methodcaller('setHost', 'piped.kavin.rocks'),
-    # "www.youtube.com": operator.methodcaller('setHost', 'piped.kavin.rocks'),
+    "youtube.com": operator.methodcaller('setHost', 'piped.kavin.rocks'),
+    "www.youtube.com": operator.methodcaller('setHost', 'piped.kavin.rocks'),
     "reddit.com": operator.methodcaller('setHost', 'libredd.it'),
     "www.reddit.com": operator.methodcaller('setHost', 'libredd.it'),
     "instagram.com": operator.methodcaller('setHost', 'bibliogram.art'),

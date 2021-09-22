@@ -46,6 +46,7 @@ config.bind('<Ctrl-Left>', 'tab-move -')
 # aliases
 c.aliases = {
     "mpv": "spawn --userscript open-in-mpv",
+    "bookmark": "spawn --userscript bookmark-page"
 }
 
 # search engines

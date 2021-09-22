@@ -40,3 +40,6 @@ map('n', '<C-u>', '<C-y>', options)
 
 -- exit from terminal mode with ctrl+\
 map('t', '<C-\\>', '<C-\\><C-n>', options)
+
+-- don't override clipboard when pasting over something
+map('x', 'p', 'pgvy', options)

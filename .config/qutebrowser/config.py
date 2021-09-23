@@ -62,7 +62,6 @@ c.url.searchengines = {
 # cookies
 c.content.cookies.accept = 'never'
 config.set('content.cookies.accept', 'all', '*://piped.kavin.rocks/*')
-config.set('content.cookies.accept', 'all', '*://www.youtube.com/*')
 config.set('content.cookies.accept', 'all', '*://libredd.it/*')
 config.set('content.cookies.accept', 'all', '*://odysee.com/*')
 config.set('content.cookies.accept', 'all', '*://rarbg.to/*')
@@ -75,7 +74,6 @@ config.set('content.cookies.accept', 'all', 'devtools://*')
 c.content.javascript.enabled = False
 config.set('content.javascript.enabled', True, '*://duckduckgo.com/*')
 config.set('content.javascript.enabled', True, '*://startpage.com/*')
-config.set('content.javascript.enabled', True, '*://www.youtube.com/*')
 config.set('content.javascript.enabled', True, '*://odysee.com/*')
 config.set('content.javascript.enabled', True, '*://rarbg.to/*')
 config.set('content.javascript.enabled', True, '*://searx.envs.net/*')

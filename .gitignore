@@ -160,3 +160,4 @@ SZTE/
 .config/qutebrowser/bookmarks/
 .config/qutebrowser/autoconfig.yml
 .config/qutebrowser/quickmarks
+.local/share/display_state

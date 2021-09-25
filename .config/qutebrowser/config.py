@@ -43,6 +43,16 @@ config.bind('<Ctrl-Shift-r>', 'restart')
 config.bind('<Ctrl-Right>', 'tab-move +')
 config.bind('<Ctrl-Left>', 'tab-move -')
 
+# unbind keys
+config.unbind('m')
+config.unbind('M')
+config.unbind('b')
+config.unbind('B')
+config.unbind('wb')
+config.unbind('gb')
+config.unbind('gB')
+config.unbind('wB')
+
 # aliases
 c.aliases = {
     "mpv": "spawn --userscript open-in-mpv",

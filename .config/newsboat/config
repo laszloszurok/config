@@ -1,4 +1,4 @@
-browser "setsid -f $BROWSER %u"
+browser "setsid -f $BROWSER %u > /dev/null 2>&1"
 
 auto-reload yes
 reload-threads 4

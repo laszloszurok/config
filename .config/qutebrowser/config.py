@@ -122,6 +122,7 @@ c.colors.tabs.selected.even.bg = '#563d7c'
 REDIRECT_MAP = {
     "youtube.com": operator.methodcaller('setHost', 'piped.kavin.rocks'),
     "www.youtube.com": operator.methodcaller('setHost', 'piped.kavin.rocks'),
+    "youtu.be": operator.methodcaller('setHost', 'piped.kavin.rocks'),
     "reddit.com": operator.methodcaller('setHost', 'libredd.it'),
     "www.reddit.com": operator.methodcaller('setHost', 'libredd.it'),
     "instagram.com": operator.methodcaller('setHost', 'bibliogram.art'),

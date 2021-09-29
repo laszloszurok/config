@@ -2,12 +2,13 @@
 
 autoload -Uz compinit
 
-for dump in ~/.cache/zcompdump-$ZSH_VERSION(N.mh+24); do
-    compinit -C -d ~/.cache/zcompdump-$ZSH_VERSION
-done
+if [[ -n ~/.cache/zcompdump(#qN.mh+24) ]]; then
+    compinit -d ~/.cache/zcompdump
+else
+	compinit -C -d ~/.cache/zcompdump;
+fi;
 
 zstyle ':completion:*' menu select
-compinit -C -d ~/.cache/zcompdump-$ZSH_VERSION
 zmodload zsh/complist
 _comp_options+=(globdots) # Include hidden files.
 
@@ -18,6 +19,3 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -M menuselect '^M' .accept-line
 bindkey -M menuselect '\e' accept-search
-
-# Fix backspace bug when switching modes
-bindkey -v '^?' backward-delete-char

@@ -1,5 +1,6 @@
 # vi mode
-bindkey -v '^?' backward-delete-char # making the backspace work
+bindkey -v # enable vi keybindings
+bindkey -M viins '^?' backward-delete-char # make backspace work as expected
 export KEYTIMEOUT=5
 
 # Change cursor shape for different vi modes.
@@ -17,7 +18,6 @@ function zle-keymap-select {
 
 zle -N zle-keymap-select
 zle-line-init() {
-    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
     echo -ne "\e[5 q"
 }
 

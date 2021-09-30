@@ -161,3 +161,9 @@ SZTE/
 .config/qutebrowser/autoconfig.yml
 .config/qutebrowser/quickmarks
 .local/share/display_state
+.config/nyxt/
+.local/share/nyxt/
+.slime/
+microphone-slash.svg
+.config/qutebrowser/qsettings/
+challange.odt

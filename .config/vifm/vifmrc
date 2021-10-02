@@ -111,11 +111,8 @@ map q :q<cr>
 nnoremap J 5j
 nnoremap K 5k
 
-" Open a separate terminal in the current directory
-map t :term<cr>
-
 " Start shell in current directory
-nnoremap s :shell<cr>
+nnoremap s :term<cr>
 
 " Display sorting dialog
 nnoremap S :sort<cr>

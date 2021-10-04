@@ -11,6 +11,7 @@ local keymap = {
     w = { ':w!<CR>', 'save file' },
     q = { ':q<cr>', 'quit' },
     g = { ':Goyo<cr>', 'goyo' },
+    T = { ':!setsid -f $TERMINAL<cr><cr>' },
     b = {
         name = '+buffers',
         e = { ':enew<cr>', 'new empty buffer' },

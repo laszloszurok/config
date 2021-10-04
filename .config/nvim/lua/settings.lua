@@ -40,7 +40,7 @@ cmd('colorscheme tokyonight') -- set colorscheme
 
 
 -----------------------------------------------------------
--- Command completition
+-- Command completion
 -----------------------------------------------------------
 opt.wildmode = {'longest', 'list', 'full'}  -- command-line completion mode
 opt.wildmenu = false                        -- no visual highlight in the command bar

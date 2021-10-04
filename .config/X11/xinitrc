@@ -42,5 +42,4 @@ numlockx &
 lxpolkit &
 inactivity &
 dwmblocks &
-tvolnoti --theme dark &
 exec dwm

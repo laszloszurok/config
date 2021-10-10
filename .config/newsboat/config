@@ -1,7 +1,7 @@
 browser "setsid -f $BROWSER %u > /dev/null 2>&1"
 
 auto-reload yes
-reload-threads 4
+reload-threads 10
 download-retries 4
 download-timeout 20
 goto-next-feed no

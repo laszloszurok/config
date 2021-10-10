@@ -14,6 +14,7 @@ c.editor.command = [ 'st', '-e', 'nvr', '{}' ]
 c.fonts.default_size = '10.5pt'
 c.input.insert_mode.auto_load = False
 c.url.default_page = 'about:blank'
+c.url.start_pages = 'about:blank'
 c.scrolling.bar = 'always'
 c.statusbar.padding = {'bottom': 5, 'left': 0, 'right': 5, 'top': 5}
 c.tabs.padding = {'bottom': 5, 'left': 5, 'right': 5, 'top': 5}
@@ -71,6 +72,7 @@ c.url.searchengines = {
 
 # cookies
 c.content.cookies.accept = 'never'
+config.set('content.cookies.accept', 'all', '*://*.protonmail.com/*')
 config.set('content.cookies.accept', 'all', '*://piped.kavin.rocks/*')
 config.set('content.cookies.accept', 'all', '*://libredd.it/*')
 config.set('content.cookies.accept', 'all', '*://odysee.com/*')
@@ -82,6 +84,7 @@ config.set('content.cookies.accept', 'all', 'devtools://*')
 
 # javascript
 c.content.javascript.enabled = False
+config.set('content.javascript.enabled', True, '*://*.protonmail.com/*')
 config.set('content.javascript.enabled', True, '*://*.archlinux.org/*')
 config.set('content.javascript.enabled', True, '*://duckduckgo.com/*')
 config.set('content.javascript.enabled', True, '*://startpage.com/*')

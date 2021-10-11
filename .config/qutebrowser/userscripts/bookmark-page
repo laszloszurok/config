@@ -16,21 +16,24 @@ EOF
 fi
 
 bookmark_file="$HOME/.local/share/bookmarks"
-urls=$(<$bookmark_file)
+urls=$(cat $bookmark_file | awk '{print $NF}')
 
 if [ "$1" = "edit" ]; then
     printf "message-info 'Opening $bookmark_file with $EDITOR'" > "$QUTE_FIFO"
     $TERMINAL $EDITOR "$bookmark_file"
-    exit 0
+elif [ ! -z "$1" ]; then
+    sed -i "\|$QUTE_URL|d" "$bookmark_file"
+    printf '%s\n' "$1 - $QUTE_URL" >> "$bookmark_file"
+    printf "message-info 'Page added to bookmarks.'" > "$QUTE_FIFO"
+else
+    for url in ${urls[@]}; do
+        if [ "$QUTE_URL" = "$url" ]; then
+            sed -i "\|$url|d" "$bookmark_file"
+            printf "message-info 'Page removed from bookmarks.'" > "$QUTE_FIFO"
+            exit 0
+        fi
+    done
+    printf '%s\n' "$QUTE_URL $*" >> "$bookmark_file"
+    printf "message-info 'Page added to bookmarks.'" > "$QUTE_FIFO"
 fi
 
-for url in ${urls[@]}; do
-    if [ "$QUTE_URL" = "$url" ]; then
-        sed -i "\|$url|d" "$bookmark_file"
-        printf "message-info 'Page removed from bookmarks.'" > "$QUTE_FIFO"
-        exit 0
-    fi
-done
-
-printf '%s\n' "$QUTE_URL $*" >> "$bookmark_file"
-printf "message-info 'Page added to bookmarks.'" > "$QUTE_FIFO"

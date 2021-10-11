@@ -1,0 +1,10 @@
+[Unit]
+Description=timer for calcurse-notify.service
+
+[Timer]
+Persistent=true
+OnBootSec=120
+OnUnitActiveSec=10800
+
+[Install]
+WantedBy=timers.target

@@ -120,7 +120,6 @@
 .config/protonvpn/
 .config/qBittorrent/watched_folders.json
 .config/qt5ct/
-.config/systemd/
 .config/droidcam
 .local/share/Meltytech/
 .local/share/aerc/
@@ -138,6 +137,11 @@
 .slime/
 .config/qutebrowser/qsettings/
 .minecraft/
-
 .config/keepmenu-sh/
 .config/pipe-viewer/
+.local/share/systemd/
+
+.config/systemd/user/default.target.wants/
+.config/systemd/user/timers.target.wants/
+.config/systemd/user/protonvpn_reconnect.service
+.xboardrc

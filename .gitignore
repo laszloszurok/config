@@ -138,3 +138,6 @@
 .slime/
 .config/qutebrowser/qsettings/
 .minecraft/
+
+.config/keepmenu-sh/
+.config/pipe-viewer/

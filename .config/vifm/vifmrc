@@ -100,24 +100,26 @@ mark l ~/.local/share
 " %d the current directory name.
 " %D the other window directory name.
 " %m run the command in a menu window
+command! j :execute 'cd "'.term('zoxide query %a').'"'
 command! df df -h -x tmpfs -x devtmpfs -T %m 2> /dev/null
 command! fullsize du -sh %f %m
 command! dragon dragon-drag-and-drop -a -x %f
 command! zip zip -r %f.zip %f
 command! run !! ./%f
-command! reload :write | restart full
+command! reload :write | restart full | :echo 'configuration reloaded'
 command! FZFfind :
             \| let $FZF_PICK = term('fzf 2>/dev/tty')
             \| if $FZF_PICK != ''
                 \| execute system('[ -f "$FZF_PICK" ] && echo goto || echo cd') fnameescape($FZF_PICK)
                 \| endif
-command! term setsid -f $TERMINAL
+command! terminal setsid -f $TERMINAL
 
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " Mappings
 """"""""""""""""""""""""""""""""""""""""""""""
 map i :!imv .<cr>
+map T :terminal<cr>
 map f :FZFfind<cr>
 map R :reload<cr>
 map D :dragon<cr>
@@ -125,7 +127,6 @@ map F :fullsize<cr>
 map q :q<cr>
 nnoremap J 5j
 nnoremap K 5k
-nnoremap s :term<cr>
 nnoremap S :sort<cr>
 nnoremap w :view<cr>
 vnoremap w :view<cr>gv

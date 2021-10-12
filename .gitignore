@@ -145,3 +145,4 @@
 .config/systemd/user/timers.target.wants/
 .config/systemd/user/protonvpn_reconnect.service
 .xboardrc
+.config/Element/

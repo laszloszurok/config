@@ -10,7 +10,7 @@ set history=100
 set undolevels=100
 set nofollowlinks
 set norunexec
-set vifminfo=tui,savedirs
+set vifminfo=tui,savedirs,chistory
 
 
 """"""""""""""""""""""""""""""""""""""""""""""
@@ -100,16 +100,19 @@ mark l ~/.local/share
 " %d the current directory name.
 " %D the other window directory name.
 " %m run the command in a menu window
-" command! j :execute 'cd "'.term('zoxide query %a').'"'
 command! j :
     \| let $zoxide_pick = term('zoxide query %a 2>/dev/tty')
     \| if $zoxide_pick != ''
         \| execute 'cd' fnameescape($zoxide_pick)
+    \| else
+        \| execute 'cd %a'
     \| endif
+    \| execute ':!zoxide add .'
 command! ji :
     \| let $zoxide_pick = term('zoxide query -i %a 2>/dev/tty')
     \| if $zoxide_pick != ''
         \| execute 'cd' fnameescape($zoxide_pick)
+        \| execute ':!zoxide add .'
     \| endif
 command! df df -h -x tmpfs -x devtmpfs -T %m 2> /dev/null
 command! fullsize du -sh %f %m

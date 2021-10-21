@@ -146,3 +146,6 @@
 .config/systemd/user/protonvpn_reconnect.service
 .xboardrc
 .config/Element/
+.config/whoozle.github.io/
+.config/pacman/
+.config/qrcp/

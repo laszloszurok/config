@@ -85,6 +85,7 @@ config.set('content.cookies.accept', 'all', 'devtools://*')
 # javascript
 c.content.javascript.enabled = False
 config.set('content.javascript.enabled', True, '*://*.protonmail.com/*')
+config.set('content.javascript.enabled', True, '*://*.protonmail.com/*')
 config.set('content.javascript.enabled', True, '*://*.archlinux.org/*')
 config.set('content.javascript.enabled', True, '*://duckduckgo.com/*')
 config.set('content.javascript.enabled', True, '*://startpage.com/*')

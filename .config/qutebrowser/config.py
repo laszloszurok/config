@@ -123,6 +123,7 @@ c.colors.tabs.selected.even.bg = '#563d7c'
 
 # redirect given sites to other urls
 REDIRECT_MAP = {
+    "medium.com": operator.methodcaller('setHost', 'scribe.rip'),
     "youtube.com": operator.methodcaller('setHost', 'piped.kavin.rocks'),
     "www.youtube.com": operator.methodcaller('setHost', 'piped.kavin.rocks'),
     "youtu.be": operator.methodcaller('setHost', 'piped.kavin.rocks'),

@@ -74,6 +74,7 @@ set incsearch
 """"""""""""""""""""""""""""""""""""""""""""""
 mark r /
 mark m /run/media/
+mark g /run/user/1000/gvfs/
 mark h ~
 mark d ~/downloads
 mark p ~/pictures
@@ -126,6 +127,8 @@ command! FZFfind :
         \| execute system('[ -f "$FZF_PICK" ] && echo goto || echo cd') fnameescape($FZF_PICK)
         \| endif
 command! terminal setsid -f $TERMINAL
+command! diskctl diskctl
+command! mtp gvfs_mtp mount
 
 
 """"""""""""""""""""""""""""""""""""""""""""""

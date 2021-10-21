@@ -149,3 +149,5 @@
 .config/whoozle.github.io/
 .config/pacman/
 .config/qrcp/
+.local/share/keepassxc-databases/
+.config/keepassxc/

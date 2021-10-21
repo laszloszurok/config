@@ -8,9 +8,6 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p --paging=always'"
 # Custom askpass script for sudo -A
 export SUDO_ASKPASS="$HOME/source/scripts/utils/dmenu_askpass"
 
-# needed by gpg-agent
-export GPG_TTY=$(tty)
-
 # Path:
 export JAVA_HOME=/usr/lib/jvm/default
 export ANDROID_HOME="$HOME/Android/Sdk"

@@ -36,11 +36,11 @@ DarkReader.enable({
 
 url = window.location.href
 
-if (url.match(wildcardToRegExp("*://odysee.com/*")) ||
-    url.match(wildcardToRegExp("*://github.com/*")) ||
-    url.match(wildcardToRegExp("*://searx.envs.net/*")) ||
-    url.match(wildcardToRegExp("*://libredd.it/*")) ||
-    url.match(wildcardToRegExp("*://www.youtube.com/*"))
+if (url.match(wildcardToRegExp("*://odysee.com/*"))
+    || url.match(wildcardToRegExp("*://github.com/*"))
+    || url.match(wildcardToRegExp("*://searx.envs.net/*"))
+    || url.match(wildcardToRegExp("*://libredd.it/*"))
+    || url.match(wildcardToRegExp("*://www.youtube.com/*"))
 ) {
     DarkReader.disable();
 }

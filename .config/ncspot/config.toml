@@ -52,6 +52,9 @@ shuffle = true
 "S" = "save"
 "D" = "delete"
 
+"m" = "similar selected"
+"M" = "similar current"
+
 [theme]
 background = "default"
 primary = "default"

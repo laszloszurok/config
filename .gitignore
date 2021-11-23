@@ -151,3 +151,9 @@
 .config/qrcp/
 .local/share/keepassxc-databases/
 .config/keepassxc/
+.config/JetBrains
+.local/share/JetBrains
+.local/share/applications
+.local/share/wineprefixes
+.scenebuilder
+.config/smplayer

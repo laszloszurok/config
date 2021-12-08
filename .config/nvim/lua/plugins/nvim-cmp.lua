@@ -30,7 +30,7 @@ cmp.setup {
         { name = 'nvim_lsp' },
         { 
             name = 'buffer',
-            opts = {
+            options = {
                 get_bufnrs = function()
                     return vim.api.nvim_list_bufs()
                 end

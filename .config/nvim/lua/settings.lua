@@ -33,13 +33,6 @@ opt.lazyredraw = true     -- don't redraw while executing macros (better perform
 
 
 -----------------------------------------------------------
--- Colorscheme
------------------------------------------------------------
-opt.termguicolors = true      -- enable 24-bit RGB colors
-cmd('colorscheme tokyonight') -- set colorscheme
-
-
------------------------------------------------------------
 -- Command completion
 -----------------------------------------------------------
 opt.wildmode = {'longest', 'list', 'full'}  -- command-line completion mode
@@ -63,15 +56,11 @@ opt.tabstop = 4        -- 1 tab == 4 spaces
 opt.smartindent = true -- autoindent new lines
 
 
--- don't auto comment new lines
-cmd[[au BufEnter * set fo-=c fo-=r fo-=o]]
-
--- return to last edit position when opening files
-cmd[[au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]]
-
--- always keep splits equally sized
-cmd[[au VimResized * wincmd =]]
-
--- set the working directory to the path of the focused buffer
-cmd[[au BufEnter * silent! cd %:p:h]]
+-----------------------------------------------------------
+-- Autocommands
+-----------------------------------------------------------
+cmd[[au BufEnter * set fo-=c fo-=r fo-=o]] -- don't auto comment new lines
+cmd[[au VimResized * wincmd =]]            -- always keep splits equally sized
+cmd[[au BufEnter * silent! cd %:p:h]]      -- set the working directory to the path of the focused buffer
+cmd[[au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]] -- return to last edit position when opening files
 

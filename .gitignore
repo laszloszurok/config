@@ -158,3 +158,5 @@
 .scenebuilder
 .config/smplayer
 .config/FreeTube
+.config/cef_user_data
+.config/nvim/plugin

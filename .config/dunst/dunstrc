@@ -1,7 +1,7 @@
 [global]
     ### Display ###
     monitor = 0
-    follow = mouse
+    follow = none
 
     ### Geometry ###
     width = (0, 300)

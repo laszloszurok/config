@@ -16,6 +16,9 @@ add_newline = false
 [aws]
 disabled = true
 
+[azure]
+disabled = true
+
 [battery]
 disabled = true
 
@@ -186,6 +189,9 @@ disabled = true
 disabled = true
 
 [status]
+disabled = true
+
+[sudo]
 disabled = true
 
 [swift]

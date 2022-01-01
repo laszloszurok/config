@@ -17,8 +17,9 @@ shuffle = true
 
 "+" = "volup 1"
 "-" = "voldown 1"
-"n" = "next"
-"p" = "previous"
+
+"n" = "jumpnext"
+"Shift+n" = "jumpprevious"
 
 "A" = "goto album"
 "a" = "goto artist"

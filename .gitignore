@@ -160,3 +160,12 @@
 .config/FreeTube
 .config/cef_user_data
 .config/nvim/plugin
+.config/Raspberry Pi
+.config/vlc
+.config/kritadisplayrc
+.config/kritarc
+.local/share/krita
+.local/share/vlc
+.local/share/krita-sysinfo.log
+.local/share/krita.log
+.xonotic

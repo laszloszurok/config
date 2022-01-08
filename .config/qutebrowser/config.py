@@ -68,6 +68,7 @@ c.url.searchengines = {
         'google': 'https://www.google.com/search?hl=en&q={}',
         'archwiki': 'https://wiki.archlinux.org/?search={}',
         'github': 'https://github.com/search?q={}',
+        'wikipedia': 'https://wikiless.org/?search={}',
 }
 
 # cookies
@@ -93,6 +94,7 @@ config.set('content.javascript.enabled', True, '*://odysee.com/*')
 config.set('content.javascript.enabled', True, '*://rarbg.to/*')
 config.set('content.javascript.enabled', True, '*://searx.envs.net/*')
 config.set('content.javascript.enabled', True, '*://*.github.com/*')
+config.set('content.javascript.enabled', True, '*://*.wikiless.org/*')
 config.set('content.javascript.enabled', True, '*.wikipedia.org/*')
 config.set('content.javascript.enabled', True, '*://*.en.wikipedia.org/*')
 config.set('content.javascript.enabled', True, 'https://fontawesome.com/v5/cheatsheet')
@@ -124,12 +126,15 @@ c.colors.tabs.selected.even.bg = '#563d7c'
 
 # redirect given sites to other urls
 REDIRECT_MAP = {
+    "wikipedia.org": operator.methodcaller('setHost', 'wikiless.org'),
+    "en.wikipedia.org": operator.methodcaller('setHost', 'wikiless.org'),
+    "www.wikipedia.org": operator.methodcaller('setHost', 'wikiless.org'),
     "medium.com": operator.methodcaller('setHost', 'scribe.rip'),
     "youtube.com": operator.methodcaller('setHost', 'piped.kavin.rocks'),
     "www.youtube.com": operator.methodcaller('setHost', 'piped.kavin.rocks'),
     "youtu.be": operator.methodcaller('setHost', 'piped.kavin.rocks'),
-    "reddit.com": operator.methodcaller('setHost', 'libredd.it'),
-    "www.reddit.com": operator.methodcaller('setHost', 'libredd.it'),
+    "reddit.com": operator.methodcaller('setHost', 'teddit.net'),
+    "www.reddit.com": operator.methodcaller('setHost', 'teddit.net'),
     "instagram.com": operator.methodcaller('setHost', 'bibliogram.art'),
     "www.instagram.com": operator.methodcaller('setHost', 'bibliogram.art'),
     "twitter.com": operator.methodcaller('setHost', 'nitter.net'),

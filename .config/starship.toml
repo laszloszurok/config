@@ -23,9 +23,9 @@ disabled = true
 disabled = true
 
 [character]
-success_symbol = "[]()"
-error_symbol = "[]()"
-vicmd_symbol = "[]()"
+success_symbol = "[]()"
+error_symbol = "[]()"
+vicmd_symbol = "[]()"
 
 [cmake]
 disabled = true
@@ -107,6 +107,9 @@ disabled = true
 disabled = true
 
 [julia]
+disabled = true
+
+[localip]
 disabled = true
 
 [kotlin]

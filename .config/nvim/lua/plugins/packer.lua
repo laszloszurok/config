@@ -64,6 +64,9 @@ return packer.startup(function(use)
     -- language server protocol
     use "neovim/nvim-lspconfig" -- enable lsp
 
+    -- better syntax highlight
+    use { "nvim-treesitter/nvim-treesitter", run = ":TSUdate" }
+
     -- clone packer and istall all plugins
     if PACKER_BOOTSTRAP then
         require("packer").sync()

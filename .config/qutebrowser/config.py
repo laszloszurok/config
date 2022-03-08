@@ -72,37 +72,7 @@ c.url.searchengines = {
 }
 
 # cookies
-c.content.cookies.accept = 'never'
-config.set('content.cookies.accept', 'all', '*://*.protonmail.com/*')
-config.set('content.cookies.accept', 'all', '*://piped.kavin.rocks/*')
-config.set('content.cookies.accept', 'all', '*://libredd.it/*')
-config.set('content.cookies.accept', 'all', '*://odysee.com/*')
-config.set('content.cookies.accept', 'all', '*://rarbg.to/*')
-config.set('content.cookies.accept', 'all', '*://searx.envs.net/*')
-config.set('content.cookies.accept', 'all', '*://github.com/*')
-config.set('content.cookies.accept', 'all', 'chrome-devtools://*')
-config.set('content.cookies.accept', 'all', 'devtools://*')
-
-# javascript
-c.content.javascript.enabled = False
-config.set('content.javascript.enabled', True, '*://*.protonmail.com/*')
-config.set('content.javascript.enabled', True, '*://*.protonmail.com/*')
-config.set('content.javascript.enabled', True, '*://*.archlinux.org/*')
-config.set('content.javascript.enabled', True, '*://duckduckgo.com/*')
-config.set('content.javascript.enabled', True, '*://startpage.com/*')
-config.set('content.javascript.enabled', True, '*://odysee.com/*')
-config.set('content.javascript.enabled', True, '*://rarbg.to/*')
-config.set('content.javascript.enabled', True, '*://searx.envs.net/*')
-config.set('content.javascript.enabled', True, '*://*.github.com/*')
-config.set('content.javascript.enabled', True, '*://*.wikiless.org/*')
-config.set('content.javascript.enabled', True, '*.wikipedia.org/*')
-config.set('content.javascript.enabled', True, '*://*.en.wikipedia.org/*')
-config.set('content.javascript.enabled', True, 'https://fontawesome.com/v5/cheatsheet')
-config.set('content.javascript.enabled', True, '*://piped.kavin.rocks/*')
-config.set('content.javascript.enabled', True, 'chrome-devtools://*')
-config.set('content.javascript.enabled', True, 'devtools://*')
-config.set('content.javascript.enabled', True, 'chrome://*/*')
-config.set('content.javascript.enabled', True, 'qute://*/*')
+c.content.cookies.accept = 'no-3rdparty'
 
 # colors
 c.colors.webpage.darkmode.enabled = True

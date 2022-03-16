@@ -55,7 +55,7 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 # fzf settings
 export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!{node_modules,.cargo,.git,.cfg,.themes}'"
-export FZF_DEFAULT_OPTS="--color=bg+:-1 -m --reverse --inline-info --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
+export FZF_DEFAULT_OPTS="--color=bg+:-1 -m --reverse --inline-info --preview 'bat --color=always --style=numbers --line-range=:500 {}' --bind 'ctrl-alt-j:preview-down,ctrl-alt-k:preview-up'"
 
 # vifm config/data files
 export VIFM="$XDG_DATA_HOME/vifm"

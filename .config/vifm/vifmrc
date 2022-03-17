@@ -3,7 +3,7 @@
 """"""""""""""""""""""""""""""""""""""""""""""
 " General
 """"""""""""""""""""""""""""""""""""""""""""""
-set vicmd="check_nvr" " ~/source/scripts/utils/check_nvr
+set vicmd=check_nvr " ~/source/scripts/utils/check_nvr
 set syscalls
 set trash
 set history=100
@@ -19,8 +19,9 @@ set vifminfo=tui,savedirs,chistory
 set nowrap
 set number relativenumber
 set scrolloff=4
-set timefmt=%m/%d\ %H:%M
+set timefmt=%Y-%m-%d\ %H:%M
 set statusline="%1*  %A  %u:%g  %s  %d  %t  %=  free: %a  "
+set rulerformat=''
 
 
 """"""""""""""""""""""""""""""""""""""""""""""
@@ -39,6 +40,8 @@ set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
 
 highlight clear
 highlight Border     cterm=none          ctermfg=default    ctermbg=default
+highlight TabLine    cterm=none          ctermfg=lightblack ctermbg=default
+highlight TabLineSel cterm=bold          ctermfg=004        ctermbg=default
 highlight TopLine    cterm=none          ctermfg=lightblack ctermbg=default
 highlight TopLineSel cterm=bold          ctermfg=135        ctermbg=default
 highlight Win        cterm=none          ctermfg=251        ctermbg=default
@@ -101,6 +104,16 @@ mark l ~/.local/share
 " %d the current directory name.
 " %D the other window directory name.
 " %m run the command in a menu window
+command! df df -h -x tmpfs -x devtmpfs -T %m 2> /dev/null
+command! size du -sh %f %m
+command! dragon dragon-drag-and-drop -a -x %f
+command! zip zip -r %f.zip %f
+command! run !! ./%f
+command! reload :write | restart full | :echo 'configuration reloaded'
+command! terminal setsid -f $TERMINAL
+command! diskctl diskctl
+command! mtp gvfs_mtp mount
+
 command! j :
     \| let $zoxide_pick = term('zoxide query %a 2>/dev/tty')
     \| if $zoxide_pick != ''
@@ -115,20 +128,17 @@ command! ji :
         \| execute 'cd' fnameescape($zoxide_pick)
         \| execute ':!zoxide add .'
     \| endif
-command! df df -h -x tmpfs -x devtmpfs -T %m 2> /dev/null
-command! fullsize du -sh %f %m
-command! dragon dragon-drag-and-drop -a -x %f
-command! zip zip -r %f.zip %f
-command! run !! ./%f
-command! reload :write | restart full | :echo 'configuration reloaded'
-command! FZFfind :
-    \| let $FZF_PICK = term('fzf 2>/dev/tty')
-    \| if $FZF_PICK != ''
-        \| execute system('[ -f "$FZF_PICK" ] && echo goto || echo cd') fnameescape($FZF_PICK)
-        \| endif
-command! terminal setsid -f $TERMINAL
-command! diskctl diskctl
-command! mtp gvfs_mtp mount
+
+command! fzf :
+    \| let $pick = term('fzf 2>/dev/tty')
+    \| if $pick != ''
+        \| execute system('[ -f "$pick" ] && echo goto || echo cd') fnameescape($pick)
+    \| endif
+command! fzfinfile : 
+    \| let $pick = term('rg --files-with-matches --no-messages %a | fzf --preview "rg --ignore-case --pretty --context 10 %a {}" --preview-window wrap 2>/dev/tty')
+    \| if $pick != ''
+        \| execute system('echo goto') fnameescape($pick)
+    \| endif
 
 
 """"""""""""""""""""""""""""""""""""""""""""""
@@ -136,10 +146,11 @@ command! mtp gvfs_mtp mount
 """"""""""""""""""""""""""""""""""""""""""""""
 map i :!imv .<cr>
 map T :terminal<cr>
-map f :FZFfind<cr>
+map f :fzf<cr>
+map F :fzfinfile<space>
 map R :reload<cr>
 map D :dragon<cr>
-map F :fullsize<cr>
+map s :size<cr>
 map q :q<cr>
 nnoremap J 5j
 nnoremap K 5k

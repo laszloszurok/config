@@ -186,3 +186,11 @@
 .ngrok2
 .pub-cache
 .flutter
+.config/qBittorrent/lockfile
+.config/spotify
+.local/share/airshipper
+.local/share/oss.krtirtho.spotube
+.local/share/wifi_state
+.config/lapce
+.local/share/charm
+.rustup

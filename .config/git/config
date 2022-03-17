@@ -1,3 +1,8 @@
 [user]
 	email = 48314396+laszloszurok@users.noreply.github.com
 	name = László Szurok
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f

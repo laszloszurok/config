@@ -32,8 +32,6 @@ c.content.webrtc_ip_handling_policy = 'disable-non-proxied-udp'
 # bindings
 config.bind('J', 'tab-prev')
 config.bind('K', 'tab-next')
-config.bind('tj', 'config-cycle -p -u *://*.{url:host}/* content.javascript.enabled ;; reload')
-config.bind('tc', 'config-cycle -p -t -u *://*.{url:host}/* content.cookies.accept all never ;; reload')
 config.bind('zi', 'zoom-in')
 config.bind('zo', 'zoom-out')
 config.bind('zz', 'zoom')
@@ -67,6 +65,7 @@ c.url.searchengines = {
         'duckduckgo': 'https://duckduckgo.com/?q={}',
         'google': 'https://www.google.com/search?hl=en&q={}',
         'archwiki': 'https://wiki.archlinux.org/?search={}',
+        'aur': 'https://aur.archlinux.org/packages?K={}',
         'github': 'https://github.com/search?q={}',
         'wikipedia': 'https://wikiless.org/?search={}',
 }
@@ -100,15 +99,17 @@ REDIRECT_MAP = {
     "en.wikipedia.org": operator.methodcaller('setHost', 'wikiless.org'),
     "www.wikipedia.org": operator.methodcaller('setHost', 'wikiless.org'),
     "medium.com": operator.methodcaller('setHost', 'scribe.rip'),
-    "youtube.com": operator.methodcaller('setHost', 'piped.kavin.rocks'),
-    "www.youtube.com": operator.methodcaller('setHost', 'piped.kavin.rocks'),
-    "youtu.be": operator.methodcaller('setHost', 'piped.kavin.rocks'),
+    "youtube.com": operator.methodcaller('setHost', 'piped-material.ftp.sh'),
+    "www.youtube.com": operator.methodcaller('setHost', 'piped-material.ftp.sh'),
+    "youtu.be": operator.methodcaller('setHost', 'piped-material.ftp.sh'),
     "reddit.com": operator.methodcaller('setHost', 'teddit.net'),
     "www.reddit.com": operator.methodcaller('setHost', 'teddit.net'),
     "instagram.com": operator.methodcaller('setHost', 'bibliogram.art'),
     "www.instagram.com": operator.methodcaller('setHost', 'bibliogram.art'),
     "twitter.com": operator.methodcaller('setHost', 'nitter.net'),
     "www.twitter.com": operator.methodcaller('setHost', 'nitter.net'),
+    "www.imgur.com": operator.methodcaller('setHost', 'rimgo.pussthecat.org'),
+    "imgur.com": operator.methodcaller('setHost', 'rimgo.pussthecat.org'),
 }
 
 def int_fn(info: interceptor.Request):

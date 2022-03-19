@@ -110,6 +110,7 @@ REDIRECT_MAP = {
     "www.twitter.com": operator.methodcaller('setHost', 'nitter.net'),
     "www.imgur.com": operator.methodcaller('setHost', 'rimgo.pussthecat.org'),
     "imgur.com": operator.methodcaller('setHost', 'rimgo.pussthecat.org'),
+    "i.imgur.com": operator.methodcaller('setHost', 'rimgo.pussthecat.org'),
 }
 
 def int_fn(info: interceptor.Request):

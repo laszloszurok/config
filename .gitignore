@@ -194,3 +194,7 @@
 .config/lapce
 .local/share/charm
 .rustup
+.config/VirtualBox
+.config/spotify-tui
+.local/share/webkitgtk
+.megaCmd

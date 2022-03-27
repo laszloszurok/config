@@ -1,6 +1,7 @@
 -- meta accessors for nvim apis
 local opt = vim.opt -- vim options
 local cmd = vim.cmd -- execute vim commands
+local g   = vim.g   -- set global variables
 
 -----------------------------------------------------------
 -- General
@@ -64,3 +65,10 @@ cmd[[au VimResized * wincmd =]]            -- always keep splits equally sized
 cmd[[au BufEnter * silent! cd %:p:h]]      -- set the working directory to the path of the focused buffer
 cmd[[au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]] -- return to last edit position when opening files
 
+
+-----------------------------------------------------------
+-- LaTex specific
+-----------------------------------------------------------
+g.tex_indent_items = 0
+g.tex_indent_and = 0
+g.tex_indent_brace = 0

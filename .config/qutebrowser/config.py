@@ -10,6 +10,8 @@ c.completion.scrollbar.width = 8
 c.content.autoplay = False
 c.content.user_stylesheets = ['user.css']
 c.content.notifications.enabled = False
+c.downloads.position = 'bottom'
+c.downloads.remove_finished = 3000
 c.editor.command = [ 'st', '-e', 'nvr', '{}' ]
 c.fonts.default_size = '10.5pt'
 c.input.insert_mode.auto_load = False
@@ -60,8 +62,7 @@ c.aliases = {
 
 # search engines
 c.url.searchengines = { 
-        'DEFAULT': 'https://searx.envs.net/search?q={}',
-        'startpage': 'https://startpage.com/do/asearch?q={}',
+        'DEFAULT': 'https://paulgo.io/search?q={}',
         'duckduckgo': 'https://duckduckgo.com/?q={}',
         'google': 'https://www.google.com/search?hl=en&q={}',
         'archwiki': 'https://wiki.archlinux.org/?search={}',
@@ -111,6 +112,8 @@ REDIRECT_MAP = {
     "www.imgur.com": operator.methodcaller('setHost', 'rimgo.pussthecat.org'),
     "imgur.com": operator.methodcaller('setHost', 'rimgo.pussthecat.org'),
     "i.imgur.com": operator.methodcaller('setHost', 'rimgo.pussthecat.org'),
+    "www.odysee.com": operator.methodcaller('setHost', 'librarian.pussthecat.org'),
+    "odysee.com": operator.methodcaller('setHost', 'librarian.pussthecat.org'),
 }
 
 def int_fn(info: interceptor.Request):

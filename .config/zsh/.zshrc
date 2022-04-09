@@ -49,7 +49,7 @@ alias cp="cp -i"
 alias mv="mv -i"
 alias rm="rm -i"
 alias x="xtract"
-alias startx="startx $XDG_CONFIG_HOME/X11/xinitrc"
+alias startx="ssh-agent startx $XDG_CONFIG_HOME/X11/xinitrc"
 
 ###############################
 # vi mode
@@ -126,7 +126,7 @@ autoload -Uz compinit
 if [[ -n ~/.cache/zcompdump(#qN.mh+24) ]]; then
     compinit -d ~/.cache/zcompdump
 else
-	compinit -C -d ~/.cache/zcompdump;
+    compinit -C -d ~/.cache/zcompdump;
 fi;
 
 zstyle ':completion:*' menu select

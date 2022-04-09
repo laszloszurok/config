@@ -1,7 +1,8 @@
 https://www.archlinux.org/feeds/news/  "~Arch News"
 https://hnrss.org/frontpage?points=100 "~Hacker News"
 https://lukesmith.xyz/rss.xml          "~lukesmith.xyz"
-https://reddit.com/r/hungary/.rss
+https://reddit.com/r/hungary/.rss      "~r/hungary"
+https://www.raspberrypi.com/news/feed/ "~Raspberry Pi News"
 
 https://lbryfeed.melroy.org/channel/odysee/Luke               "~Luke Smith"           "LBRY"
 https://lbryfeed.melroy.org/channel/odysee/BrodieRobertson    "~Brodie Robertson"     "LBRY"

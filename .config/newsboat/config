@@ -6,6 +6,8 @@ download-retries 4
 download-timeout 20
 goto-next-feed no
 
+unbind-key ^E
+
 bind-key j down
 bind-key k up
 bind-key j next articlelist

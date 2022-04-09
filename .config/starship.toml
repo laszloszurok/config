@@ -22,6 +22,9 @@ disabled = true
 [battery]
 disabled = true
 
+[buf]
+disabled = true
+
 [character]
 success_symbol = "[]()"
 error_symbol = "[]()"
@@ -90,6 +93,9 @@ format = "on [$symbol$branch]($style) "
 disabled = true
 
 [golang]
+disabled = true
+
+[haskell]
 disabled = true
 
 [helm]

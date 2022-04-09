@@ -113,7 +113,7 @@ command! size         du -sh %f %m
 command! dragon       dragon-drag-and-drop -a -x %f
 command! zip          zip -r %f.zip %f
 command! reload       :write | restart full | :echo 'configuration reloaded'
-command! terminal     setsid -f $TERMINAL > /dev/null 2>1 &
+command! terminal     setsid -f $TERMINAL > /dev/null 2>&1 &
 command! diskctl      diskctl
 command! mtp          gvfs_mtp mount
 command! readmarkdown setsid -f st glow > /dev/null 2>&1 &
@@ -236,7 +236,7 @@ filextype {*.odt,*.doc,*.docx,*.xls,*.xlsx,*.odp,*.pptx,*.ppt},
     \application/msword,
     \application/vnd.ms-excel>
     \ setsid -f libreoffice %f > /dev/null 2>1 &
-filextype {*.csv} setsid -f $TERMINAL sc-im %f > /dev/null 2>1 &
+filextype {*.csv} setsid -f $TERMINAL sc-im %f > /dev/null 2>&1 &
 fileviewer {*.doc},<application/msword> catdoc %c
 fileviewer {*.docx},
     \<application/

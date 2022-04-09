@@ -73,7 +73,6 @@
 .config/GIMP/
 .config/pcmanfm/
 .config/libfm/
-.ssh/
 .local/bin/
 .local/include/
 .local/lib/python3.9/site-packages/greenlet/tests/__pycache__/__init__.cpython-39.pyc
@@ -198,3 +197,12 @@
 .config/spotify-tui
 .local/share/webkitgtk
 .megaCmd
+.config/LBRY
+
+.ssh/id_ed25519
+.ssh/id_ed25519.pub
+.ssh/id_rsa
+.ssh/id_rsa.pub
+.ssh/known_hosts
+.ssh/known_hosts.old
+.config/keepmenu

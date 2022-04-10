@@ -1,6 +1,0 @@
-XDG_DOWNLOAD_DIR="$HOME/downloads/"
-XDG_PICTURES_DIR="$HOME/pictures/"
-XDG_DESKTOP_DIR=/dev/null
-XDG_DOCUMENTS_DIR=/dev/null
-XDG_MUSIC_DIR=/dev/null
-XDG_VIDEOS_DIR=/dev/null

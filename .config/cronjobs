@@ -1,2 +1,0 @@
-0 */3 * * * DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus ~/source/scripts/utils/todos-notify
-*/15 * * * * DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus ~/source/scripts/utils/mailsync

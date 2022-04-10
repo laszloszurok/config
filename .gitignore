@@ -201,3 +201,12 @@
 .config/LBRY
 .config/keepmenu
 .ssh
+.config/docker/
+.docker
+.lesshst
+.local/share/docker/
+.profile
+.viminfo
+.wget-hsts
+.zcompdump
+.zsh-history

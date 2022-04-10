@@ -75,7 +75,7 @@ c.url.searchengines = {
 c.content.cookies.accept = 'no-3rdparty'
 
 # colors
-c.colors.webpage.darkmode.enabled = True
+c.colors.webpage.darkmode.enabled = False
 c.colors.webpage.bg = 'black'
 c.colors.completion.odd.bg = '#191b28'
 c.colors.completion.even.bg = '#191b28'

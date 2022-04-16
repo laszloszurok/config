@@ -41,6 +41,8 @@ if (url.match(wildcardToRegExp("*://odysee.com/*"))
     || url.match(wildcardToRegExp("*://searx.envs.net/*"))
     || url.match(wildcardToRegExp("*://libredd.it/*"))
     || url.match(wildcardToRegExp("*://www.youtube.com/*"))
+    || url.match(wildcardToRegExp("*://laszloszurok.github.io/*"))
+    || url.match(wildcardToRegExp("*://rarbg*"))
 ) {
     DarkReader.disable();
 }

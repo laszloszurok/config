@@ -64,6 +64,7 @@ c.aliases = {
 c.url.searchengines = { 
         #'DEFAULT': 'https://paulgo.io/search?q={}',
         'DEFAULT': 'http://localhost:80/search?q={}',
+        'searxng': 'http://localhost:80/search?q={}',
         'duckduckgo': 'https://duckduckgo.com/?q={}',
         'google': 'https://www.google.com/search?hl=en&q={}',
         'archwiki': 'https://wiki.archlinux.org/?search={}',

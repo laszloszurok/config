@@ -50,6 +50,7 @@ alias mv="mv -i"
 alias rm="rm -i"
 alias x="xtract"
 alias startx="ssh-agent startx $XDG_CONFIG_HOME/X11/xinitrc"
+alias qbtui="qbittorrentui --config_file $HOME/.config/qbittorrentui/config.ini"
 
 ###############################
 # vi mode

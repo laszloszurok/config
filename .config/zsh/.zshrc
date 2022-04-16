@@ -35,7 +35,6 @@ _evalcache starship init zsh # shell prompt
 # aliases
 ###############################
 
-alias nv="nvim"
 alias ll="ls -lhF --group-directories-first"
 alias la="ls -lAhF --group-directories-first"
 alias ls="ls --color=auto --group-directories-first"
@@ -51,6 +50,7 @@ alias rm="rm -i"
 alias x="xtract"
 alias startx="ssh-agent startx $XDG_CONFIG_HOME/X11/xinitrc"
 alias qbtui="qbittorrentui --config_file $HOME/.config/qbittorrentui/config.ini"
+alias nvr="NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvr --remote -s"
 
 ###############################
 # vi mode

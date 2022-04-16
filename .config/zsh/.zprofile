@@ -1,5 +1,5 @@
 # Default programs:
-export EDITOR="nvr -s"
+export EDITOR="NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvr --remote -s"
 export TERMINAL="st"
 export BROWSER="qutebrowser"
 export READER="zathura"

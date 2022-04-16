@@ -2,7 +2,7 @@ IMAPStore laszloszurok@mail.ch-remote
 Host imap.mail.ch
 Port 993
 User laszloszurok@mail.ch
-PassCmd "pass Mail.ch/laszloszurok@mail.ch"
+PassCmd "keepassxc-cli show -k /run/media/pulzar/adata/KEYS/keepassxc-key --no-password .local/share/keepassxc-databases/passwords.kdbx mail.ch/laszloszurok@mail.ch --show-protected | grep Password: | awk '{print $NF}'"
 AuthMechs LOGIN
 SSLType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
@@ -28,7 +28,7 @@ IMAPStore pulzar@envs.net-remote
 Host mail.envs.net
 Port 993
 User pulzar@envs.net
-PassCmd "pass envs.net/pulzar"
+PassCmd "keepassxc-cli show -k /run/media/pulzar/adata/KEYS/keepassxc-key --no-password .local/share/keepassxc-databases/passwords.kdbx envs.net/pulzar --show-protected | grep Password: | awk '{print $NF}'"
 AuthMechs LOGIN
 SSLType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt

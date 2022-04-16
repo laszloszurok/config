@@ -1,0 +1,2 @@
+set tui.theme default.theme
+set columns.torrents name size status rate-down rate-up eta ratio %available

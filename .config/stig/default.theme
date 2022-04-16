@@ -1,0 +1,630 @@
+# This is the default theme for stig.
+# https://github.com/rndusr/stig
+#
+# To create your own theme, copy this file anywhere you like (name and
+# extension are irrelevant) and load it:
+#
+#     set tui.theme path/to/your/theme
+#
+# If your theme file is in the same directory as your rc file
+# ($XDG_CONFIG_HOME/stig by default), you can omit the path.
+#
+# FILE FORMAT
+#
+# Each line specifies one combination of foreground/background color and
+# optional attributes (bold, underlined, etc).  The line format is:
+#
+#    <NAME> <FOREGROUND COLOR>[,<ATTRIBUTE1>,<ATTRIBUTE2>,...] on default
+#
+# Color names: default, black, white, dark gray, light gray, dark red,
+# light red, dark green, light green, dark blue, light blue, dark magenta,
+# light magenta, dark cyan, light cyan, brown, yellow
+#
+# You can also use RGB colors in the format "#RGB" (e.g. "#f00" for red, "#0f0"
+# for green and "#00f" for blue).  They are converted to the closest color in
+# the 256-color palette.
+#
+# Attribute names: bold, underline, standout
+#
+# VARIABLES
+#
+# You can declare simple variables like this:
+#
+#     $<VARIABLE> = <VALUE>
+#
+# Any occurrence of '$<VARIABLE>' after this declaration is replaced by
+# '<VALUE>'.  Variable names consist of one or more printable, non-whitespace
+# characters.
+
+# Uncomment the next line to automatically make light colors bold.
+#light_is_bold
+
+$header_fg = dark magenta
+$focused_bg = #3a3a3a
+
+cli             default      on default
+prompt          black,bold   on default
+find.highlight  black        on default
+
+tabs.unfocused                default       on default
+tabs.focused                  default       on default
+tabs.torrentlist.unfocused    default       on default
+tabs.torrentlist.focused      default       on $focused_bg
+tabs.torrentdetails.unfocused default       on default
+tabs.torrentdetails.focused   default       on default
+tabs.filelist.unfocused       default       on default
+tabs.filelist.focused         default       on default
+tabs.peerlist.unfocused       default       on default
+tabs.peerlist.focused         default       on $focused_bg
+tabs.trackerlist.unfocused    default       on default
+tabs.trackerlist.focused      default       on default
+tabs.settinglist.unfocused    default       on default
+tabs.settinglist.focused      dark blue     on default
+tabs.help.unfocused           default       on default
+tabs.help.focused             dark blue     on default
+
+$topbar_bg = default
+topbar                    default       on default
+topbar.host.connected     light green   on default
+topbar.host.connecting    default       on default
+topbar.host.disconnected  default       on default
+topbar.help.key           default       on default
+topbar.help.equals        default       on default
+topbar.help.label         default       on default
+topbar.help.space         default       on default
+
+$bottombar_bg = default
+bottombar                             light gray     on default
+bottombar.important                   light red,bold on default
+bottombar.marked                      black,bold     on default
+bottombar.bandwidth.up                dark green     on default
+bottombar.bandwidth.up.highlighted    light green    on default
+bottombar.bandwidth.down              dark cyan      on default
+bottombar.bandwidth.down.highlighted  light cyan     on default
+
+$log_bg = dark gray
+log                        light gray     on default
+log.timestamp              dark cyan      on default
+log.info                   light green    on default
+log.error                  light red,bold on default
+log.debug                  yellow         on default
+log.dupecount              light cyan     on default
+log.scrollbar              light gray     on default
+
+$keychains_bg = black
+keychains              light gray   on default
+keychains.header       $header_fg   on default
+keychains.keys         light gray   on default
+keychains.keys.next    yellow       on default
+keychains.action       white        on default
+keychains.description  white        on default
+
+$completion_bg = default
+completion               light gray   on default
+completion.category      light gray,bold on default
+completion.item          light gray   on default
+completion.item.focused  black,bold   on $focused_bg
+completion.scrollbar     light gray   on default
+
+
+helptext            light gray on default
+helptext.scrollbar  light gray on default
+
+
+$tlist_bg.uf = default
+$tlist_bg.f  = dark gray
+torrentlist                                        default              on default
+torrentlist.focused                                default              on $focused_bg
+torrentlist.header                                 $header_fg           on default
+torrentlist.scrollbar                              light gray           on default
+
+$id_fg = white
+torrentlist.id.header                              $header_fg           on default
+torrentlist.id.unfocused                           default           on default
+torrentlist.id.focused                             default           on $focused_bg
+
+$downloaded_fg = dark cyan
+$downloaded_hl = light cyan
+torrentlist.downloaded.header                      $header_fg           on default
+torrentlist.downloaded.unfocused                   default                  on default
+torrentlist.downloaded.focused                     default                  on $focused_bg
+torrentlist.downloaded.highlighted.unfocused       default                  on default
+torrentlist.downloaded.highlighted.focused         default                  on $focused_bg
+
+$uploaded_fg = dark green
+$uploaded_hl = light green
+torrentlist.uploaded.header                        $header_fg   on default
+torrentlist.uploaded.unfocused                     default             on default
+torrentlist.uploaded.focused                       default             on $focused_bg
+torrentlist.uploaded.highlighted.unfocused         default             on default
+torrentlist.uploaded.highlighted.focused           default             on $focused_bg
+
+$available_fg = dark blue
+$available_hl = light blue
+torrentlist.available.header                       $header_fg   on default
+torrentlist.available.unfocused                    default             on default
+torrentlist.available.focused                      default             on $focused_bg
+torrentlist.available.highlighted.unfocused        default             on default
+torrentlist.available.highlighted.focused          default             on $focused_bg
+
+$marked_fg = white
+torrentlist.marked.header                          $header_fg on default
+torrentlist.marked.unfocused                       default           on default
+torrentlist.marked.focused                         default           on $focused_bg
+
+$path_fg = light gray
+torrentlist.path.header                            $header_fg on default
+torrentlist.path.unfocused                         default           on default
+torrentlist.path.focused                           default           on $focused_bg
+
+$peers_fg = light gray
+$peers_hl = white
+torrentlist.peers.header                           $header_fg on default
+torrentlist.peers.unfocused                        default           on default
+torrentlist.peers.focused                          default           on $focused_bg
+torrentlist.peers.highlighted.unfocused            default           on default
+torrentlist.peers.highlighted.focused              default           on $focused_bg
+
+$seeds_fg = light gray
+$seeds_hl = white
+torrentlist.seeds.header                           $header_fg on default
+torrentlist.seeds.unfocused                        default           on default
+torrentlist.seeds.focused                          default           on $focused_bg
+torrentlist.seeds.highlighted.unfocused            default           on default
+torrentlist.seeds.highlighted.focused              default           on $focused_bg
+
+$%downloaded_fg = dark blue
+$%downloaded_hl = light blue
+torrentlist.%downloaded.header                     $header_fg on default
+torrentlist.%downloaded.unfocused                  default           on default
+torrentlist.%downloaded.focused                    default           on $focused_bg
+torrentlist.%downloaded.highlighted.unfocused      default           on default
+torrentlist.%downloaded.highlighted.focused        default           on $focused_bg
+
+$%available_fg = dark blue
+$%available_hl = light blue
+torrentlist.%available.header                      $header_fg on default
+torrentlist.%available.unfocused                   default           on default
+torrentlist.%available.focused                     default           on $focused_bg
+torrentlist.%available.highlighted.unfocused       default           on default
+torrentlist.%available.highlighted.focused         default           on $focused_bg
+
+$rate-down_fg = dark cyan
+$rate-down_hl = light cyan
+torrentlist.rate-down.header                       $header_fg on default
+torrentlist.rate-down.unfocused                    default           on default
+torrentlist.rate-down.focused                      default           on $focused_bg
+torrentlist.rate-down.highlighted.unfocused        default           on default
+torrentlist.rate-down.highlighted.focused          default           on $focused_bg
+
+$rate-up_fg = dark green
+$rate-up_hl = light green
+torrentlist.rate-up.header                         $header_fg on default
+torrentlist.rate-up.unfocused                      default           on default
+torrentlist.rate-up.focused                        default           on $focused_bg
+torrentlist.rate-up.highlighted.unfocused          default           on default
+torrentlist.rate-up.highlighted.focused            default           on $focused_bg
+
+$limit-rate-down_fg = dark cyan
+$limit-rate-down_hl = light cyan
+torrentlist.limit-rate-down.header                 $header_fg on default
+torrentlist.limit-rate-down.unfocused              default           on default
+torrentlist.limit-rate-down.focused                default           on $focused_bg
+torrentlist.limit-rate-down.highlighted.unfocused  default           on default
+torrentlist.limit-rate-down.highlighted.focused    default           on $focused_bg
+
+$limit-rate-up_fg = dark green
+$limit-rate-up_hl = light green
+torrentlist.limit-rate-up.header                   $header_fg on default
+torrentlist.limit-rate-up.unfocused                default           on default
+torrentlist.limit-rate-up.focused                  default           on $focused_bg
+torrentlist.limit-rate-up.highlighted.unfocused    default           on default
+torrentlist.limit-rate-up.highlighted.focused      default           on $focused_bg
+
+$ratio_fg = dark blue
+$ratio_hl = light blue
+torrentlist.ratio.header                           $header_fg on default
+torrentlist.ratio.unfocused                        default           on default
+torrentlist.ratio.focused                          default           on $focused_bg
+torrentlist.ratio.highlighted.unfocused            default           on default
+torrentlist.ratio.highlighted.focused              default           on $focused_bg
+
+$size_fg = dark magenta
+torrentlist.size.header                            $header_fg on default
+torrentlist.size.unfocused                         default           on default
+torrentlist.size.focused                           default           on $focused_bg
+
+$tracker_fg = light gray
+torrentlist.tracker.header                         $header_fg on default
+torrentlist.tracker.unfocused                      default           on default
+torrentlist.tracker.focused                        default           on $focused_bg
+
+$error_fg = light red
+torrentlist.error.header                           $header_fg on default
+torrentlist.error.unfocused                        default           on default
+torrentlist.error.focused                          default           on $focused_bg
+
+$added_fg = brown
+torrentlist.added.header                           $header_fg on default
+torrentlist.added.unfocused                        default           on default
+torrentlist.added.focused                          default           on $focused_bg
+
+$activity_fg = brown
+torrentlist.activity.header                        $header_fg on default
+torrentlist.activity.unfocused                     default           on default
+torrentlist.activity.focused                       default           on $focused_bg
+
+$created_fg = brown
+torrentlist.created.header                         $header_fg on default
+torrentlist.created.unfocused                      default           on default
+torrentlist.created.focused                        default           on $focused_bg
+
+$completed_fg = brown
+$completed_hl = yellow
+torrentlist.completed.header                       $header_fg on default
+torrentlist.completed.unfocused                    default           on default
+torrentlist.completed.focused                      default           on $focused_bg
+torrentlist.completed.highlighted.unfocused        default           on default
+torrentlist.completed.highlighted.focused          default           on $focused_bg
+
+$eta_fg = brown
+$eta_hl = yellow
+torrentlist.eta.header                             $header_fg on default
+torrentlist.eta.unfocused                          default           on default
+torrentlist.eta.focused                            default           on $focused_bg
+torrentlist.eta.highlighted.unfocused              default           on default
+torrentlist.eta.highlighted.focused                default           on $focused_bg
+
+$started_fg = brown
+torrentlist.started.header                         $header_fg on default
+torrentlist.started.unfocused                      default           on default
+torrentlist.started.focused                        default           on $focused_bg
+
+
+$status.idle_fg        = light gray
+$status.downloading_fg = dark cyan
+$status.uploading_fg   = dark green
+$status.connected_fg   = dark magenta
+$status.seeding_fg     = light gray
+$status.stopped_fg     = dark blue
+$status.queued_fg      = brown
+$status.isolated_fg    = dark red
+$status.verifying_fg   = yellow
+$status.discovering_fg = light blue
+
+torrentlist.status.header                   $header_fg on default
+
+torrentlist.status.idle.unfocused           default        on default
+torrentlist.status.idle.focused             default        on $focused_bg
+
+torrentlist.status.uploading.unfocused      default   on default
+torrentlist.status.uploading.focused        default   on $focused_bg
+
+torrentlist.status.downloading.unfocused    default on default
+torrentlist.status.downloading.focused      default on $focused_bg
+
+torrentlist.status.connected.unfocused      default   on default
+torrentlist.status.connected.focused        default   on $focused_bg
+
+torrentlist.status.seeding.unfocused        default     on default
+torrentlist.status.seeding.focused          default     on $focused_bg
+
+torrentlist.status.stopped.unfocused        default     on default
+torrentlist.status.stopped.focused          default     on $focused_bg
+
+torrentlist.status.isolated.unfocused       default    on default
+torrentlist.status.isolated.focused         default    on $focused_bg
+
+torrentlist.status.queued.unfocused         default      on default
+torrentlist.status.queued.focused           default      on $focused_bg
+
+torrentlist.status.verifying.unfocused      default   on default
+torrentlist.status.verifying.focused        default   on $focused_bg
+
+torrentlist.status.discovering.unfocused    default on default
+torrentlist.status.discovering.focused      default on $focused_bg
+
+
+$name.idle_fg = $status.idle_fg
+torrentlist.name.header                            $header_fg on default
+torrentlist.name.idle.progress1.unfocused          default on default
+torrentlist.name.idle.progress1.focused            default on $focused_bg
+torrentlist.name.idle.progress2.unfocused          default           on default
+torrentlist.name.idle.progress2.focused            default           on $focused_bg
+torrentlist.name.idle.complete.unfocused           default           on default
+torrentlist.name.idle.complete.focused             default           on $focused_bg
+
+$name.uploading_fg = $status.uploading_fg
+torrentlist.name.uploading.progress1.unfocused     default on default
+torrentlist.name.uploading.progress1.focused       default on $focused_bg
+torrentlist.name.uploading.progress2.unfocused     default           on default
+torrentlist.name.uploading.progress2.focused       default           on $focused_bg
+torrentlist.name.uploading.complete.unfocused      default           on default
+torrentlist.name.uploading.complete.focused        default           on $focused_bg
+
+$name.downloading_fg = $status.downloading_fg
+torrentlist.name.downloading.progress1.unfocused   default on default
+torrentlist.name.downloading.progress1.focused     default on $focused_bg
+torrentlist.name.downloading.progress2.unfocused   default           on default
+torrentlist.name.downloading.progress2.focused     default           on $focused_bg
+torrentlist.name.downloading.complete.unfocused    default           on default
+torrentlist.name.downloading.complete.focused      default           on $focused_bg
+
+$name.isolated_fg = $status.isolated_fg
+torrentlist.name.isolated.progress1.unfocused      default on default
+torrentlist.name.isolated.progress1.focused        default on $focused_bg
+torrentlist.name.isolated.progress2.unfocused      default           on default
+torrentlist.name.isolated.progress2.focused        default           on $focused_bg
+torrentlist.name.isolated.complete.unfocused       default           on default
+torrentlist.name.isolated.complete.focused         default           on $focused_bg
+
+$name.connected_fg = $status.connected_fg
+torrentlist.name.connected.progress1.unfocused     default on default
+torrentlist.name.connected.progress1.focused       default on $focused_bg
+torrentlist.name.connected.progress2.unfocused     default           on default
+torrentlist.name.connected.progress2.focused       default           on $focused_bg
+torrentlist.name.connected.complete.unfocused      default           on default
+torrentlist.name.connected.complete.focused        default           on $focused_bg
+
+$name.queued_fg = $status.queued_fg
+torrentlist.name.queued.progress1.unfocused        default on default
+torrentlist.name.queued.progress1.focused          default on $focused_bg
+torrentlist.name.queued.progress2.unfocused        default           on default
+torrentlist.name.queued.progress2.focused          default           on $focused_bg
+torrentlist.name.queued.complete.unfocused         default           on default
+torrentlist.name.queued.complete.focused           default           on $focused_bg
+
+$name.stopped_fg = $status.stopped_fg
+torrentlist.name.stopped.progress1.unfocused       default on default
+torrentlist.name.stopped.progress1.focused         default on $focused_bg
+torrentlist.name.stopped.progress2.unfocused       default           on default
+torrentlist.name.stopped.progress2.focused         default           on $focused_bg
+torrentlist.name.stopped.complete.unfocused        default           on default
+torrentlist.name.stopped.complete.focused          default           on $focused_bg
+
+$name.verifying_fg = $status.verifying_fg
+torrentlist.name.verifying.progress1.unfocused     default on default
+torrentlist.name.verifying.progress1.focused       default on $focused_bg
+torrentlist.name.verifying.progress2.unfocused     default           on default
+torrentlist.name.verifying.progress2.focused       default           on $focused_bg
+torrentlist.name.verifying.complete.unfocused      default           on default
+torrentlist.name.verifying.complete.focused        default           on $focused_bg
+
+$name.discovering_fg = $status.discovering_fg
+torrentlist.name.discovering.progress1.unfocused   default on default
+torrentlist.name.discovering.progress1.focused     default on $focused_bg
+torrentlist.name.discovering.progress2.unfocused   default           on default
+torrentlist.name.discovering.progress2.focused     default           on $focused_bg
+torrentlist.name.discovering.complete.unfocused    default           on default
+torrentlist.name.discovering.complete.focused      default           on $focused_bg
+
+
+torrentdetails            light gray on default
+torrentdetails.error      light red  on default
+torrentdetails.scrollbar  light gray on default
+
+
+$flist_bg.uf = black
+$flist_bg.f  = dark gray
+filelist                                   default              on default
+filelist.focused                           default              on $focused_bg
+filelist.header                            $header_fg           on default
+filelist.scrollbar                         light gray           on default
+
+$marked_fg = white
+filelist.marked.header                     $header_fg on default
+filelist.marked.unfocused                  $marked_fg           on default
+filelist.marked.focused                    $marked_fg           on $focused_bg
+
+$file_fg = light gray
+$folder_fg = white
+filelist.name.header                       $header_fg on default
+filelist.name.file.unfocused               $file_fg             on default
+filelist.name.file.focused                 $file_fg             on $focused_bg
+filelist.name.folder.unfocused             $folder_fg           on default
+filelist.name.folder.focused               $folder_fg           on $focused_bg
+
+$size_fg = dark magenta
+filelist.size.header                       $header_fg on default
+filelist.size.unfocused                    $size_fg           on default
+filelist.size.focused                      $size_fg           on $focused_bg
+
+$downloaded_fg = dark cyan
+$downloaded_hl = light cyan
+filelist.downloaded.header                 $header_fg on default
+filelist.downloaded.unfocused              $downloaded_fg           on default
+filelist.downloaded.focused                $downloaded_fg           on $focused_bg
+filelist.downloaded.highlighted.unfocused  $downloaded_hl           on default
+filelist.downloaded.highlighted.focused    $downloaded_hl           on $focused_bg
+
+$%downloaded_fg = dark blue
+$%downloaded_hl = light blue
+filelist.%downloaded.header                $header_fg on default
+filelist.%downloaded.unfocused             $%downloaded_fg           on default
+filelist.%downloaded.focused               $%downloaded_fg           on $focused_bg
+filelist.%downloaded.highlighted.unfocused $%downloaded_hl           on default
+filelist.%downloaded.highlighted.focused   $%downloaded_hl           on $focused_bg
+
+$priority_fg = brown
+$priority_hl = yellow
+filelist.priority.header                   $header_fg on default
+filelist.priority.unfocused                $priority_fg           on default
+filelist.priority.focused                  $priority_fg           on $focused_bg
+filelist.priority.low.unfocused            $priority_fg           on default
+filelist.priority.low.focused              $priority_fg           on $focused_bg
+filelist.priority.high.unfocused           $priority_hl           on default
+filelist.priority.high.focused             $priority_hl           on $focused_bg
+filelist.priority.off.unfocused            dark blue              on default
+filelist.priority.off.focused              dark blue              on $focused_bg
+
+
+$plist_bg = black
+peerlist                                   default              on default
+peerlist.focused                           default              on $focused_bg
+peerlist.header                            $header_fg on default
+peerlist.scrollbar                         light gray           on default
+
+$torrent_fg = light gray
+peerlist.torrent.header                    $header_fg on default
+peerlist.torrent.unfocused                 $torrent_fg           on default
+
+$host_fg = light gray
+peerlist.host.header                       $header_fg on default
+peerlist.host.unfocused                    $host_fg           on default
+
+$port_fg = light gray
+peerlist.port.header                       $header_fg on default
+peerlist.port.unfocused                    $port_fg           on default
+
+$client_fg = dark magenta
+peerlist.client.header                     $header_fg on default
+peerlist.client.unfocused                  $client_fg           on default
+
+$%downloaded_fg = dark blue
+$%downloaded_hl = light blue
+peerlist.%downloaded.header                $header_fg on default
+peerlist.%downloaded.unfocused             $%downloaded_fg           on default
+peerlist.%downloaded.highlighted.unfocused $%downloaded_hl           on default
+
+$rate-down_fg = dark cyan
+$rate-down_hl = light cyan
+peerlist.rate-down.header                  $header_fg on default
+peerlist.rate-down.unfocused               $rate-down_fg           on default
+peerlist.rate-down.highlighted.unfocused   $rate-down_hl           on default
+
+$rate-up_fg = dark green
+$rate-up_hl = light green
+peerlist.rate-up.header                    $header_fg on default
+peerlist.rate-up.unfocused                 $rate-up_fg           on default
+peerlist.rate-up.highlighted.unfocused     $rate-up_hl           on default
+
+$rate-est_fg = dark green
+$rate-est_hl = light green
+peerlist.rate-est.header                   $header_fg on default
+peerlist.rate-est.unfocused                $rate-est_fg           on default
+peerlist.rate-est.highlighted.unfocused    $rate-est_hl           on default
+
+$eta_fg = brown
+$eta_hl = yellow
+peerlist.eta.header                        $header_fg on default
+peerlist.eta.unfocused                     $eta_fg           on default
+peerlist.eta.highlighted.unfocused         $eta_hl           on default
+
+
+$trklist_bg.uf = black
+$trklist_bg.f  = dark gray
+trackerlist                                default              on default
+trackerlist.focused                        default              on $focused_bg
+trackerlist.header                         $header_fg on default
+trackerlist.scrollbar                      light gray           on default
+
+$torrent_fg = light gray
+trackerlist.torrent.header                 $header_fg on default
+trackerlist.torrent.unfocused              $tracker_fg           on default
+trackerlist.torrent.focused                $tracker_fg           on $focused_bg
+
+$tier_fg = brown
+trackerlist.tier.header                    $header_fg on default
+trackerlist.tier.unfocused                 $tier_fg           on default
+trackerlist.tier.focused                   $tier_fg           on $focused_bg
+
+$domain_fg = dark magenta
+trackerlist.domain.header                  $header_fg on default
+trackerlist.domain.unfocused               $domain_fg           on default
+trackerlist.domain.focused                 $domain_fg           on $focused_bg
+
+$url-announce_fg = light blue
+trackerlist.url-announce.header            $header_fg on default
+trackerlist.url-announce.unfocused         $url-announce_fg           on default
+trackerlist.url-announce.focused           $url-announce_fg           on $focused_bg
+
+$url-scrape_fg = light blue
+trackerlist.url-scrape.header              $header_fg on default
+trackerlist.url-scrape.unfocused           $url-scrape_fg           on default
+trackerlist.url-scrape.focused             $url-scrape_fg           on $focused_bg
+
+$status_fg = dark cyan
+trackerlist.status.header                  $header_fg on default
+trackerlist.status.unfocused               $status_fg           on default
+trackerlist.status.focused                 $status_fg           on $focused_bg
+
+$error_fg = dark red
+trackerlist.error.header                   $header_fg on default
+trackerlist.error.unfocused                $error_fg           on default
+trackerlist.error.focused                  $error_fg           on $focused_bg
+
+$error-announce_fg = dark red
+trackerlist.error-announce.header          $header_fg on default
+trackerlist.error-announce.unfocused       $error_fg           on default
+trackerlist.error-announce.focused         $error_fg           on $focused_bg
+
+$error-scrape_fg = dark red
+trackerlist.error-scrape.header            $header_fg on default
+trackerlist.error-scrape.unfocused         $error_fg           on default
+trackerlist.error-scrape.focused           $error_fg           on $focused_bg
+
+$downloads_fg = light gray
+trackerlist.downloads.header               $header_fg on default
+trackerlist.downloads.unfocused            $downloads_fg           on default
+trackerlist.downloads.focused              $downloads_fg           on $focused_bg
+
+$leeches_fg = light gray
+trackerlist.leeches.header                 $header_fg on default
+trackerlist.leeches.unfocused              $leeches_fg           on default
+trackerlist.leeches.focused                $leeches_fg           on $focused_bg
+
+$seeds_fg = light gray
+trackerlist.seeds.header                   $header_fg on default
+trackerlist.seeds.unfocused                $seeds_fg           on default
+trackerlist.seeds.focused                  $seeds_fg           on $focused_bg
+
+$last-announce_fg = white
+trackerlist.last-announce.header           $header_fg on default
+trackerlist.last-announce.unfocused        $last-announce_fg           on default
+trackerlist.last-announce.focused          $last-announce_fg           on $focused_bg
+
+$next-announce_fg = white
+trackerlist.next-announce.header           $header_fg on default
+trackerlist.next-announce.unfocused        $next-announce_fg           on default
+trackerlist.next-announce.focused          $next-announce_fg           on $focused_bg
+
+$last-scrape_fg = white
+trackerlist.last-scrape.header             $header_fg on default
+trackerlist.last-scrape.unfocused          $last-scrape_fg           on default
+trackerlist.last-scrape.focused            $last-scrape_fg           on $focused_bg
+
+$next-scrape_fg = white
+trackerlist.next-scrape.header             $header_fg on default
+trackerlist.next-scrape.unfocused          $next-scrape_fg           on default
+trackerlist.next-scrape.focused            $next-scrape_fg           on $focused_bg
+
+
+$slist_bg.uf = black
+$slist_bg.f  = dark gray
+settinglist                                default              on default
+settinglist.focused                        default              on $focused_bg
+settinglist.header                         $header_fg on default
+settinglist.scrollbar                      light gray           on default
+
+$name_fg = light blue
+settinglist.name.header                    $header_fg on default
+settinglist.name.unfocused                 $name_fg           on default
+settinglist.name.focused                   $name_fg           on $focused_bg
+
+$value_fg = light gray
+$value_hl = white,bold
+settinglist.value.header                   $header_fg on default
+settinglist.value.unfocused                $value_fg           on default
+settinglist.value.focused                  $value_fg           on $focused_bg
+settinglist.value.highlighted.unfocused    $value_hl           on default
+settinglist.value.highlighted.focused      $value_hl           on $focused_bg
+
+$default_fg = light gray
+settinglist.default.header                 $header_fg on default
+settinglist.default.unfocused              $default_fg           on default
+settinglist.default.focused                $default_fg           on $focused_bg
+
+$description_fg = light gray
+settinglist.description.header             $header_fg on default
+settinglist.description.unfocused          $description_fg           on default
+settinglist.description.focused            $description_fg           on $focused_bg

@@ -11,6 +11,7 @@ set undolevels=100
 set nofollowlinks
 set norunexec
 set vifminfo=tui,tabs,savedirs,chistory
+set slowfs=sshfs,curlftpfs
 
 
 """"""""""""""""""""""""""""""""""""""""""""""

@@ -5,6 +5,8 @@
 HISTSIZE=10000
 SAVEHIST=10000
 setopt HIST_IGNORE_ALL_DUPS
+setopt INC_APPEND_HISTORY
+
 zle_highlight=('paste:none')
 
 # function that caches the output of eval to make it faster

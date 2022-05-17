@@ -4,6 +4,7 @@ notify = false
 volnorm = true
 volnorm_pregain = -3
 flip_status_indicators = true
+playback_state = "stopped"
 
 [saved_state]
 shuffle = true

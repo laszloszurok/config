@@ -1,14 +1,14 @@
 appearance.calendarview=monthly
 appearance.compactpanels=no
 appearance.defaultpanel=calendar
-appearance.layout=5
+appearance.layout=3
 appearance.headerline=yes
 appearance.eventseparator=yes
 appearance.dayseparator=yes
 appearance.emptyline=yes
 appearance.emptyday=--
 appearance.notifybar=no
-appearance.sidebarwidth=22
+appearance.sidebarwidth=15
 appearance.theme=magenta on default
 appearance.todoview=hide-completed
 appearance.headingpos=right-justified

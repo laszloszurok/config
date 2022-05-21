@@ -111,7 +111,7 @@ mark l ~/.local/share
 " %m run the command in a menu window
 command! diskusage    df -h -x tmpfs -x devtmpfs -T %m 2> /dev/null
 command! size         du -sh %f %m
-command! dragon       dragon-drag-and-drop -a -x %f
+command! dragon       dragon-drop -a -x %f
 command! zip          zip -r %f.zip %f
 command! reload       :write | restart full | :echo 'configuration reloaded'
 command! terminal     setsid -f $TERMINAL > /dev/null 2>&1 &

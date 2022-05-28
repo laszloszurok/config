@@ -30,7 +30,7 @@ function _evalcache () {
   fi
 }
 
-_evalcache zoxide init zsh --cmd j # fast cd
+_evalcache zoxide init zsh
 _evalcache starship init zsh # shell prompt
 
 ###############################
@@ -44,6 +44,8 @@ alias ls="ls --color=auto --group-directories-first"
 alias lh="ls -d .* --group-directories-first"
 alias llh="ls -ld .* --group-directories-first"
 alias cfg="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
+alias cd="z"
+alias cdi="zi"
 alias ..="cd .."
 alias ...="cd ../.."
 alias grep="grep --color=auto"

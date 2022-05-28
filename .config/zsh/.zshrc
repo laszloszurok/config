@@ -30,7 +30,7 @@ function _evalcache () {
   fi
 }
 
-_evalcache zoxide init zsh --cmd j # fast cd
+_evalcache zoxide init zsh # fast cd
 _evalcache starship init zsh # shell prompt
 
 ###############################
@@ -43,6 +43,8 @@ alias ls="ls --color=auto --group-directories-first"
 alias lh="ls -d .* --group-directories-first"
 alias llh="ls -ld .* --group-directories-first"
 alias cfg="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
+alias cd="z"
+alias cdi="zi"
 alias ..="cd .."
 alias ...="cd ../.."
 alias grep="grep --color=auto"
@@ -53,6 +55,8 @@ alias x="xtract"
 alias startx="ssh-agent startx $XDG_CONFIG_HOME/X11/xinitrc"
 alias qbtui="qbittorrentui --config_file $HOME/.config/qbittorrentui/config.ini"
 alias nvr="NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvr --remote -s"
+alias vpnc="wg-quick up ~/pivpn/lenovo.conf"
+alias vpnd="wg-quick down ~/pivpn/lenovo.conf"
 
 ###############################
 # vi mode

@@ -13,46 +13,10 @@ $character"""
 right_format = ""
 add_newline = false
 
-[aws]
-disabled = true
-
-[azure]
-disabled = true
-
-[battery]
-disabled = true
-
-[buf]
-disabled = true
-
 [character]
 success_symbol = "[]()"
 error_symbol = "[]()"
 vicmd_symbol = "[]()"
-
-[cmake]
-disabled = true
-
-[cobol]
-disabled = true
-
-[cmd_duration]
-disabled = true
-
-[conda]
-disabled = true
-
-[custom]
-disabled = true
-
-[crystal]
-disabled = true
-
-[dart]
-disabled = true
-
-[deno]
-disabled = true
 
 [directory]
 truncation_length = 0
@@ -60,129 +24,18 @@ truncate_to_repo = false
 style = "fg:197 bold"
 format = "in [$path]($style) "
 
-[docker_context]
-disabled = true
-
-[dotnet]
-disabled = true
-
-[elixir]
-disabled = true
-
-[elm]
-disabled = true
-
-[env_var]
-disabled = true
-
-[erlang]
-disabled = true
-
 [fill]
 symbol = " "
 style = "bold black"
-
-[gcloud]
-disabled = true
 
 [git_branch]
 style = "fg:197 bold"
 format = "on [$symbol$branch]($style) "
 
-[git_metrics]
-disabled = true
-
-[golang]
-disabled = true
-
-[haskell]
-disabled = true
-
-[helm]
-disabled = true
-
 [hostname]
 ssh_only = false
 style = "fg:197 bold"
 format = "at [$hostname]($style) "
-
-[java]
-disabled = true
-
-[jobs]
-disabled = true
-
-[julia]
-disabled = true
-
-[localip]
-disabled = true
-
-[kotlin]
-disabled = true
-
-[kubernetes]
-disabled = true
-
-[line_break]
-disabled = false
-
-[lua]
-disabled = true
-
-[memory_usage]
-disabled = true
-
-[hg_branch]
-disabled = true
-
-[nim]
-disabled = true
-
-[nix_shell]
-disabled = true
-
-[nodejs]
-disabled = true
-
-[ocaml]
-disabled = true
-
-[openstack]
-disabled = true
-
-[package]
-disabled = true
-
-[perl]
-disabled = true
-
-[php]
-disabled = true
-
-[pulumi]
-disabled = true
-
-[purescript]
-disabled = true
-
-[python]
-disabled = true
-
-[rlang]
-disabled = true
-
-[red]
-disabled = true
-
-[ruby]
-disabled = true
-
-[rust]
-disabled = true
-
-[scala]
-disabled = true
 
 [shell]
 disabled = false
@@ -191,40 +44,7 @@ fish_indicator = "fish"
 powershell_indicator = "powershell"
 format = "[$indicator](fg:197 bold) "
 
-[shlvl]
-disabled = true
-
-[singularity]
-disabled = true
-
-[status]
-disabled = true
-
-[sudo]
-disabled = true
-
-[swift]
-disabled = true
-
-[terraform]
-disabled = true
-
-[time]
-disabled = true
-
 [username]
 style_user = "fg:197 bold"
 show_always = true
 format = "[$user]($style) "
-
-[vagrant]
-disabled = true
-
-[vlang]
-disabled = true
-
-[vcsh]
-disabled = true
-
-[zig]
-disabled = true

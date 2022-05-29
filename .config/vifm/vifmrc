@@ -161,8 +161,8 @@ noremap M :readmarkdown<cr>
 nnoremap S :sort<cr>
 nnoremap w :view<cr>
 vnoremap w :view<cr>gv
-nnoremap J 5j
-nnoremap K 5k
+noremap J 5j
+noremap K 5k
 nnoremap I cw<c-a>
 nnoremap cc cw<c-u>
 nnoremap A cw

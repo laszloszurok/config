@@ -63,8 +63,8 @@ c.aliases = {
 # search engines
 c.url.searchengines = { 
         #'DEFAULT': 'https://paulgo.io/search?q={}',
-        'DEFAULT': 'http://localhost:80/search?q={}',
-        'searxng': 'http://localhost:80/search?q={}',
+        'DEFAULT': 'http://localhost:8080/search?q={}',
+        'searxng': 'http://localhost:8080/search?q={}',
         'duckduckgo': 'https://duckduckgo.com/?q={}',
         'google': 'https://www.google.com/search?hl=en&q={}',
         'archwiki': 'https://wiki.archlinux.org/?search={}',
@@ -102,11 +102,11 @@ REDIRECT_MAP = {
     "en.wikipedia.org": operator.methodcaller('setHost', 'wikiless.org'),
     "www.wikipedia.org": operator.methodcaller('setHost', 'wikiless.org'),
     "medium.com": operator.methodcaller('setHost', 'scribe.rip'),
-    "youtube.com": operator.methodcaller('setHost', 'piped-material.ftp.sh'),
-    "www.youtube.com": operator.methodcaller('setHost', 'piped-material.ftp.sh'),
-    "youtu.be": operator.methodcaller('setHost', 'piped-material.ftp.sh'),
-    "reddit.com": operator.methodcaller('setHost', 'teddit.net'),
-    "www.reddit.com": operator.methodcaller('setHost', 'teddit.net'),
+    "youtube.com": operator.methodcaller('setHost', 'piped-staging.ftp.sh'),
+    "www.youtube.com": operator.methodcaller('setHost', 'piped-staging.ftp.sh'),
+    "youtu.be": operator.methodcaller('setHost', 'piped-staging.ftp.sh'),
+    "reddit.com": operator.methodcaller('setHost', 'libreddit.kavin.rocks'),
+    "www.reddit.com": operator.methodcaller('setHost', 'libreddit.kavin.rocks'),
     "instagram.com": operator.methodcaller('setHost', 'bibliogram.art'),
     "www.instagram.com": operator.methodcaller('setHost', 'bibliogram.art'),
     "twitter.com": operator.methodcaller('setHost', 'nitter.net'),
@@ -114,8 +114,8 @@ REDIRECT_MAP = {
     "www.imgur.com": operator.methodcaller('setHost', 'rimgo.pussthecat.org'),
     "imgur.com": operator.methodcaller('setHost', 'rimgo.pussthecat.org'),
     "i.imgur.com": operator.methodcaller('setHost', 'rimgo.pussthecat.org'),
-    "www.odysee.com": operator.methodcaller('setHost', 'librarian.pussthecat.org'),
-    "odysee.com": operator.methodcaller('setHost', 'librarian.pussthecat.org'),
+    # "www.odysee.com": operator.methodcaller('setHost', 'librarian.pussthecat.org'),
+    # "odysee.com": operator.methodcaller('setHost', 'librarian.pussthecat.org'),
 }
 
 def int_fn(info: interceptor.Request):

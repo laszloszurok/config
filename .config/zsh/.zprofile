@@ -21,6 +21,7 @@ PATH="$PATH:$HOME/.dotnet/tools"
 export PATH
 
 # ~/ Clean-up:
+export XDG_STATE_HOME="$HOME/.local/share/state"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
@@ -49,6 +50,13 @@ export UNISON="$XDG_DATA_HOME/unison"
 export HISTFILE="$XDG_DATA_HOME/history"
 export WEECHAT_HOME="$XDG_CONFIG_HOME/weechat"
 export MBSYNCRC="$XDG_CONFIG_HOME/mailsync/mbsyncrc"
+export VIT_DIR="$XDG_CONFIG_HOME/vit"
+export TASKRC="$XDG_CONFIG_HOME/task/taskrc"
+export TASKRC="$XDG_CONFIG_HOME/task/taskrc"
+export TASKDATA="$XDG_DATA_HOME/task/"
+export GEM_HOME="$XDG_DATA_HOME/gem"
+export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
+export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 
 # disable dotnet core telemetry
 export DOTNET_CLI_TELEMETRY_OPTOUT=1

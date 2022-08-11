@@ -4,8 +4,9 @@
 
 HISTSIZE=10000
 SAVEHIST=10000
-setopt HIST_IGNORE_ALL_DUPS
-setopt INC_APPEND_HISTORY
+setopt histignorealldups
+setopt incappendhistory
+setopt nobanghist
 
 zle_highlight=('paste:none')
 
@@ -38,7 +39,7 @@ _evalcache starship init zsh # shell prompt
 ###############################
 
 alias ll="ls -lhF --group-directories-first"
-alias la="ls -lAhF --group-directories-first"
+alias la="LC_ALL=C ls -lAhF --group-directories-first"
 alias ls="ls --color=auto --group-directories-first"
 alias lh="ls -d .* --group-directories-first"
 alias llh="ls -ld .* --group-directories-first"

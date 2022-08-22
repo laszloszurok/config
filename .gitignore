@@ -225,3 +225,4 @@
 .local/share/gnupg
 .local/share/libvirt/images
 .pyrit
+.viminfo

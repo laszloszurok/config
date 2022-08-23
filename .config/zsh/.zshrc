@@ -10,6 +10,11 @@ setopt nobanghist
 
 zle_highlight=('paste:none')
 
+# Elevates the last run command using sudo
+function elevate_last_command() {
+    sudo $(fc -ln -1)
+}
+
 # function that caches the output of eval to make it faster
 export ZSH_EVALCACHE_DIR="$HOME/.cache/zsh-evalcache"
 function _evalcache () {
@@ -58,6 +63,7 @@ alias qbtui="qbittorrentui --config_file $HOME/.config/qbittorrentui/config.ini"
 alias nvr="NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvr --remote -s"
 alias vpnc="wg-quick up ~/pivpn/lenovo.conf"
 alias vpnd="wg-quick down ~/pivpn/lenovo.conf"
+alias please=elevate_last_command
 
 ###############################
 # vi mode

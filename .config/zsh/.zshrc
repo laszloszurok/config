@@ -136,7 +136,8 @@ x11-clip-wrap-widgets paste  $paste_widgets
 # autocompletion
 ###############################
 
-autoload -Uz compinit
+autoload -Uz compinit edit-command-line
+zle -N edit-command-line
 
 if [[ -n ~/.cache/zcompdump(#qN.mh+24) ]]; then
     compinit -d ~/.cache/zcompdump

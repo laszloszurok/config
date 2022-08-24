@@ -60,7 +60,7 @@ alias rm="rm -i"
 alias x="xtract"
 alias startx="ssh-agent startx $XDG_CONFIG_HOME/X11/xinitrc"
 alias qbtui="qbittorrentui --config_file $HOME/.config/qbittorrentui/config.ini"
-alias nvr="NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvr --remote -s"
+alias nvr="nvr --servername=/tmp/nvr-socket --remote -s"
 alias vpnc="wg-quick up ~/pivpn/lenovo.conf"
 alias vpnd="wg-quick down ~/pivpn/lenovo.conf"
 alias please=elevate_last_command
@@ -87,6 +87,7 @@ function zle-keymap-select {
 }
 
 zle -N zle-keymap-select
+
 zle-line-init() {
     echo -ne "\e[5 q"
 }

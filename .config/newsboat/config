@@ -5,6 +5,7 @@ reload-threads 10
 download-retries 4
 download-timeout 20
 goto-next-feed no
+confirm-mark-feed-read no
 
 unbind-key ^E
 

@@ -15,25 +15,41 @@ function elevate_last_command() {
     sudo $(fc -ln -1)
 }
 
+# display the name of the currently running process in the terminal window title
+autoload -Uz add-zsh-hook
+
+function term_title_precmd () {
+    print -Pn -- '\e]2;simple terminal\a'
+    [[ "$TERM" == 'screen'* ]] && print -Pn -- '\e_\005{g}%n\005{-}@\005{m}%m\005{-} \005{B}%~\005{-}\e\\'
+}
+
+function term_title_preexec () {
+    print -Pn -- '\e]2;' && print -n -- "${(q)1}\a"
+    [[ "$TERM" == 'screen'* ]] && { print -Pn -- '\e_\005{g}%n\005{-}@\005{m}%m\005{-} \005{B}%~\005{-} %# ' && print -n -- "${(q)1}\e\\"; }
+}
+
+add-zsh-hook -Uz precmd term_title_precmd
+add-zsh-hook -Uz preexec term_title_preexec
+
 # function that caches the output of eval to make it faster
 export ZSH_EVALCACHE_DIR="$HOME/.cache/zsh-evalcache"
 function _evalcache () {
-  local cacheFile="$ZSH_EVALCACHE_DIR/init-${1##*/}.sh"
+    local cacheFile="$ZSH_EVALCACHE_DIR/init-${1##*/}.sh"
 
-  if [ "$ZSH_EVALCACHE_DISABLE" = "true" ]; then
-    eval "$("$@")"
-  elif [ -s "$cacheFile" ]; then
-    source "$cacheFile"
-  else
-    if type "$1" > /dev/null; then
-      (>&2 echo "$1 initialization not cached, caching output of: $*")
-      mkdir -p "$ZSH_EVALCACHE_DIR"
-      "$@" > "$cacheFile"
-      source "$cacheFile"
+    if [ "$ZSH_EVALCACHE_DISABLE" = "true" ]; then
+        eval "$("$@")"
+    elif [ -s "$cacheFile" ]; then
+        source "$cacheFile"
     else
-      echo "evalcache ERROR: $1 is not installed or in PATH"
+        if type "$1" > /dev/null; then
+            (>&2 echo "$1 initialization not cached, caching output of: $*")
+            mkdir -p "$ZSH_EVALCACHE_DIR"
+            "$@" > "$cacheFile"
+            source "$cacheFile"
+        else
+            echo "evalcache ERROR: $1 is not installed or in PATH"
+        fi
     fi
-  fi
 }
 
 _evalcache zoxide init zsh # fast cd
@@ -75,15 +91,15 @@ export KEYTIMEOUT=5
 
 # Change cursor shape for different vi modes.
 function zle-keymap-select {
-  if [[ ${KEYMAP} == vicmd ]] ||
-     [[ $1 = 'block' ]]; then
-    echo -ne '\e[1 q'
-  elif [[ ${KEYMAP} == main ]] ||
-       [[ ${KEYMAP} == viins ]] ||
-       [[ ${KEYMAP} = '' ]] ||
-       [[ $1 = 'beam' ]]; then
-    echo -ne '\e[5 q'
-  fi
+    if [[ ${KEYMAP} == vicmd ]] ||
+        [[ $1 = 'block' ]]; then
+        echo -ne '\e[1 q'
+    elif [[ ${KEYMAP} == main ]] ||
+        [[ ${KEYMAP} == viins ]] ||
+        [[ ${KEYMAP} = '' ]] ||
+        [[ $1 = 'beam' ]]; then
+        echo -ne '\e[5 q'
+    fi
 }
 
 zle -N zle-keymap-select
@@ -107,27 +123,20 @@ function x11-clip-wrap-widgets() {
             function _x11-clip-wrapped-$widget() {
                 zle .$widget
                 xclip -in -selection clipboard <<<\$CUTBUFFER
-            }
-            "
+            }"
         else
             eval "
             function _x11-clip-wrapped-$widget() {
                 CUTBUFFER=\$(xclip -out -selection clipboard)
                 zle .$widget
-            }
-            "
+            }"
         fi
-
         zle -N $widget _x11-clip-wrapped-$widget
     done
 }
 
-local copy_widgets=(
-    vi-yank vi-yank-eol vi-delete vi-backward-kill-word vi-change-whole-line
-)
-local paste_widgets=(
-    vi-put-{before,after}
-)
+local copy_widgets=(vi-yank vi-yank-eol vi-delete vi-backward-kill-word vi-change-whole-line)
+local paste_widgets=(vi-put-{before,after})
 
 x11-clip-wrap-widgets copy $copy_widgets
 x11-clip-wrap-widgets paste  $paste_widgets

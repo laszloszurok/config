@@ -226,3 +226,7 @@
 .local/share/libvirt/images
 .pyrit
 .viminfo
+.local/share/zsh_history
+.config/calcure
+.config/khal
+.local/share/khal

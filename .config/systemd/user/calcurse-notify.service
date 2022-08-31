@@ -1,5 +1,5 @@
 [Unit]
-Description=notifications for calcurse events
+Description=Calcurse event notifier
 
 [Service]
 Type=oneshot

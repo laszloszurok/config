@@ -92,6 +92,7 @@ mark z ~/.config/zsh
 mark v ~/.config/vifm
 mark n ~/.config/nvim
 mark l ~/.local/share
+mark w ~/work
 
 
 """"""""""""""""""""""""""""""""""""""""""""""

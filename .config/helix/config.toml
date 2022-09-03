@@ -1,0 +1,13 @@
+theme = "tokyonight-storm-transparent"
+
+[editor]
+true-color = true
+line-number = "relative"
+idle-timeout = 0
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+
+[editor.indent-guides]
+render = true

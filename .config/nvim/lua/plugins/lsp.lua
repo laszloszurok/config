@@ -11,10 +11,12 @@ require'lspconfig'.tsserver.setup{}
 
 require'lspconfig'.html.setup {
     capabilities = capabilities,
+    cmd = { '/usr/bin/vscode-html-languageserver', '--stdio' }
 }
 
 require'lspconfig'.cssls.setup {
     capabilities = capabilities,
+    cmd = { '/usr/bin/vscode-css-languageserver', '--stdio' }
 }
 
 require'lspconfig'.jsonls.setup {

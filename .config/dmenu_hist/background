@@ -71,3 +71,6 @@ supertuxkart
 blueman-manager
 slock
 reboot
+wg-quick
+systemctl
+pivpn

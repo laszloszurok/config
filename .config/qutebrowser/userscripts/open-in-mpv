@@ -29,7 +29,6 @@ set -e
 if [ -z "$QUTE_FIFO" ] ; then
     cat 1>&2 <<EOF
 Error: $0 can not be run as a standalone script.
-
 It is a qutebrowser userscript. In order to use it, call it using
 'spawn --userscript' as described in qute://help/userscripts.html
 EOF
@@ -47,14 +46,8 @@ msg() {
     fi
 }
 
-MPV_COMMAND=${MPV_COMMAND:-mpv}
-# Warning: spaces in single flags are not supported
-MPV_FLAGS=${MPV_FLAGS:- --force-window=immediate --no-terminal --keep-open=yes --ytdl}
-IFS=" " read -r -a video_command <<< "$MPV_COMMAND $MPV_FLAGS"
-
 js() {
 cat <<EOF
-
     function descendantOfTagName(child, ancestorTagName) {
         // tells whether child has some (proper) ancestor
         // with the tag name ancestorTagName
@@ -67,9 +60,7 @@ cat <<EOF
         }
         return false;
     }
-
     var App = {};
-
     var all_videos = [];
     all_videos.push.apply(all_videos, document.getElementsByTagName("video"));
     all_videos.push.apply(all_videos, document.getElementsByTagName("object"));
@@ -87,7 +78,7 @@ cat <<EOF
         replacement.innerHTML = "
             <p style=\\"margin-bottom: 0.5em\\">
             Opening page with:
-            <span style=\\"font-family: monospace;\\">${video_command[*]}</span>
+            <span style=\\"font-family: monospace;\\">mpv</span>
             </p>
             <p>
             In order to restore this particular video
@@ -115,14 +106,12 @@ cat <<EOF
         App.backup_videos[i] = video;
         video.parentNode.replaceChild(replacement, video);
     }
-
     function restore_video(obj, index) {
         obj = App.all_replacements[index];
         video = App.backup_videos[index];
         console.log(video);
         obj.parentNode.replaceChild(video, obj);
     }
-
     /** force repainting the video, thanks to:
      * http://web.archive.org/web/20151029064649/https://martinwolf.org/2014/06/10/force-repaint-of-an-element-with-javascript/
      */
@@ -130,14 +119,19 @@ cat <<EOF
     siteHeader.style.display='none';
     siteHeader.offsetHeight; // no need to store this anywhere, the reference is enough
     siteHeader.style.display='block';
-
 EOF
 }
 
 printjs() {
     js | sed 's,//.*$,,' | tr '\n' ' '
 }
+
 echo "jseval -q $(printjs)" >> "$QUTE_FIFO"
 
+if [[ $QUTE_URL == "https://piped-staging.ftp.sh/"* ]]; then
+    QUTE_URL=${QUTE_URL/piped-staging.ftp.sh/youtube.com}
+fi
+
 msg info "Opening $QUTE_URL with mpv"
-"${video_command[@]}" "$@" "$QUTE_URL"
+
+st sh -c "echo Loading... ; mpv --keep-open $QUTE_URL"

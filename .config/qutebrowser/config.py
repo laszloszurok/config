@@ -62,8 +62,8 @@ c.aliases = {
 
 # search engines
 c.url.searchengines = { 
-        #'DEFAULT': 'https://paulgo.io/search?q={}',
-        'DEFAULT': 'http://localhost:8080/search?q={}',
+        'DEFAULT': 'https://paulgo.io/search?q={}',
+        #'DEFAULT': 'http://localhost:8080/search?q={}',
         'searxng': 'http://localhost:8080/search?q={}',
         'duckduckgo': 'https://duckduckgo.com/?q={}',
         'google': 'https://www.google.com/search?hl=en&q={}',

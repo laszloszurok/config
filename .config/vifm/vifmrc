@@ -118,6 +118,7 @@ command! terminal     setsid -f $TERMINAL > /dev/null 2>&1 &
 command! diskctl      diskctl
 command! mtp          gvfs_mtp mount
 command! readmarkdown setsid -f st glow > /dev/null 2>&1 &
+command! vaultedit    setsid -f st ansible-vault edit %c > /dev/null 2>&1 &
 
 command! j :
     \| let $zoxide_pick = term('zoxide query %a 2>/dev/tty')

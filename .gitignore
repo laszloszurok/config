@@ -226,3 +226,24 @@
 .local/share/libvirt/images
 .pyrit
 .viminfo
+.ansible
+.magefile
+.ansible.cfg
+.vboxclient-clipboard.pid
+.vboxclient-draganddrop.pid
+.vboxclient-seamless.pid
+.ssh/id_rsa.pub
+.ssh/id_rsa
+.local/share/zsh_history
+.thunderbird
+.m2
+
+.config/Code - OSS
+.dendron.telemetry
+.dendron.uuid
+.dendron
+.config/vifm/scripts
+.config/vifm/vifm-help.txt
+.config/vifm/vifminfo.json
+.ssh
+.vboxclient-hostversion.pid

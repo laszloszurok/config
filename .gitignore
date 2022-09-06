@@ -247,3 +247,4 @@
 .config/vifm/vifminfo.json
 .ssh
 .vboxclient-hostversion.pid
+.local/share/weechat/python/autoload

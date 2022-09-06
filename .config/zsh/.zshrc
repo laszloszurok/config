@@ -13,6 +13,7 @@ zle_highlight=('paste:none')
 # Elevates the last run command using sudo
 function elevate_last_command() {
     sudo $(fc -ln -1)
+    echo "sudo $(fc -ln -1)" >> $HISTFILE && fc -R
 }
 
 # display the name of the currently running process in the terminal window title
@@ -65,8 +66,6 @@ alias ls="ls --color=auto --group-directories-first"
 alias lh="ls -d .* --group-directories-first"
 alias llh="ls -ld .* --group-directories-first"
 alias cfg="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
-alias cd="z"
-alias cdi="zi"
 alias ..="cd .."
 alias ...="cd ../.."
 alias grep="grep --color=auto"

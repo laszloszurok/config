@@ -139,7 +139,6 @@
 .config/keepmenu-sh/
 .config/pipe-viewer/
 .local/share/systemd/
-
 .config/systemd/user/default.target.wants/
 .config/systemd/user/timers.target.wants/
 .config/systemd/user/protonvpn_reconnect.service
@@ -199,12 +198,9 @@
 .megaCmd
 .config/LBRY
 .config/keepmenu
-
 .local/share/doc/panwid
-
 .gem/specs
 .vagrant.d
-
 .ssh/id_ed25519
 .ssh/id_ed25519.pub
 .ssh/known_hosts
@@ -237,7 +233,6 @@
 .local/share/zsh_history
 .thunderbird
 .m2
-
 .config/Code - OSS
 .dendron.telemetry
 .dendron.uuid
@@ -248,3 +243,11 @@
 .ssh
 .vboxclient-hostversion.pid
 .local/share/weechat/python/autoload
+.local/share/zsh_history
+.config/calcure
+.config/khal
+.local/share/khal
+.config/qBittorrent
+.config/qbittorrentui
+.config/mailsync/mbsyncrc
+.config/aerc/accounts.conf

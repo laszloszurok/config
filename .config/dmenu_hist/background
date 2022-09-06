@@ -73,3 +73,6 @@ slock
 reboot
 shutdown
 code
+wg-quick
+systemctl
+pivpn

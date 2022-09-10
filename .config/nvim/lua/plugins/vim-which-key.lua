@@ -35,30 +35,6 @@ local keymap = {
         r = { ':vsplit<cr>', 'right' },
         b = { ':split<cr>', 'below' },
     },
-    f = {
-        name = '+find',
-        f = {
-            name = '+files',
-            f = { '<cmd>Telescope find_files<cr>', 'files' },
-            h = { '<cmd>Telescope oldfiles<cr>', 'history' },
-        },
-        t = { '<cmd>Telescope live_grep<cr>', 'text' },
-        b = { '<Cmd>Telescope buffers<CR>', 'buffers' },
-        h = { '<Cmd>Telescope help_tags<CR>', 'help tags' },
-        c = {
-            name = '+commands',
-            c = { '<Cmd>Telescope commands<CR>', 'commands' },
-            h = { '<Cmd>Telescope command_history<CR>', 'history' },
-        },
-        q = { '<Cmd>Telescope quickfix<CR>', 'quickfix' },
-        g = {
-            name = '+git',
-            g = { '<Cmd>Telescope git_commits<CR>', 'commits' },
-            c = { '<Cmd>Telescope git_bcommits<CR>', 'bcommits' },
-            b = { '<Cmd>Telescope git_branches<CR>', 'branches' },
-            s = { '<Cmd>Telescope git_status<CR>', 'status' },
-        },
-    },
     l = {
         name = '+lsp',
         g = {

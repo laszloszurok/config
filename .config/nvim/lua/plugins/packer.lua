@@ -40,7 +40,6 @@ return packer.startup(function(use)
     use "hoob3rt/lualine.nvim"           -- statusline & tabline
     use "windwp/nvim-autopairs"          -- auto-close brackets, quotation marks, etc.
     use "lambdalisue/suda.vim"           -- easily edit readonly files
-    use "phaazon/hop.nvim"               -- jump to characters, words, lines with keybindings
     use "junegunn/goyo.vim"              -- center text, hide ui
     use "lewis6991/gitsigns.nvim"        -- line signs, hunk actions, etc.
     use "b3nj5m1n/kommentary"            -- comment out lines/visual selection

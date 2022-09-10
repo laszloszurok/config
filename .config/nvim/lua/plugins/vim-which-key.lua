@@ -59,11 +59,6 @@ local keymap = {
             s = { '<Cmd>Telescope git_status<CR>', 'status' },
         },
     },
-    j = {
-        name = '+jump',
-        c = { "<cmd>lua require'hop'.hint_char1()<cr>", 'char' },
-        l = { "<cmd>lua require'hop'.hint_lines()<cr>", 'line' },
-    },
     l = {
         name = '+lsp',
         g = {

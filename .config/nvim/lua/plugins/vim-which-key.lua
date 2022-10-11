@@ -10,7 +10,6 @@ vim.g.which_key_use_floating_win = 0
 local keymap = {
     w = { ':w!<CR>', 'save file' },
     q = { ':q<cr>', 'quit' },
-    g = { ':Goyo<cr>', 'goyo' },
     T = { ':!setsid -f $TERMINAL > /dev/null 2>&1<cr><cr>', 'terminal' },
     b = {
         name = '+buffers',

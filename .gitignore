@@ -234,3 +234,6 @@
 .config/qbittorrentui
 .config/mailsync/mbsyncrc
 .config/aerc/accounts.conf
+.local/share/weechat/python/autoload
+.config/bluetuith
+.config/weechat
